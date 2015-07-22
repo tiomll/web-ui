@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>linkage三级联动</title>
+<link rel="stylesheet" type="text/css" href="css/base.css">
+<style type="text/css">
+html{overflow-y:scroll;}
+form{margin:100px auto;width:520px;text-align:center;}
+</style>
+</head>
+
+<body>
+<form action="" name="linkage" id="J_linkage" method="get">
+    <div class="field_item">
+        <select name="province" id="province" class="select_item w_auto" data-init="['420000','420100','420111']">
+            <option value="0">请选择</option>
+        </select>
+        <select name="city" id="city" class="select_item w_auto">
+            <option value="0">请选择</option>
+        </select>
+        <select name="area" id="area" class="select_item w_auto">
+            <option value="0">请选择</option>
+        </select>
+    </div>
+</form>
+<script type="text/javascript" src="js/dev/lib/jquery.js"></script>
+<script type="text/javascript" src="js/dev/lib/sea.js"></script>
+<script type="text/javascript">
+    seajs.config({
+        "base": "./",
+        'map': [[ /^(.*\.(?:css|js))(.*)$/i, '$1?t=13835292681991']]
+    });
+    seajs.use('js/dev/module/linkageMenu', function(){
+        var url1 = 'linkage/getProvince.php',
+            url2 = 'linkage/getCity.php?',
+            url3 = 'linkage/getArea.php?';
+        $.linkageMenu({
+            target:['province','city','area'],
+            url:[url1, url2, url3]
+        });
+    });
+</script>
+</body>
+</html>

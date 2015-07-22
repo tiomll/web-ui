@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ajaxUploadFile文件上传</title>
+<link rel="stylesheet" type="text/css" href="css/base.css">
+<style type="text/css">
+form{width:500px;margin:30px auto;font-family:'Microsoft YaHei';}
+.img_box{width:200px;height:200px;border:1px solid #ddd;background:#f9f9f9;text-align:center;}
+.img_box img{max-width:200px;max-height:200px;}
+.uploadbtn{padding-top:15px;position:relative;}
+.uploadbtn i,.uploadbtn a{display:inline-block;*display:inline;*zoom:1;vertical-align:top;font-style:normal;width:65px;height:25px;line-height:25px;text-align:center;margin-right:10px;}
+.uploadbtn input{position:absolute;left:0;top:15px;width:67px;height:27px;opacity:0;filter:alpha(opacity=0);background:#6dabde;color:#fff;border:0;z-index:999;cursor:pointer;}
+.field_item_space input{margin-right:15px;}
+</style>
+</head>
+
+<body>
+    <form method="get" id="J_form" name="" action="">
+        <div class="field_item clear">
+            <label class="fl">头像：</label>
+            <div class="fluid">
+                <div class="img_box"><img src="images/avatar.jpg" id="J_avatar" class="dvm" /><i class="vam"></i></div>
+                <div class="uploadbtn">
+                    <i class="btn_blue">浏览</i><input type="file" name="upfile" id="J_file"/><a href="uploadFile.php" id="J_upload" class="btn_blue">上传</a>
+                </div>
+            </div>
+        </div>
+        <div class="field_item"><label>邮箱：</label><input type="text" name="email" class="input_item" /></div>
+        <div class="field_item"><label>电话：</label><input type="text" name="phone" class="input_item" /></div>
+        <div class="field_item"><label>地址：</label><input type="text" name="address" class="input_item" /></div>
+        <div class="field_item field_item_space"><input type="button" class="btn btn_lightblue" value="取消" id="J_cancel"/><input type="submit" value="确定" class="btn btn_blue" id="J_enter"/></div>
+    </form>
+<script type="text/javascript" src="js/dev/lib/jquery.js"></script>
+<script type="text/javascript" src="js/dev/lib/sea.js"></script>
+<script type="text/javascript">
+    seajs.config({
+        "base": "./",
+        'map': [[ /^(.*\.(?:css|js))(.*)$/i, '$1?t=13835292681991']]
+    });
+    seajs.use('js/dev/module/ajaxFileUpload',function(ajaxFileUpload) {
+        $('#J_upload').on('click',function(event){
+            event.preventDefault();
+            ajaxFileUpload({
+                id:'J_file',
+                url:this.href,
+                callback:function(){
+                    $('#J_avatar').attr('src',this.responseText);
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>

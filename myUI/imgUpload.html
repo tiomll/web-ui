@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>图片上传前预览</title>
+<link type="text/css" rel="stylesheet" href="css/base.css"/>
+<style type="text/css">
+form{width:525px;margin:30px auto;}
+.upFile{width:525px;height:30px;overflow:hidden;display:inline-block;*display:inline;*zoom:1;vertical-align:top;position:relative;margin:10px 0;}
+.upFile .input_item{width:430px;font-size:14px;height:18px;line-height:18px;padding:5px;}
+.upFile a{height:28px;line-height:28px;font-size:14px;padding:0 15px;}
+.upFile .file_input{width:150%;height:150%;font-size:999px;position:absolute;right:-5px;bottom:-5px;cursor:pointer;opacity:0;filter:alpha(opacity=0);}
+.fileView img{border:1px solid #ccc;margin-bottom:10px;}
+</style>
+</head>
+<body>
+	<form id="J_validator" class="form" method="get" action="" enctype="multipart/form-data">
+		<div class="upFile"><input type="file" name="file_input" id="J_upFile" class="file_input" /><span class="input_item" id="J_path"></span><a href="javascript:;" class="btn btn_blue">浏览...</a></div>
+		<div class="fileView" id="J_view"></div>
+		<div><input type="submit" value="提交" class="btn btn_blue" /></div>
+	</form>
+<script type="text/javascript" src="js/dev/lib/jquery.js"></script>
+<script type="text/javascript" src="js/dev/lib/sea.js"></script>
+<script type="text/javascript">
+	seajs.config({
+        "base": "./",
+        'map': [[ /^(.*\.(?:css|js))(.*)$/i, '$1?t=13835292681991']]
+    });
+    seajs.use(['js/dev/module/dialog','js/dev/module/imgUpload'],function(){
+    	$('#J_upFile').imgUpload({
+    		ruleType: ['gif','jpg','jpeg','png'],
+			filePath: '#J_path',
+			preview: '#J_view',
+			maxWidth: 200,
+			maxHeight: 200
+    	});
+    });
+</script>
+</body>
+</html>

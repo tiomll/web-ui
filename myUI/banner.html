@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Banner焦点图</title>
+<link rel="stylesheet" type="text/css" href="css/base.css">
+<style>
+    .banner{margin:50px auto;}
+</style>
+</head>
+<body>
+<div class="banner banner_980_300" id="J_banner1">
+   <ul>
+　 　 <li><a href="#"><img src="images/banner_1.gif" title="图片标题1" class="dvm" /><span class="vam"></span></a></li>
+　 　 <li><a href="#"><img src="images/banner_2.gif" title="图片标题2" class="dvm" /><span class="vam"></span></a></li>
+　 　 <li><a href="#"><img src="images/banner_3.gif" title="图片标题3" class="dvm" /><span class="vam"></span></a></li>
+　 </ul>
+</div>
+<div class="banner banner_980_300" id="J_banner2">
+   <ul>
+　 　 <li><a href="#"><img src="images/banner_1.gif" title="图片标题1" class="dvm" /><span class="vam"></span></a></li>
+　 　 <li><a href="#"><img src="images/banner_2.gif" title="图片标题2" class="dvm" /><span class="vam"></span></a></li>
+　 　 <li><a href="#"><img src="images/banner_3.gif" title="图片标题3" class="dvm" /><span class="vam"></span></a></li>
+　 </ul>
+</div>
+<script type="text/javascript" src="js/dev/lib/jquery.js"></script>
+<script type="text/javascript" src="js/dev/lib/sea.js"></script>
+<script type="text/javascript">
+    seajs.config({
+        "base": "./",
+        'map': [[ /^(.*\.(?:css|js))(.*)$/i, '$1?t=13835292681991']]
+    });
+    seajs.use('js/dev/app/app_slider');
+</script>
+</body>
+</html>

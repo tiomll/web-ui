@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>图片3D旋转切换</title>
+<link rel="stylesheet" type="text/css" href="css/base.css">
+<style>
+ul{width:620px;height:340px;margin:0 auto;}
+li{width:440px;height:280px;text-align:center;cursor:pointer;overflow:hidden;}
+li img{width:100%;height:100%;}
+li.roundabout-in-focus{cursor:default;}
+</style>
+</head>
+<body>
+<ul id="J_roundabout">
+    <li><img src="images/img/1.jpg" alt="" /></li>
+    <li><img src="images/img/2.jpg" alt="" /></li>
+    <li><img src="images/img/3.jpg" alt="" /></li>
+    <li><img src="images/img/4.jpg" alt="" /></li>
+    <li><img src="images/img/5.jpg" alt="" /></li>
+</ul>
+<script type="text/javascript" src="js/dev/lib/jquery1.7.js"></script>
+<script type="text/javascript" src="js/dev/lib/sea.js"></script>
+<script type="text/javascript">
+    seajs.config({
+        "base": "./",
+        'map': [[ /^(.*\.(?:css|js))(.*)$/i, '$1?t=13835292681991']]
+    });
+    seajs.use('js/dev/module/roundabout', function(){
+        $('#J_roundabout').roundabout();
+    });
+</script>
+</body>
+</html>

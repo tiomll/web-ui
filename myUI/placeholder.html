@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>placeholder</title>
+<link rel="stylesheet" type="text/css" href="css/base.css">
+<style type="text/css">
+form{margin:50px auto;font-family:'Microsoft YaHei';}
+.placeholder{color:#aaa;}
+.textarea_item{height:70px;}
+</style>
+</head>
+
+<body>
+<form action="" method="get">
+    <div class="field_item">
+        <label>User Name:</label>
+        <input type="text" name="name" class="input_item" maxlength="20" placeholder="e.g. John Doe" />
+    </div>
+    <div class="field_item">
+        <label>E-mail:</label>
+        <input type="email" name="email" class="input_item" placeholder="e.g. address@example.ext" />
+    </div>
+    <div class="field_item">
+        <label>Web Site:</label>
+        <input type="url" name="url" class="input_item" placeholder="e.g. http://mathiasbynens.be/" />
+    </div>
+    <div class="field_item">
+        <label>Tel:</label>
+        <input type="tel" name="tel" class="input_item" placeholder="e.g. +32 472 77 69 88" />
+    </div>
+    <div class="field_item">
+        <label>PassWord:</label>
+        <input type="password" name="password" class="input_item" placeholder="e.g. h4x0rpr00fz" />
+    </div>
+    <div class="field_item">
+        <label>Message:</label>
+        <textarea name="message" class="textarea_item" placeholder="Your message goes here"></textarea>
+    </div>
+    <div class="field_item field_item_space">
+        <input id="btnsubmit" type="submit" value=" 确定提交 " class="btn_item btn_blue" />
+    </div>
+</form>
+<script type="text/javascript" src="js/dev/lib/jquery.js"></script>
+<script type="text/javascript" src="js/dev/lib/sea.js"></script>
+<script type="text/javascript">
+    seajs.config({
+        "base": "./",
+        'map': [[ /^(.*\.(?:css|js))(.*)$/i, '$1?t=13835292681991']]
+    });
+    seajs.use('js/dev/module/placeholder');
+</script>
+</body>
+</html>

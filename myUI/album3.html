@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>带Loading效果的图片切换</title>
+<link rel="stylesheet" type="text/css" href="css/base.css" />
+<link rel="stylesheet" type="text/css" href="js/dev/plugs/prettyPhoto/css/prettyPhoto.css" />
+<style type="text/css">
+#content{width:860px;margin:50px auto;}
+
+.img_list{overflow:hidden;}
+.img_list_inner{width:110%;}
+.img_list_inner li{display:inline;float:left;}
+.imgbox{display:block;text-align:center;overflow:hidden;}
+.img_type_150_150{width:860px;}
+.img_type_150_150 li{width:156px;margin:0 20px 20px 0;}
+.img_type_150_150 .imgbox{width:150px;height:150px;border:1px solid #ddd;padding:2px;}
+.img_type_150_150 .imgbox:hover{border:3px solid #bbb;padding:0;}
+</style>
+</head>
+<body>
+<div id="content">
+    <div class="img_list img_type_150_150" id="J_img_list">
+        <ul class="img_list_inner clear">
+            <li>
+                <a href="images/img/1.jpg" class="imgbox" rel="prettyPhoto[gallery1]"><img src="images/img_2.gif" alt="图片标题1" class="dvm"/><span class="vam"></span></a>
+                <div class="img_list_text gray m_t_10">
+                     <h4 class="f_14_b m_b_5"><a href="#">图片标题1</a></h4>
+                     <p><em>图片：</em>01</p>
+                     <p><em>作者：</em><a href="#">张龙</a></p>
+                     <p>05月06日 15:14更新</p>
+                </div>
+            </li>
+            <li>
+                <a href="images/img/2.jpg" class="imgbox" rel="prettyPhoto[gallery1]"><img src="images/img_2.gif" alt="图片标题2" class="dvm"/><span class="vam"></span></a>
+                <div class="img_list_text gray m_t_10">
+                     <h4 class="f_14_b m_b_5"><a href="#">图片标题2</a></h4>
+                     <p><em>图片：</em>02</p>
+                     <p><em>作者：</em><a href="#">张龙</a></p>
+                     <p>05月06日 15:14更新</p>
+                </div>
+            </li>
+            <li>
+                <a href="images/img/3.jpg" class="imgbox" rel="prettyPhoto[gallery1]"><img src="images/img_2.gif" alt="图片标题3" class="dvm"/><span class="vam"></span></a>
+                <div class="img_list_text gray m_t_10">
+                     <h4 class="f_14_b m_b_5"><a href="#">图片标题3</a></h4>
+                     <p><em>图片：</em>03</p>
+                     <p><em>作者：</em><a href="#">张龙</a></p>
+                     <p>05月06日 15:14更新</p>
+                </div>
+            </li>
+            <li>
+                <a href="images/img/4.jpg" class="imgbox" rel="prettyPhoto[gallery1]"><img src="images/img_2.gif" alt="图片标题4" class="dvm"/><span class="vam"></span></a>
+                <div class="img_list_text gray m_t_10">
+                     <h4 class="f_14_b m_b_5"><a href="#">图片标题4</a></h4>
+                     <p><em>图片：</em>04</p>
+                     <p><em>作者：</em><a href="#">张龙</a></p>
+                     <p>05月06日 15:14更新</p>
+                </div>
+            </li>
+            <li>
+                <a href="images/img/5.jpg" class="imgbox" rel="prettyPhoto[gallery1]"><img src="images/img_2.gif" alt="图片标题5" class="dvm"/><span class="vam"></span></a>
+                <div class="img_list_text gray m_t_10">
+                     <h4 class="f_14_b m_b_5"><a href="#">图片标题5</a></h4>
+                     <p><em>图片：</em>05</p>
+                     <p><em>作者：</em><a href="#">张龙</a></p>
+                     <p>05月06日 15:14更新</p>
+                </div>
+            </li>
+            <li>
+                <a href="images/img/6.jpg" class="imgbox" rel="prettyPhoto[gallery1]"><img src="images/img_2.gif" alt="图片标题6" class="dvm"/><span class="vam"></span></a>
+                <div class="img_list_text gray m_t_10">
+                     <h4 class="f_14_b m_b_5"><a href="#">图片标题6</a></h4>
+                     <p><em>图片：</em>06</p>
+                     <p><em>作者：</em><a href="#">张龙</a></p>
+                     <p>05月06日 15:14更新</p>
+                </div>
+            </li>
+            <li>
+                <a href="images/img/7.jpg" class="imgbox" rel="prettyPhoto[gallery1]"><img src="images/img_2.gif" alt="图片标题7" class="dvm"/><span class="vam"></span></a>
+                <div class="img_list_text gray m_t_10">
+                     <h4 class="f_14_b m_b_5"><a href="#">图片标题7</a></h4>
+                     <p><em>图片：</em>06</p>
+                     <p><em>作者：</em><a href="#">张龙</a></p>
+                     <p>05月06日 15:14更新</p>
+                </div>
+            </li>
+            <li>
+                <a href="images/img/8.jpg" class="imgbox" rel="prettyPhoto[gallery1]"><img src="images/img_2.gif" alt="图片标题8" class="dvm"/><span class="vam"></span></a>
+                <div class="img_list_text gray m_t_10">
+                     <h4 class="f_14_b m_b_5"><a href="#">图片标题8</a></h4>
+                     <p><em>图片：</em>06</p>
+                     <p><em>作者：</em><a href="#">张龙</a></p>
+                     <p>05月06日 15:14更新</p>
+                </div>
+            </li>
+            <li>
+                <a href="images/img/9.jpg" class="imgbox" rel="prettyPhoto[gallery1]"><img src="images/img_2.gif" alt="图片标题9" class="dvm"/><span class="vam"></span></a>
+                <div class="img_list_text gray m_t_10">
+                     <h4 class="f_14_b m_b_5"><a href="#">图片标题9</a></h4>
+                     <p><em>图片：</em>06</p>
+                     <p><em>作者：</em><a href="#">张龙</a></p>
+                     <p>05月06日 15:14更新</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<script type="text/javascript" src="js/dev/lib/jquery.js"></script>
+<script type="text/javascript" src="js/dev/lib/sea.js"></script>
+<script type="text/javascript">
+    seajs.config({
+        "base": "./",
+        'map': [[ /^(.*\.(?:css|js))(.*)$/i, '$1?t=13835292681991']]
+    });
+    seajs.use('js/dev/app/app_album');
+</script>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>表单验证</title>
+<link type="text/css" rel="stylesheet" href="css/base.css"/>
+<style type="text/css">
+#J_validator{margin:50px auto;font-family:'Microsoft YaHei';}
+</style>
+</head>
+
+<body>
+    <form id="J_validator" class="form" method="get" action="">
+        <div class="field_item">
+            <label for="username"><em>*</em>用户名：</label>
+            <input id="username" name="username" class="input_item" type="text" value="" maxlength="20" placeholder="user name" autocomplete="off" />
+        </div>
+        <div class="field_item">
+            <label for="password"><em>*</em>登录密码：</label>
+            <input id="password" name="password" class="input_item" type="password" maxlength="16" value="" autocomplete="off" />
+        </div>
+        <div class="field_item">
+            <label for="confirm_password"><em>*</em>确认密码：</label>
+            <input id="confirm_password" class="input_item" name="confirm_password" maxlength="16" type="password" value="" />
+        </div>
+        <div class="field_item">
+            <label for="sex">性别：</label>
+            <label class="w_auto"><input type="radio" id="sex" value="1" name="xb_one" class="radio_item">男</label>
+            <label class="w_auto"><input type="radio" id="sex1" value="2" name="xb_one" class="radio_item">女</label>
+        </div>
+        <div class="field_item">
+            <label for="sex">兴趣爱好：</label>
+            <label class="w_auto"><input type="checkbox" id="pingbanqiu" value="1" name="xqah_one" class="checkbox_item">乒乓球</label>
+            <label class="w_auto"><input type="checkbox" id="yumaoqiu" value="2" name="xqah_one"  class="checkbox_item">羽毛球</label>
+            <label class="w_auto"><input type="checkbox" id="yumaoqiu" value="2" name="xqah_one"  class="checkbox_item">篮球</label>
+        </div>
+        <div class="field_item">
+            <label for="age">年龄：</label>
+            <input id="age" name="age" class="input_item" type="text" value="" maxlength="3" />
+        </div>
+        <div class="field_item">
+            <label for="birthday">生日：</label>
+            <input id="birthday" name="birthday" class="input_item" type="text" value="" maxlength="10" />
+        </div>
+        <div class="field_item select_field">
+            <label for="card_type">证件类型：</label>
+            <select name="card_type" id="card_type" class="select_item">
+                <option value="1">身份证</option>
+                <option value="2">军人证</option>
+            </select>
+        </div>
+        <div class="field_item">
+            <label for="id_card">证件号码：</label>
+            <input id="id_card" type="text" name="id_card" class="input_item" value="" />
+        </div>
+        <div class="field_item">
+            <label for="email"><em>*</em>电子邮箱：</label>
+            <input id="email" name="email" type="text" class="input_item" value="" />
+        </div>
+        <div class="field_item">
+            <label for="qq">QQ：</label>
+            <input id="qq" name="qq" class="input_item" type="text" value="" />
+        </div>
+        <div class="field_item">
+            <label for="telephone">固定电话：</label>
+            <input id="telephone" name="telephone" class="input_item" type="text" value="" maxlength="8" />
+        </div>
+        <div class="field_item">
+            <label for="mobile">手机：</label>
+            <input id="mobile" name="mobile" type="text" class="input_item" value="" maxlength="11" />
+        </div>
+        <div class="field_item">
+            <label for="phone"><em>*</em>联系电话：</label>
+            <input id="phone" name="phone" type="text" class="input_item" value="" maxlength="11" />
+        </div>
+        <div class="field_item">
+            <label for="zip_code">邮政编码：</label>
+            <input id="zip_code" name="zip_code" class="input_item" value="" maxlength="6" />
+        </div>
+        <div class="field_item">
+            <label for="ip_address">登录IP地址：</label>
+            <input id="ip_address" name="ip_address" class="input_item" type="text" value="" maxlength="15" />
+        </div>
+        <div class="field_item">
+            <label for="url">个人主页：</label>
+            <input id="url" name="url" class="input_item" type="text" value="" maxlength="100" />
+        </div>
+        <div class="field_item">
+            <label for="message"><em>*</em>留言：</label>
+            <textarea id="message" class="textarea_item" name="message" rows="5" cols="100" max='300'></textarea>
+        </div>
+        <div class="field_item field_item_space">
+            <span>您还可以输入<em id="text_counter">300</em>个字</span>
+        </div>
+        <div class="field_item field_item_space">
+            <input id="btnsubmit" type="submit" value=" 确定提交 " class="btn_item" />
+            <input id="reset" type="button" value=" 重设 " class="btn_item" />
+        </div>
+        <div class="field_item field_item_space">
+            <input id="del" type="button" value="删除第一项(让第一项不需要验证)" class="btn_item" />
+        </div>
+    </form>
+<script type="text/javascript" src="js/dev/lib/jquery.js"></script>
+<script type="text/javascript" src="js/dev/lib/sea.js"></script>
+<script type="text/javascript">
+    seajs.config({
+        "base": "./",
+        'map': [[ /^(.*\.(?:css|js))(.*)$/i, '$1?t=13835292681991']]
+    });
+    seajs.use('js/dev/module/validator',function(validator){
+        var validator = validator({
+            form: "J_validator"
+        }).add({
+            target: "username",
+            rule_type: "username"
+        }).add({
+            target: "password",
+            rule_type: "password"
+        }).add({
+            target: "confirm_password",
+            rule_type: "password",
+            sameTo: "password",
+            error:"你填写的密码不正确或者和原密码不同！"
+        }).add({
+            target: "age",
+            rule_type: "number",
+            error:"您填写的格式不正确！"
+        }).add({
+            target: "birthday",
+            rule_type: "date||empty"
+        }).add({
+            target: "id_card",
+            rule_type: "idcard||empty"
+        }).add({
+            target: "email",
+            rule_type: "email"
+        }).add({
+            target: "qq",
+            rule_type: "qq||empty"
+        }).add({
+            target: "telephone",
+            rule_type: "phone||empty"
+        }).add({
+            target: "mobile",
+            rule_type: "mobile||empty"
+        }).add({
+            target: "phone",
+            rule_type: "phone||mobile",
+            tips: "请输入您的手机或座机电话号码！"
+        }).add({
+            target: "zip_code",
+            rule_type: "zip||empty"
+        }).add({
+            target: "ip_address",
+            rule_type: "ip||empty"
+        }).add({
+            target: "url",
+            rule_type: "url||empty"
+        }).add({
+            target: "message",
+            rule_type: "require",
+            onkeypress:function(opts){
+                var v = this.value, len = v.length, max = this.getAttribute('max')-0;
+                var textCounter = document.getElementById('text_counter');
+                if(len >= max){
+                    this.value = v.substr(0,max);
+                    len = this.value.length;
+                }
+                textCounter.innerHTML = max-len;
+            }
+        });
+
+        $('#reset').click(function() {
+            validator.reset();
+        });
+        $('#del').click(function() {
+            validator.remove('username');
+        });
+        
+        validator.extendRule({
+            newRules: {
+                rules: /\w+?/,
+                tips: "请填写日期！格式如：“2011-09-03”",
+                error: "您填写的日期格式不正确，正确的格式如：“2011-09-03”！"
+            }
+        })
+    });
+</script>
+</body>
+</html>

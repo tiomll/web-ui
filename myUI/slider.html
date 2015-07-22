@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>元素的可控方向滚动</title>
+<link rel="stylesheet" type="text/css" href="css/base.css">
+<style>
+.slider{margin:50px auto;}
+.slider,.slider_cont,.slider_cont ul{position:relative;}
+.slider,.slider_cont,.slider_cont ul li{width:220px;}
+.slider_prev,.slider_next{display:block;width:8px;height:16px;background:url(images/arrow2.gif) no-repeat;position:absolute;z-index:1;top:7px;}
+.slider_prev{background-position:0 0;left:10px;}
+.slider_next{background-position:-8px 0;right:10px;}
+.slider_prev_disable,.slider_nextt_disable{opacity:.2;filter:alpha(opacity=20);cursor:default;}
+.slider_cont{overflow:hidden;}
+.slider_cont ul{width:auto;font-size:0;white-space:nowrap;word-wrap:normal;word-break:keep-all;}
+.slider_cont ul li{display:inline-block;*display:inline;*zoom:1;font-size:12px;}
+
+.slider_table{width:220px;}
+.slider_table td{height:28px;text-align:center;}
+.slider_table thead td{background:#3e94dd;border:1px solid #3e94dd;color:#fff;}
+.slider_table tbody td{background:#f4f8fc;border:1px solid #c8def1;color:#555;}
+.slider_table tbody td.siesta{color:#999;}
+</style>
+</head>
+<body>
+<div class="slider" id="J_slider">
+	<a href="javascript:;" class="slider_prev"></a><a href="javascript:;" class="slider_next"></a>
+	<div class="slider_cont">
+		<ul id="slider_box">
+			<li>
+				<table width="100%" border="0" cellspacing="0" cellpadding="0" class="slider_table">
+					<thead>
+						<tr>
+							<td colspan="3">2013年11月20日</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td width="25">1</td>
+							<td width="105">语文</td>
+							<td>李老师</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>语文</td>
+							<td>李老师</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>语文</td>
+							<td>李老师</td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td>语文</td>
+							<td>李老师</td>
+						</tr>
+						<tr>
+							<td colspan="3" class="siesta">午休</td>
+						</tr>
+						<tr>
+							<td>5</td>
+							<td>语文</td>
+							<td>李老师</td>
+						</tr>
+						<tr>
+							<td>6</td>
+							<td>语文</td>
+							<td>李老师</td>
+						</tr>
+						<tr>
+							<td>7</td>
+							<td>语文</td>
+							<td>李老师</td>
+						</tr>
+					</tbody>
+				</table>
+			</li>
+			<li>
+				<table width="100%" border="0" cellspacing="0" cellpadding="0" class="slider_table">
+					<thead>
+						<tr>
+							<td colspan="3">2013年11月21日</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td width="25">1</td>
+							<td width="105">数学</td>
+							<td>李老师</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>数学</td>
+							<td>李老师</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>数学</td>
+							<td>李老师</td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td>数学</td>
+							<td>李老师</td>
+						</tr>
+						<tr>
+							<td colspan="3" class="siesta">午休</td>
+						</tr>
+						<tr>
+							<td>5</td>
+							<td>数学</td>
+							<td>李老师</td>
+						</tr>
+						<tr>
+							<td>6</td>
+							<td>数学</td>
+							<td>李老师</td>
+						</tr>
+						<tr>
+							<td>7</td>
+							<td>数学</td>
+							<td>李老师</td>
+						</tr>
+					</tbody>
+				</table>
+			</li>
+			<li>
+				<table width="100%" border="0" cellspacing="0" cellpadding="0" class="slider_table">
+					<thead>
+						<tr>
+							<td colspan="3">2013年11月22日</td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td width="25">1</td>
+							<td width="105">英语</td>
+							<td>李老师</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>英语</td>
+							<td>李老师</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>英语</td>
+							<td>李老师</td>
+						</tr>
+						<tr>
+							<td>4</td>
+							<td>英语</td>
+							<td>李老师</td>
+						</tr>
+						<tr>
+							<td colspan="3" class="siesta">午休</td>
+						</tr>
+						<tr>
+							<td>5</td>
+							<td>英语</td>
+							<td>李老师</td>
+						</tr>
+						<tr>
+							<td>6</td>
+							<td>英语</td>
+							<td>李老师</td>
+						</tr>
+						<tr>
+							<td>7</td>
+							<td>英语</td>
+							<td>李老师</td>
+						</tr>
+					</tbody>
+				</table>
+			</li>
+		</ul>
+	</div>
+</div>
+<script type="text/javascript" src="js/dev/lib/jquery.js"></script>
+<script type="text/javascript" src="js/dev/lib/sea.js"></script>
+<script type="text/javascript">
+    seajs.config({
+        "base": "./",
+        'map': [[ /^(.*\.(?:css|js))(.*)$/i, '$1?t=13835292681991']]
+    });
+    seajs.use('js/dev/app/app_slider');
+</script>
+</body>
+</html>

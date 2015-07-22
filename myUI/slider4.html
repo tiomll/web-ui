@@ -1,0 +1,302 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>元素的可控方向滚动</title>
+<link rel="stylesheet" type="text/css" href="css/base.css">
+<style>
+.slider{margin:150px auto;width:980px;position:relative;}
+.slider_prev,.slider_next{width:42px;height:42px;display:block;background:url(images/icon_arrow.gif) no-repeat;position:absolute;top:50%;margin-top:-21px;}
+.slider_prev{background-position:0 -42px;left:0;}
+.slider_next{background-position:-42px -42px;right:0;}
+.slider_prev:hover{background-position:0 0;}
+.slider_next:hover{background-position:-42px 0;}
+
+.slider_cont{width:860px;height:240px;margin:0 auto;position:relative;top:0;left:0;z-index:1;overflow:hidden;}
+.slider_cont li{position:absolute;top:-240px;}
+.slider_cont li *{display:block;margin:0;}
+.slider_cont li span{background:#000;position:absolute;width:100%;height:100%;top:0;left:0;right:0;bottom:0;}
+.slider_cont .item_0{top:-22px;left:0;z-index:1;filter:alpha(opacity=0);opacity:0;}
+.slider_cont .item_1{top:22px;left:0;z-index:2;}
+.slider_cont .item_2{top:10px;left:118px;z-index:3;}
+.slider_cont .item_3{top:0;left:268px;z-index:4;}
+.slider_cont .item_4{top:10px;right:118px;z-index:3;}
+.slider_cont .item_5{top:22px;right:0;z-index:2;}
+.slider_cont .item_6{top:-22px;right:0;z-index:1;filter:alpha(opacity=0);opacity:0;}
+
+.slider_cont .item_1 span,.slider_cont .item_5 span{filter:alpha(opacity=80);opacity:0.8;}
+.slider_cont .item_2 span,.slider_cont .item_4 span{filter:alpha(opacity=50);opacity:0.5;}
+.slider_cont .item_3 span{filter:alpha(opacity=0);opacity:0;}
+
+#dialog{background:#fff;width:880px;padding:10px;clear:both;}
+#dialog img{width:880px;height:550px;}
+</style>
+</head>
+<body>
+<div class="slider clear" id="J_imgSlider">
+    <a href="javascript:;" class="slider_prev" id="J_prev"></a><a href="javascript:;" class="slider_next" id="J_next"></a>
+    <ul class="slider_cont" id="J_slidercont">
+        <li class="item_0"><a href="images/img/1.jpg"><img src="images/img/1.jpg" width="100" alt="" /><span></span></a></li>
+        <li class="item_1"><a href="images/img/2.jpg"><img src="images/img/2.jpg" width="250" alt="" /><span></span></a></li>
+        <li class="item_2"><a href="images/img/3.jpg"><img src="images/img/3.jpg" width="288" alt="" /><span></span></a></li>
+        <li class="item_3"><a href="images/img/4.jpg"><img src="images/img/4.jpg" width="320" alt="" /><span></span></a></li>
+        <li class="item_4"><a href="images/img/5.jpg"><img src="images/img/5.jpg" width="288" alt="" /><span></span></a></li>
+        <li class="item_5"><a href="images/img/6.jpg"><img src="images/img/6.jpg" width="250" alt="" /><span></span></a></li>
+        <li class="item_6"><a href="images/img/7.jpg"><img src="images/img/7.jpg" width="100" alt="" /><span></span></a></li>
+        <li class="item_7"><a href="images/img/8.jpg"><img src="images/img/8.jpg" width="100" alt="" /><span></span></a></li>
+    </ul>
+</div>
+<!-- <script type="text/javascript" src="js/dev/lib/jquery.js"></script>
+<script type="text/javascript" src="js/dev/lib/sea.js"></script> -->
+<script type="text/javascript">
+    /*seajs.config({
+        "base": "./",
+        'map': [[ /^(.*\.(?:css|js))(.*)$/i, '$1?t=13835292681991']]
+    });
+    seajs.use('js/dev/app/app_slider');
+    */
+var isIE6 = !window.XMLHttpRequest;
+window.onload = function() {
+    if (isIE6) {
+    //    alert('您当前使用的浏览器是IE6，请升级至IE8及以上版本或换用其他浏览器！')
+    }
+
+    var oPrevMask = document.getElementById('J_prev'),
+        oNextMask = document.getElementById('J_next'),
+        aLi = document.getElementById('J_slidercont').getElementsByTagName('li'),
+        aLiInit = [],
+        iInterval = 150,
+        i = 0;
+
+    for (i = 0; i < aLi.length; i++) {
+        aLiInit[i] = {};
+        aLi[i].width = aLiInit[i].w = aLi[i].getElementsByTagName('img')[0].offsetWidth;
+        aLi[i].height = aLiInit[i].h = aLi[i].getElementsByTagName('img')[0].offsetHeight;
+        aLi[i].left = aLiInit[i].l = aLi[i].offsetLeft;
+        aLi[i].top = aLiInit[i].t = aLi[i].offsetTop;
+        aLi[i].alpha = aLiInit[i].alpha = 0;
+        aLi[i].z = aLiInit[i].z = 1;
+        aLi[i].getElementsByTagName('span')[0].alpha = aLiInit[i].sAlpha = 0;
+        aLi[i].getElementsByTagName('a')[0].seat = aLiInit[i].seat = '';
+    }
+
+    for (i = 0; i < aLi.length; i++) {
+        aLi[i].style.position = 'absolute';
+        aLi[i].style.left = aLiInit[i].l + 'px';
+        aLi[i].style.top = aLiInit[i].t + 'px';
+    }
+
+    aLi[1].alpha = aLiInit[1].alpha = 100;
+    aLi[2].alpha = aLiInit[2].alpha = 100;
+    aLi[3].alpha = aLiInit[3].alpha = 100;
+    aLi[4].alpha = aLiInit[4].alpha = 100;
+    aLi[5].alpha = aLiInit[5].alpha = 100;
+
+    aLi[1].getElementsByTagName('span')[0].alpha = aLiInit[1].sAlpha = 80;
+    aLi[2].getElementsByTagName('span')[0].alpha = aLiInit[2].sAlpha = 50;
+    aLi[3].getElementsByTagName('span')[0].alpha = aLiInit[3].sAlpha = 0;
+    aLi[4].getElementsByTagName('span')[0].alpha = aLiInit[4].sAlpha = 50;
+    aLi[5].getElementsByTagName('span')[0].alpha = aLiInit[5].sAlpha = 80;
+
+    aLi[1].z = aLiInit[1].z = 2;
+    aLi[2].z = aLiInit[2].z = 3;
+    aLi[3].z = aLiInit[3].z = 4;
+    aLi[4].z = aLiInit[4].z = 3;
+    aLi[5].z = aLiInit[5].z = 2;
+
+    aLi[1].getElementsByTagName('a')[0].setAttribute('data-seat', (aLiInit[1].seat = 'left'));
+    aLi[2].getElementsByTagName('a')[0].setAttribute('data-seat', (aLiInit[2].seat = 'left'));
+    aLi[3].getElementsByTagName('a')[0].setAttribute('data-seat', (aLiInit[4].seat = ''));
+    aLi[4].getElementsByTagName('a')[0].setAttribute('data-seat', (aLiInit[4].seat = 'right'));
+    aLi[5].getElementsByTagName('a')[0].setAttribute('data-seat', (aLiInit[5].seat = 'right'));
+
+    for (i = 0; i < aLi.length; i++) {
+        aLi[i].getElementsByTagName('a')[0].onclick = function (e) {
+            var seat = this.getAttribute('data-seat');
+            if (e && e.preventDefault || e.stopPropagation) {
+                e.stopPropagation();
+                e.preventDefault();
+            } else {
+                window.event.cancelBubble = true;
+                window.event.returnValue = false;
+                return false;
+            }
+            if (seat == 'left') {
+                gotoImg(true);
+            } else if (seat == 'right') {
+                gotoImg(false);
+            } else {
+                var dome = createElements(this.href, this.getElementsByTagName('img')[0].alt);
+                setCenter(dome);
+                document.onclick = function () {
+                    var db = document.body;
+                    db.removeChild(dome.overlayer);
+                    db.removeChild(dome.contentOuter);
+                    window.CollectGarbage && setTimeout(window.CollectGarbage, 1);
+                }
+            }
+        }
+    }
+
+    oPrevMask.onclick = function() { gotoImg(true); };
+
+    oNextMask.onclick = function() { gotoImg(false); };
+
+    function gotoImg(f) {
+        if (f) {
+            aLiInit.push(aLiInit.shift());
+        } else {
+            aLiInit.unshift(aLiInit.pop());
+        }
+
+        for (i = 0; i < aLi.length; i++) {
+            startMove(aLi[i], {left: aLiInit[i].l, top: aLiInit[i].t, width: aLiInit[i].w, height: aLiInit[i].h, alpha: aLiInit[i].alpha, zIndex: aLiInit[i].z, sAlpha: aLiInit[i].sAlpha, seat: aLiInit[i].seat}, 300);
+        }
+    };
+
+    function startMove(obj, oParams, iTime) {
+        var iInterval = 45, iEndTime = (new Date()).getTime() + iTime, iTimes = Math.ceil(iTime / iInterval), oSpeed = {};
+
+        if (typeof obj.timer == 'undefined') {
+            obj.timer = null;
+        }
+        console.log(obj)
+        for (key in oParams) {
+            oSpeed[key] = (oParams[key] - obj[key]) / iTimes;
+            console.log(oSpeed[key])
+        }
+
+        if (obj.timer) {
+            clearInterval(obj.timer);
+        }
+        obj.timer = setInterval(
+            function() {
+                doMove(obj, oParams, oSpeed, iEndTime);
+            }, iInterval
+        );
+    }
+
+    function doMove(obj, oTarget, oSpeed, iEndTime) {
+        var iNow = (new Date()).getTime();
+
+        if (iNow >= iEndTime) {
+            clearInterval(obj.timer);
+            obj.timer = null;
+
+            for (key in oTarget) {
+                obj[key] = oTarget[key];
+
+                switch (key) {
+                    case 'alpha':
+                        obj.style.opacity = oTarget[key] / 100;
+                        obj.style.filter = "alpha(opacity:" + oTarget[key] + ")";
+                        break;
+                    case 'zIndex':
+                        obj.style.zIndex = oTarget[key];
+                        break;
+                    case 'width':
+                        obj.style[key] = oTarget[key] + 'px';
+                        obj.getElementsByTagName('img')[0].style[key] = oTarget[key] + 'px';
+                        obj.getElementsByTagName('span')[0].style[key] = oTarget[key] + 'px';
+                        break;
+                    case 'height':
+                        obj.getElementsByTagName('img')[0].style[key] = oTarget[key] + 'px';
+                        obj.getElementsByTagName('span')[0].style[key] = oTarget[key] + 'px';
+                        break;
+                    case 'sAlpha':
+                        obj.getElementsByTagName('span')[0].style.opacity = oTarget[key] / 100;
+                        obj.getElementsByTagName('span')[0].style.filter = "alpha(opacity:" + oTarget[key] + ")";
+                        break;
+                    case 'seat':
+                        obj.getElementsByTagName('a')[0].setAttribute('data-seat', oTarget[key]);
+                        break;
+                    default:
+                        obj.style[key] = oTarget[key] + 'px';
+                        break;
+                }
+            }
+        } else {
+            for (key in oTarget) {
+                obj[key] += oSpeed[key];
+
+                switch (key) {
+                    case 'alpha':
+                        obj.style.opacity = obj[key] / 100;
+                        obj.style.filter = "alpha(opacity:" + obj[key] + ")";
+                        break;
+                    case 'zIndex':
+                        obj.style.zIndex = oTarget[key];
+                        break;
+                    case 'width':
+                        obj.style[key] = obj[key] + 'px';
+                        obj.getElementsByTagName('img')[0].style[key] = obj[key] + 'px';
+                        obj.getElementsByTagName('span')[0].style[key] = obj[key] + 'px';
+                        break;
+                    case 'height':
+                        obj.getElementsByTagName('img')[0].style[key] = obj[key] + 'px';
+                        obj.getElementsByTagName('span')[0].style[key] = obj[key] + 'px';
+                        break;
+                    case 'sAlpha':
+                        obj.getElementsByTagName('span')[0].style.opacity = obj[key] / 100;
+                        obj.getElementsByTagName('span')[0].style.filter = "alpha(opacity:" + obj[key] + ")";
+                        break;
+                    case 'seat':
+                        obj.getElementsByTagName('a')[0].setAttribute('data-seat', obj[key]);
+                        break;
+                    default:
+                        obj.style[key] = obj[key] + 'px';
+                        break;
+                }
+            }
+        }
+    }
+
+    function createElements(url, alt){
+        var db = document.body, h = Math.max(document.documentElement.clientHeight, document.body.offsetHeight),
+            overlayer = createEl('<div style="position:absolute;top:0;left:0;width:100%;height:'+h+'px;background:#000;opacity:.5;filter:Alpha(Opacity=50);z-index:9999;"></div>',db),
+            contentOuter = createEl('<div id="dialog" style="position:fixed;top:50%;left:50%;z-index:10000;"></div>',db),
+            img = createEl('<div style="width:100%;height:100%;"><img src="'+url+'" alt="'+alt+'" /></div>',contentOuter);
+            isIE6 && (contentOuter.style.position = 'absolute');
+        return {
+            overlayer:overlayer,
+            contentOuter:contentOuter,
+            img:img
+        };
+    };
+    function createEl(str,parent){
+        var div = document.createElement('div'), el;
+        div.innerHTML = str;
+        el = div.firstChild;
+        return parent ? parent.appendChild(el) : el;
+    };
+    function setCenter(doms){
+        if(!doms) return;
+        var T = doms.contentOuter,w = T.offsetWidth,h = T.offsetHeight,timer = null;
+        var dd = document.documentElement,W = dd.clientWidth,H = dd.clientHeight,dbh = document.body.offsetHeight; 
+        var st = Math.max(dd.scrollTop,document.body.scrollTop),sl = Math.max(dd.scrollLeft,document.body.scrollLeft);
+        T.style.top = (H-h)/2 + (isIE6 ? st : 0 )+'px';
+        T.style.left = (W-w)/2 +(isIE6 ? sl : 0 ) + 'px';
+        doms.overlayer.style.height = Math.max(H,dbh) + 'px';
+        if(isIE6){
+            addEvent(window,'scroll',function(){
+                if(timer) clearTimeout(timer);
+                timer = setTimeout(function(){
+                    var t = Math.max(document.body.scrollTop,document.documentElement.scrollTop);
+                    T.style.top = (H-h)/2+ t +'px';
+                },100);
+            });
+        };
+    };
+    function addEvent(el,type,fn){
+        if(el.addEventListener != undefined){
+            el.addEventListener(type,fn,false);
+        }else if(el.attachEvent != undefined){
+            el.attachEvent('on'+type,fn)
+        }else{
+            el['on'+type] = fn;
+        };
+    };
+};
+</script>
+</body>
+</html>

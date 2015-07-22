@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>bindDialog弹窗</title>
+<link rel="stylesheet" type="text/css" href="css/base.css">
+<style type="text/css">
+#content{margin:50px;}
+</style>
+</head>
+<body>
+<div id="content"  style="height:2000px;">
+    <a href="login.html" class="btn btn_blue" data-dialog="{title:'登录',width:'445',height:'280'}">登录</a>
+    <select>
+        <option name="" value="1">test</option>
+        <option name="" value="2">test</option>
+        <option name="" value="3">test</option>
+    </select>
+</div>
+<p style="height:2000px;"></p>
+<script type="text/javascript" src="js/dev/lib/jquery.js"></script>
+<script type="text/javascript" src="js/dev/lib/sea.js"></script>
+<script type="text/javascript">
+    seajs.config({
+        "base": "./",
+        'map': [[ /^(.*\.(?:css|js))(.*)$/i, '$1?t=13835292681991']]
+    });
+    seajs.use('js/dev/app/app_dialog');
+</script>
+</body>
+</html>

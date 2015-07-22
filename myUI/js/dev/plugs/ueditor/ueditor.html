@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style>
+		body {font-family: Monaco, Menlo, Consolas, "Courier New", monospace; font-size: 12px; padding: 0; margin:0;}
+		#layout { margin:10px;}
+		#resources { width:200px; float:left;}
+		#resources ul { list-style: none;}
+		#resources ul li a { display: block;line-height: 25px; color: #333; text-decoration: none; overflow: hidden;}
+		#resources ul li a:hover { background: #1d7ad9; color: #fff;}
+		#resources ul li a img { width:40px; margin-bottom: 5px;}
+		#ueditor_outer { overflow: hidden;}
+		#ueditor { width:100%;}
+	</style>
+</head>
+<body>
+	<div id="layout">
+		<div id="resources">
+			<ul>
+				<li><a href="javascript:;" data-type="txt" data-url="source/txt/1.txt">文本资源1</a></li>
+				<li><a href="javascript:;" data-type="txt" data-url="source/txt/2.txt">文本资源2</a></li>
+				<li><a href="javascript:;" data-type="txt" data-url="source/txt/3.txt">文本资源3</a></li>
+			</ul>
+			<ul>
+				<li><a href="javascript:;" data-type="img" data-url="source/images/1.jpg"><img src="source/images/1.jpg" alt="" /></a></li>
+				<li><a href="javascript:;" data-type="img" data-url="source/images/2.jpg"><img src="source/images/2.jpg" alt="" /></a></li>
+				<li><a href="javascript:;" data-type="img" data-url="source/images/3.jpg"><img src="source/images/3.jpg" alt="" /></a></li>
+			</ul>
+			<ul>
+				<li><a href="javascript:;" data-type="vedio" data-url="source/video/1.flv">视频资源1</a></li>
+				<li><a href="javascript:;" data-type="vedio" data-url="source/video/2.mp4">视频资源2</a></li>
+				<li><a href="javascript:;" data-type="vedio" data-url="source/images/3.flv">视频资源3</a></li>
+			</ul>
+			<ul>
+				<li><a href="javascript:;" data-type="audio" data-url="http://dyzc.rzk9.com/UserFiles/Blog/qingxing/LibrariesTemplate/2008062606020727.mp3">音频资源1</a></li>
+				<li><a href="javascript:;" data-type="audio" data-url="">音频资源2</a></li>
+				<li><a href="javascript:;" data-type="audio" data-url="">音频资源3</a></li>
+			</ul>
+			<button id="getContent">getContent</button>
+		</div>
+		<div id="ueditor_outer">
+			<textarea name="" cols="30" rows="10" class="u_textarea" id="ueditor" style="height:500px"></textarea>
+		</div>
+	</div>
+
+	<script src="jquery-1.9.1.js"></script>
+	<script src="ueditor.config.js"></script>
+	<script src="ueditor.all.js"></script>
+	<script>
+		var editor = new UE.ui.Editor();
+		var db, target;
+		editor.render('ueditor');
+		editor.setOpt({'contextMenu':[]});
+		editor.ready(function(){
+			$('#resources a').attr('draggable',true).each(function(){
+				$(this).on('dragstart',function(event){
+					target = $(this);
+				})
+			});
+			$(editor.document.body).on('dragenter',function(event){ event.preventDefault();event.stopPropagation();}).on('dragover',function(event){ event.preventDefault();event.stopPropagation();}).on('drop',function(event){
+				event.preventDefault();
+				event.stopPropagation();
+				var type = target.data('type'),url = target.data('url');
+				switch(type){
+					case 'txt':
+						$.ajax({
+							url:url,
+							success:function(data){
+								editor.execCommand("inserthtml",'<p>'+data+'</p>')
+							}
+						});
+						break;
+
+					case 'img' :
+						editor.execCommand("inserthtml",'<p><img src="'+url+'" alt="" title=""/></p>');
+						break;
+
+					case 'vedio' :
+						editor.execCommand("insertvideo",{url: url});
+						break;
+
+					case 'audio' :
+						editor.execCommand("music",{url: url});
+						break;
+				}
+			});
+		});
+
+		$('#getContent').on('click',function(){
+			console.log(UE.utils.html(editor.getContent()));
+		})
+	</script>
+</body>
+</html>

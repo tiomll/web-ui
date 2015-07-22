@@ -1,0 +1,47 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>loadData数据加载</title>
+<link type="text/css" rel="stylesheet" href="css/base.css"/>
+<style type="text/css">
+    #content{width:550px;margin:10px auto;}
+    .img_area{width:125px;height:100px;}
+    .load_more{text-align:center;margin:10px auto;display:block;background:#fcfcfc;border:1px solid #f6f6f6;;}
+    .load_more:hover{text-decoration:none;color:#2b84d0;}
+    .load_more span.load_tip{line-height:26px;display:inline-block;*zoom:1;}
+    .loading span.load_tip{padding-left:24px;background:url(images/s_loading.gif) no-repeat 0 center;}
+</style>
+</head>
+<body>
+<div id="content">
+    <ul class="img_text_list" id="J_cont">
+        <li class="clear border_dot_b">
+            <a href="#" class="fl img_area m_r_10"><img src="images/img_1.gif" alt="" class="dvm" /><span class="vam"></span></a>
+            <div class="fluid text_area">
+                <a href="#" class="fb">图片说明标题</a>
+                <p class="m_t_5">图片说明摘要图片说明摘要图片说明摘要图片说明摘要图片说明摘要图片说明摘要图片说明摘要图片说明摘要图片说明摘要图片说明摘要图片说明摘要图片说明摘要图片说明</p>
+            </div>
+        </li>
+    </ul>
+    <a href="data.php" class="load_more" id="J_load_more" data-maxpage="3"><span class="load_tip">载入更多</span></a>
+</div>
+<script type="text/javascript" src="js/dev/lib/jquery.js"></script>
+<script type="text/javascript" src="js/dev/lib/sea.js"></script>
+<script type="text/javascript">
+    seajs.config({
+        "base": "./",
+        'map': [[ /^(.*\.(?:css|js))(.*)$/i, '$1?t=13835292681991']]
+    });
+    seajs.use('js/dev/module/loadData',function() {
+        $('#J_load_more').loadData({
+            contentBox:'#J_cont',
+            tip:'.load_tip',
+            combo:1,
+            loadClass:'loading'
+        });
+    });
+</script>
+</body>
+</html>

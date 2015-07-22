@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>layout页面结构</title>
+<link type="text/css" rel="stylesheet" href="css/base.css"/>
+<style type="text/css">
+.layout{width:960px;margin:0 auto;}
+.section_title{font-size:16px;margin-top:15px;}
+.section{color:#fff;margin-top:15px;}
+.col_side_t{width:250px;background:blue;}
+.col_side_s{width:200px;background:green;}
+.col_main{background:red;}
+.section_sh{overflow:hidden;}
+.section_sh .col_side_t,.section_sh .col_side_s,.section_sh .col_main{padding-bottom:10000px;margin-bottom:-10000px;}
+.section_sh .col_main{margin-left:210px;margin-right:260px;}
+.section_sh_t .col_main{margin-right:0;}
+</style>
+</head>
+<body>
+<div class="layout f_yh">
+    <div class="section_title">三列弹性布局</div>
+    <div class="layout section clear">
+        <div class="col_side_t fr m_l_10">固定宽</div>
+        <div class="col_side_s fl m_r_10">固定宽</div>
+        <div class="col_main fluid">弹性层</div>
+    </div>
+    <div class="layout section clear">
+        <div class="col_side_t fr m_l_10">固定宽</div>
+        <div class="col_side_s fr m_l_10">固定宽</div>
+        <div class="col_main fluid">弹性层</div>
+    </div>
+    <div class="layout section clear">
+        <div class="col_side_t fl m_r_10">固定宽</div>
+        <div class="col_side_s fl m_r_10">固定宽</div>
+        <div class="col_main fluid">弹性层</div>
+    </div>
+    <div class="section_title">两列弹性布局</div>
+    <div class="layout section clear">
+        <div class="col_side_s fl m_r_10">固定宽</div>
+        <div class="col_main fluid">弹性层</div>
+    </div>
+    <div class="layout section clear">
+        <div class="col_side_s fr m_l_10">固定宽</div>
+        <div class="col_main fluid">弹性层</div>
+    </div>
+    <div class="section_title">两列弹性布局嵌套</div>
+    <div class="layout section clear">
+        <div class="col_side_s fl m_r_10">固定宽</div>
+        <div class="col_main fluid" style="background:#fff;">
+            <div class="col_side_t fl m_r_10">固定宽</div>
+            <div class="col_main fluid">弹性层</div>
+        </div>
+    </div>
+    <div class="layout section clear">
+        <div class="col_side_s fr m_l_10">固定宽</div>
+        <div class="col_main fluid" style="background:#fff;">
+            <div class="col_side_t fr m_l_10">固定宽</div>
+            <div class="col_main fluid">弹性层</div>
+        </div>
+    </div>
+    <div class="section_title">三列弹性布等高局</div>
+    <div class="layout section section_sh clear">
+        <div class="col_side_t fr m_l_10">固定宽</div>
+        <div class="col_side_s fl m_r_10">固定宽</div>
+        <div class="col_main">弹性层<br/>弹性层<br/>弹性层<br/>弹性层</div>
+    </div>
+    <div class="section_title">两列弹性等高布局</div>
+    <div class="layout section section_sh section_sh_t clear">
+        <div class="col_side_s fl m_r_10">固定宽</div>
+        <div class="col_main">弹性层<br/>弹性层<br/>弹性层<br/>弹性层</div>
+    </div>
+</div>
+</body>
+</html>

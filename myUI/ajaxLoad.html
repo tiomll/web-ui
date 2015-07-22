@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ajaxLoad数据加载</title>
+<link type="text/css" rel="stylesheet" href="css/base.css"/>
+<style type="text/css">
+    #content{width:800px;margin:10px auto;}
+    .sequence{}
+    .sequence *{display:inline-block;*display:inline;*zoom:1;vertical-align:middle;}
+    .sequence a{height:30px;background:#fcfcfc;border:1px solid #f6f6f6;padding:0 15px;}
+    .sequence a em{line-height:30px;margin-right:8px;}
+    .sequence a i{width:7px;height:8px;background:url(images/icon_sort.gif) no-repeat 0 0;_margin-top:3px;}
+    .sequence a.active{background:#2b84d0;color:#fff;}
+    .sequence a.curr i{background-position:-7px 0;}
+    .img_area{width:125px;height:100px;}
+    .load_more{text-align:center;margin:10px auto;display:block;background:#fcfcfc;border:1px solid #f6f6f6;;}
+    .load_more:hover{text-decoration:none;color:#2b84d0;}
+    .load_more span.load_tip{line-height:26px;display:inline-block;*zoom:1;}
+    .loading span.load_tip{padding-left:24px;background:url(images/s_loading.gif) no-repeat 0 center;}
+</style>
+</head>
+<body>
+<div id="content">
+    <div class="sequence" id="J_sequence">
+        <a href="data.php" class="active curr"><em>名称排序</em><i></i></a>
+        <a href="data.php"><em>时间排序</em><i></i></a>
+        <a href="data.php"><em>大小排序</em><i></i></a>
+        <a href="data.php"><em>类型排序</em><i></i></a>
+    </div> 
+    <ul class="img_text_list" id="J_cont">
+        <li class="clear border_dot_b">
+            <a href="#" class="fl img_area m_r_10"><img src="images/img_1.gif" alt="" class="dvm" /><span class="vam"></span></a>
+            <div class="fluid text_area">
+                <a href="#" class="fb">图片说明标题</a>
+                <p class="m_t_5">图片说明摘要图片说明摘要图片说明摘要图片说明摘要图片说明摘要图片说明摘要图片说明摘要图片说明摘要图片说明摘要图片说明摘要图片说明摘要图片说明摘要图片说明</p>
+            </div>
+        </li>
+        <li class="clear border_dot_b">
+            <a href="#" class="fl img_area m_r_10"><img src="images/img_1.gif" alt="" class="dvm" /><span class="vam"></span></a>
+            <div class="fluid text_area">
+                <a href="#" class="fb">图片说明标题</a>
+                <p class="m_t_5">图片说明摘要图片说明摘要图片说明摘要图片说明摘要图片说明摘要图片说明摘要图片说明摘要图片说明摘要图片说明摘要图片说明摘要图片说明摘要图片说明摘要图片说明</p>
+            </div>
+        </li>
+    </ul>
+    <a href="data.php" class="load_more" id="J_load_more" data-maxpage="3"><span class="load_tip">载入更多</span></a>
+</div>
+<script type="text/javascript" src="js/dev/lib/jquery.js"></script>
+<script type="text/javascript" src="js/dev/lib/sea.js"></script>
+<script type="text/javascript">
+    seajs.config({
+        "base": "./",
+        'map': [[ /^(.*\.(?:css|js))(.*)$/i, '$1?t=13835292681991']]
+    });
+    seajs.use('js/dev/module/ajaxLoad',function(ajaxLoad) {
+        ajaxLoad({
+            target:'#J_sequence',
+            trigger:'>a',
+            content:'#J_cont',
+            click:function(o){
+                var url = o.attr('href');
+                url = url.replace(/([\?|\&]sort\=)(\d)/,function(a,b,c){
+                    return b+(!(c-0)-0);
+                });
+                o.attr('href',url);
+                $('#J_load_more').attr('href',url);
+            }
+        });
+    });
+</script>
+</body>
+</html>

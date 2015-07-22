@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>HTML_分页</title>
+<link rel="stylesheet" type="text/css" href="css/base.css">
+<style type="text/css">
+.pager{margin:50px auto;}
+</style>
+</head>
+<body>
+<div class="pager">
+	<a href="#" class="pager_prev pager_disable pager_disable_prev">上一页</a>
+	<a href="#" class="pager_item active">1</a>
+	<a href="#" class="pager_item">2</a>
+	<a href="#" class="pager_item">3</a>
+	<a href="#" class="pager_item">4</a>
+	<a href="#" class="pager_item">5</a>
+	<a href="#" class="pager_item">6</a>
+	<a href="#" class="pager_item">7</a>
+	<a href="#" class="pager_item">8</a>
+	<span class="pager_dot">...</span>
+	<a href="#" class="pager_item">20</a>
+	<a href="#" class="pager_next">下一页</a>
+	<span class="page_total">共<em>20</em>页</span>
+	<form method="get" name="pageJump" action="#" class="form_pageJump">
+		<label>到<input type="text" name="page" class="input_item input_item_shortest">页</label>
+		<button type="submit" class="btn_submit">确定</button>
+	</form>
+</div>
+</body>
+</html>

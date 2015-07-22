@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无缝滚动</title>
+<link rel="stylesheet" type="text/css" href="css/base.css">
+<style type="text/css">
+.marquee{width:700px;height:150px;overflow:hidden;background:#333;border:2px solid #333;margin:50px auto;}
+.marquee ul li{display:inline;float:left;padding:0 1px;}
+.marquee ul li img{display:block;width:200px;height:150px;}
+</style>
+</head>
+<body>
+<div id="J_marquee" class="marquee">
+    <ul class="clear">
+        <li><a href="#"><img src="images/img/1.jpg" alt="" /></a></li>
+        <li><a href="#"><img src="images/img/2.jpg" alt="" /></a></li>
+        <li><a href="#"><img src="images/img/3.jpg" alt="" /></a></li>
+        <li><a href="#"><img src="images/img/4.jpg" alt="" /></a></li>
+        <li><a href="#"><img src="images/img/5.jpg" alt="" /></a></li>
+        <li><a href="#"><img src="images/img/6.jpg" alt="" /></a></li>
+        <li><a href="#"><img src="images/img/7.jpg" alt="" /></a></li>
+    </ul>
+</div>
+<script type="text/javascript" src="js/dev/lib/jquery.js"></script>
+<script type="text/javascript" src="js/dev/lib/sea.js"></script>
+<script type="text/javascript">
+    seajs.config({
+        "base": "./",
+        'map': [[ /^(.*\.(?:css|js))(.*)$/i, '$1?t=13835292681991']]
+    });
+    seajs.use('js/dev/app/app_slider');
+</script>
+</body>
+</html>

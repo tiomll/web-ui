@@ -1,0 +1,42 @@
+<?php
+//sleep(2);//网络延迟模拟
+$arr = array(
+	array(
+		'src'=>'images/img/1.jpg',
+		'title'=>'这里是第一张图片的标题。'
+	),
+	array(
+		'src'=>'images/img/2.jpg',
+		'title'=>'这里是第二张图片的标题。'
+	),
+	array(
+		'src'=>'images/img/3.jpg',
+		'title'=>'这里是第三张图片的标题。'
+	),
+	array(
+		'src'=>'images/img/4.jpg',
+		'title'=>'这里是第四张图片的标题。'
+	),
+	array(
+		'src'=>'images/img/5.jpg',
+		'title'=>'这里是第五张图片的标题。'
+	),
+	array(
+		'src'=>'images/img/6.jpg',
+		'title'=>'这里是第六张图片的标题。'
+	),
+	array(
+		'src'=>'images/img/7.jpg',
+		'title'=>'这里是第七张图片的标题。'
+	),
+	array(
+		'src'=>'images/img/8.jpg',
+		'title'=>'这里是第八张图片的标题。'
+	),
+	array(
+		'src'=>'images/img/9.jpg',
+		'title'=>'这里是第九张图片的标题。'
+	)
+);
+echo json_encode($arr);
+?>

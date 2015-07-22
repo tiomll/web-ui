@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>日历控件</title>
+<link type="text/css" rel="stylesheet" href="css/base.css"/>
+<style type="text/css">
+.form{margin:50px auto;font-family:'Microsoft YaHei';width:280px;}
+</style>
+</head>
+
+<body>
+    <form class="form" method="get" action="">
+        <input id="J_datePicker" name="datePicker" class="input_item" type="text" value="" maxlength="20" placeholder="请选择时间" autocomplete="off" readonly="readonly" />
+        <div id="J_div"></div>
+        <input type="hidden" name="data" value="" id="J_hiddenData" />
+    </form>
+<script type="text/javascript" src="js/dev/lib/jquery.js"></script>
+<script type="text/javascript" src="js/dev/lib/sea.js"></script>
+<script type="text/javascript">
+    seajs.config({
+        "base": "./",
+        'map': [[ /^(.*\.(?:css|js))(.*)$/i, '$1?t=13835292681991']]
+    });
+    seajs.use('js/dev/plugs/DatePicker/WdatePicker', function(){
+        $('#J_datePicker').on('click', function(){
+            WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'});
+        });
+        WdatePicker({eCont:'J_div',onpicked:function(dp){$('#J_hiddenData').val(dp.cal.getDateStr());}})
+    });
+</script>
+</body>
+</html>

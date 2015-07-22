@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无缝滚动</title>
+<link rel="stylesheet" type="text/css" href="css/base.css">
+<style type="text/css">
+.slider{position:relative;width:858px;height:210px;border:1px solid #ddd;margin:50px auto;background:#f3f3f3;}
+.slider .prev,.slider .next{position:absolute;top:50%;width:39px;height:80px;cursor:pointer;overflow:hidden;margin-top:-40px;text-indent:-9999px;background:url(images/btn.png) no-repeat;}
+.slider .prev{left:10px;background-position:0 0;}
+.slider .next{right:10px;background-position:-39px 0;}
+
+.slider_cont,.slider_cont ul{position:absolute;height:160px;}
+.slider_cont{top:50%;left:50%;width:730px;overflow:hidden;margin:-80px 0 0 -365px;}
+.slider_cont ul{font-size:0;white-space:nowrap;word-wrap:normal;word-break:keep-all;}
+.slider_cont li{width:160px;height:160px;text-align:center;display:inline-block;*display:inline;*zoom:1;vertical-align:top;font-size:12px;margin-right:30px;}
+.slider_cont li a{color:#444;}
+.slider_cont li em{display:block;width:156px;height:121px;overflow:hidden;margin-bottom:5px;border:2px solid #ddd;}
+.slider_cont li strong{display:block;height:30px;line-height:30px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;word-wrap:normal;word-break:keep-all;}
+.slider_cont img{width:156px;height:121px;}
+</style>
+</head>
+<body>
+<div id="J_slider" class="slider">
+    <a href="javascript:;" class="prev" id="J_prev">prev</a>
+    <a href="javascript:;" class="next" id="J_next">next</a>
+    <div class="slider_cont">
+        <ul id="J_slider_cont">
+            <li><a href="javascript:;"><em><img src="images/img/1.jpg" alt="图片1标题" class="dvm" /><span class="vam"></span></em><strong>图片1标题</strong></a></li>
+            <li><a href="javascript:;"><em><img src="images/img/2.jpg" alt="图片2标题" class="dvm" /><span class="vam"></span></em><strong>图片2标题</strong></a></li>
+            <li><a href="javascript:;"><em><img src="images/img/3.jpg" alt="图片3标题" class="dvm" /><span class="vam"></span></em><strong>图片3标题</strong></a></li>
+            <li><a href="javascript:;"><em><img src="images/img/4.jpg" alt="图片4标题" class="dvm" /><span class="vam"></span></em><strong>图片4标题</strong></a></li>
+            <li><a href="javascript:;"><em><img src="images/img/5.jpg" alt="图片5标题" class="dvm" /><span class="vam"></span></em><strong>图片5标题</strong></a></li>
+            <li><a href="javascript:;"><em><img src="images/img/6.jpg" alt="图片6标题" class="dvm" /><span class="vam"></span></em><strong>图片6标题</strong></a></li>
+            <li><a href="javascript:;"><em><img src="images/img/7.jpg" alt="图片7标题" class="dvm" /><span class="vam"></span></em><strong>图片7标题</strong></a></li>
+            <li><a href="javascript:;"><em><img src="images/img/8.jpg" alt="图片8标题" class="dvm" /><span class="vam"></span></em><strong>图片8标题</strong></a></li>
+            <li><a href="javascript:;"><em><img src="images/img/9.jpg" alt="图片9标题" class="dvm" /><span class="vam"></span></em><strong>图片9标题</strong></a></li>
+        </ul>
+    </div>
+</div>
+<script type="text/javascript" src="js/dev/lib/jquery.js"></script>
+<script type="text/javascript" src="js/dev/lib/sea.js"></script>
+<script type="text/javascript">
+    seajs.config({
+        "base": "./",
+        'map': [[ /^(.*\.(?:css|js))(.*)$/i, '$1?t=13835292681991']]
+    });
+    seajs.use('js/dev/app/app_slider');
+</script>
+</body>
+</html>

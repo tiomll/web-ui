@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>二级菜单</title>
+<link type="text/css" rel="stylesheet" href="css/base.css"/>
+<style type="text/css">
+.layout{width:600px;margin:100px auto;}
+.nav{height:36px;background:#1d4993;}
+.nav_item{position:relative;}
+.nav_item_hover .nav_submenu{display:block;}
+.nav_menu{line-height:36px;padding:0 20px;color:#fff;}
+.nav_submenu{position:absolute;top:36px;left:0;display:none;background:#f8f8f8;}
+.nav_submenu a{line-height:2;padding:0 20px;text-decoration:none;}
+</style>
+</head>
+<body>
+<div class="layout">
+    <ul class="nav f_yh">
+        <li class="nav_item dvt" data-hover="nav_item_hover">
+            <a href="#" class="nav_menu dvt">一级菜单</a>
+            <div class="nav_submenu">
+                <ul>
+                    <li><a href="#">二级菜单</a></li>
+                    <li><a href="#">二级菜单</a></li>
+                    <li><a href="#">二级菜单</a></li>
+                    <li><a href="#">二级菜单</a></li>
+                    <li><a href="#">二级菜单</a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="nav_item dvt" data-hover="nav_item_hover">
+            <a href="#" class="nav_menu dvt">一级菜单</a>
+            <div class="nav_submenu">
+                <ul>
+                    <li><a href="#">二级菜单</a></li>
+                    <li><a href="#">二级菜单</a></li>
+                    <li><a href="#">二级菜单</a></li>
+                    <li><a href="#">二级菜单</a></li>
+                    <li><a href="#">二级菜单</a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="nav_item dvt" data-hover="nav_item_hover">
+            <a href="#" class="nav_menu dvt">一级菜单</a>
+            <div class="nav_submenu">
+                <ul>
+                    <li><a href="#">二级菜单</a></li>
+                    <li><a href="#">二级菜单</a></li>
+                    <li><a href="#">二级菜单</a></li>
+                    <li><a href="#">二级菜单</a></li>
+                    <li><a href="#">二级菜单</a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="nav_item dvt" data-hover="nav_item_hover">
+            <a href="#" class="nav_menu dvt">一级菜单</a>
+            <div class="nav_submenu">
+                <ul>
+                    <li><a href="#">二级菜单</a></li>
+                    <li><a href="#">二级菜单</a></li>
+                    <li><a href="#">二级菜单</a></li>
+                    <li><a href="#">二级菜单</a></li>
+                    <li><a href="#">二级菜单</a></li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+</div>
+<script type="text/javascript" src="js/dev/lib/jquery.js"></script>
+<script type="text/javascript" src="js/dev/lib/sea.js"></script>
+<script type="text/javascript">
+    seajs.config({
+        "base": "./",
+        'map': [[ /^(.*\.(?:css|js))(.*)$/i, '$1?t=13835292681991']]
+    });
+    seajs.use('js/dev/module/bindHover');
+</script>
+</body>
+</html>

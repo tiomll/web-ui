@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>星级评分系统</title>
+<link rel="stylesheet" type="text/css" href="css/base.css">
+<style type="text/css">
+.grade{height:30px;width:220px;margin:50px auto;}
+.grade strong,.grade b{font:normal 16px/30px 'Microsoft YaHei',Arial, Helvetica, sans-serif;display:inline-block;*display:inline;*zoom:1;vertical-align:middle;}
+.grade b{color:#f60;}
+.star_grade,.star_grade em{display:inline-block;height:20px;overflow:hidden;vertical-align:top;font-size:0;line-height:0;background:url(images/star.gif) repeat-x;cursor:pointer;}
+.star_grade{width:120px;text-align:left;background-position:0 0;margin-top:5px;}
+.star_grade em{width:60%;background-position:0 -20px;}
+</style>
+</head>
+<body>
+<div class="grade">
+    <strong>评分：</strong><span class="star_grade" data-grade="5-3" id="J_to_grade"><em></em></span><b id="J_grade_number"><em>4</em>分</b><input type="hidden" name="" id="J_grade" />
+</div>
+<script type="text/javascript" src="js/dev/lib/jquery.js"></script>
+<script type="text/javascript" src="js/dev/lib/sea.js"></script>
+<script type="text/javascript">
+    seajs.config({
+        "base": "./",
+        'map': [[ /^(.*\.(?:css|js))(.*)$/i, '$1?t=13835292681991']]
+    });
+    seajs.use('js/dev/app/app_grade');
+</script>
+</body>
+</html>

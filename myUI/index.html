@@ -1,0 +1,2768 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>控件库 Demo</title>
+    <link type="text/css" rel="stylesheet" href="css/base.css"/>
+    <link type="text/css" rel="stylesheet" href="css/codemirror.css"/>
+    <link type="text/css" rel="stylesheet" href="css/monokai.css"/>
+    <link rel="stylesheet" href="js/dev/plugs/prettyPhoto/css/prettyPhoto.css"/>
+    <style type="text/css">
+        html,body{background:#f8f9f3 url(images/bg.jpg) repeat;font-family:'Microsoft YaHei', Arial, Helvetica, sans-serif;}
+        .page_title{height:50px;line-height:50px;font-size:30px;padding:15px 30px 0;}
+        .page_cont{margin:15px;padding:15px;background:#fff;box-shadow:0px 0px 10px #666;}
+        .ui_title{border-bottom:1px solid #ccc;font-size:18px;color:#555;font-weight:normal;padding-bottom:10px;}
+        .ui_list_wrapper{overflow:hidden;margin:15px 0 30px 0;}
+        .ui_list{width:110%;}
+        .ui_list_item{display:inline-block;*display:inline;*zoom:1;width:383px;padding:10px;background:#f9f9f9;border:1px solid #ddd;margin:10px;}
+        .ui_list_item:hover{border-radius:3px;box-shadow:0px 0px 8px #666;}
+        .ui_list_imgbox{width:180px;height:120px;overflow:hidden;margin-right:10px;}
+        .ui_list_imgbox img{max-width:180px;max-height:120px;}
+        .ui_list_item_title{width:193px;height:23px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;word-wrap:normal;word-break:keep-all;font-weight:normal;font-size:16px;}
+        .ui_list_item_desc{width:193px;height:57px;margin:10px 0;overflow:hidden;color:#666;}
+        .ui_list_item_info{width:193px;height:20px;}
+        .author{color:#999;float:left;line-height:20px;}
+        .run,.view{display:inline-block;*display:inline;*zoom:1;padding:0 10px;background:#3e94dd;color:#fff;font-size:12px;height:20px;line-height:20px;border-radius:2px;float:right;margin-left:5px;}
+        .run:hover,.view:hover{background:#87cefa;color:#2b84d0;text-decoration:none;}
+
+        .code-warpper{display:none;}
+        #codeLayer{width:100%;height:100%;background:#333;opacity:0.7;*filter:alpha(opacity=70);position:absolute;top:0;left:0;}
+        #codeBox{width:800px;position:absolute;top:50%;left:50%;margin:-200px 0 0 -400px;background:#fff;}
+        #codeHd{height:30px;line-height:30px;background:#3e94dd;}
+        #codeHd h2{font-weight:700;font-size:14px;color:#fff;padding:0 10px;float:left;}
+        #codeClos{float:right;display:block;width:30px;height:30px;background:url(images/close.gif) no-repeat center center;}
+        #codeFt{text-align:center;padding:5px 10px;background:#f8f8f8;border-top:1px solid #ddd;height:24px;}
+        #codeRun,#codeClose{display:inline-block;*display:inline;*zoom:1;padding:0 20px;background:#3e94dd;color:#fff;font-size:12px;height:24px;line-height:24px;margin:0 10px;}
+        #codeRun:hover,#codeClose:hover{background:#87cefa;color:#2b84d0;text-decoration:none;}
+        .code-box{margin:10px;}
+        .code-box textarea{height:80px;}
+    </style>
+</head>
+<body>
+<h1 class="page_title">前端开发控件库 Demo</h1>
+<div class="page_cont">
+    <h2 class="ui_title">页面结构</h2>
+    <div class="ui_list_wrapper">
+        <ul class="ui_list">
+            <li class="ui_list_item">
+                <div class="clear">
+                    <a href="images/img_big/layout.gif" class="fl ui_list_imgbox" rel="prettyPhoto[gallery1]"><img src="images/img_small/layout.gif" alt="" /></a>
+                    <div class="fluid">
+                        <h3 class="ui_list_item_title">layout页面结构</h3>
+                        <div class="ui_list_item_desc">常用页面结构（两列布局、三列布局、等高布局）。</div>
+                        <div class="ui_list_item_info clear"><span class="author">作者:张龙</span><a href="layout.html" class="run" target="_blank">run</a><a href="layout.html" class="view">view</a></div>
+                    </div>
+                </div>
+                <div class="code-warpper">
+                    <textarea name="" cols="" rows="" class="ui-textarea code-html">
+<div class="layout f_yh">
+    <div class="section_title">三列弹性布局</div>
+    <div class="layout section clear">
+        <div class="col_side_t fr m_l_10">固定宽</div>
+        <div class="col_side_s fl m_r_10">固定宽</div>
+        <div class="col_main fluid">弹性层</div>
+    </div>
+    <div class="layout section clear">
+        <div class="col_side_t fr m_l_10">固定宽</div>
+        <div class="col_side_s fr m_l_10">固定宽</div>
+        <div class="col_main fluid">弹性层</div>
+    </div>
+    <div class="layout section clear">
+        <div class="col_side_t fl m_r_10">固定宽</div>
+        <div class="col_side_s fl m_r_10">固定宽</div>
+        <div class="col_main fluid">弹性层</div>
+    </div>
+    <div class="section_title">两列弹性布局</div>
+    <div class="layout section clear">
+        <div class="col_side_s fl m_r_10">固定宽</div>
+        <div class="col_main fluid">弹性层</div>
+    </div>
+    <div class="layout section clear">
+        <div class="col_side_s fr m_l_10">固定宽</div>
+        <div class="col_main fluid">弹性层</div>
+    </div>
+    <div class="section_title">两列弹性布局嵌套</div>
+    <div class="layout section clear">
+        <div class="col_side_s fl m_r_10">固定宽</div>
+        <div class="col_main fluid" style="background:#fff;">
+            <div class="col_side_t fl m_r_10">固定宽</div>
+            <div class="col_main fluid">弹性层</div>
+        </div>
+    </div>
+    <div class="layout section clear">
+        <div class="col_side_s fr m_l_10">固定宽</div>
+        <div class="col_main fluid" style="background:#fff;">
+            <div class="col_side_t fr m_l_10">固定宽</div>
+            <div class="col_main fluid">弹性层</div>
+        </div>
+    </div>
+    <div class="section_title">三列弹性布等高局</div>
+    <div class="layout section section_sh clear">
+        <div class="col_side_t fr m_l_10">固定宽</div>
+        <div class="col_side_s fl m_r_10">固定宽</div>
+        <div class="col_main">弹性层<br/>弹性层<br/>弹性层<br/>弹性层</div>
+    </div>
+    <div class="section_title">两列弹性等高布局</div>
+    <div class="layout section section_sh section_sh_t clear">
+        <div class="col_side_s fl m_r_10">固定宽</div>
+        <div class="col_main">弹性层<br/>弹性层<br/>弹性层<br/>弹性层</div>
+    </div>
+</div>
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-css">
+.layout{width:960px;margin:0 auto;}
+.section_title{font-size:16px;margin-top:15px;}
+.section{color:#fff;margin-top:15px;}
+.col_side_t{width:250px;background:blue;}
+.col_side_s{width:200px;background:green;}
+.col_main{background:red;}
+.section_sh{overflow:hidden;}
+.section_sh .col_side_t,.section_sh .col_side_s,.section_sh .col_main{padding-bottom:10000px;margin-bottom:-10000px;}
+.section_sh .col_main{margin-left:210px;margin-right:260px;}
+.section_sh_t .col_main{margin-right:0;}
+                    </textarea>
+                </div>
+            </li>
+            <li class="ui_list_item">
+                <div class="clear">
+                    <a href="images/img_big/nav.gif" class="fl ui_list_imgbox" rel="prettyPhoto[gallery1]"><img src="images/img_small/nav.gif" alt="" /></a>
+                    <div class="fluid">
+                        <h3 class="ui_list_item_title">nav导航</h3>
+                        <div class="ui_list_item_desc">常用导航结构（包含二级菜单）。</div>
+                        <div class="ui_list_item_info clear"><span class="author">作者:张龙</span><a href="nav.html" class="run" target="_blank">run</a><a href="nav.html" class="view">view</a></div>
+                    </div>
+                </div>
+                <div class="code-warpper">
+                    <textarea name="" cols="" rows="" class="ui-textarea code-html">
+<ul class="nav f_yh">
+    <li class="nav_item dvt" data-hover="nav_item_hover">
+        <a href="#" class="nav_menu dvt">一级菜单</a>
+        <div class="nav_submenu">
+            <ul>
+                <li><a href="#">二级菜单</a></li>
+                <li><a href="#">二级菜单</a></li>
+                <li><a href="#">二级菜单</a></li>
+                <li><a href="#">二级菜单</a></li>
+                <li><a href="#">二级菜单</a></li>
+            </ul>
+        </div>
+    </li>
+</ul>
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-css">
+.nav{height:36px;background:#1d4993;}
+.nav_item{position:relative;}
+.nav_item_hover .nav_submenu{display:block;}
+.nav_menu{line-height:36px;padding:0 20px;color:#fff;}
+.nav_submenu{position:absolute;top:36px;left:0;display:none;background:#f8f8f8;}
+.nav_submenu a{line-height:2;padding:0 20px;text-decoration:none;}
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-javascript">
+seajs.config({
+    "base": "./",
+    'map': [[ /^(.*\.(?:css|js))(.*)$/i, '$1?t=13835292681991']]
+});
+seajs.use('js/dev/module/bindHover');
+                    </textarea>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <h2 class="ui_title">列表</h2>
+    <div class="ui_list_wrapper">
+        <ul class="ui_list">
+            <li class="ui_list_item">
+                <div class="clear">
+                    <a href="images/img_big/text_list.gif" class="fl ui_list_imgbox" rel="prettyPhoto[gallery1]"><img src="images/img_small/text_list.gif" alt="" /></a>
+                    <div class="fluid">
+                        <h3 class="ui_list_item_title">文字列表</h3>
+                        <div class="ui_list_item_desc">常用文字列表（带时间），不带时间时删除时间节点即可。</div>
+                        <div class="ui_list_item_info clear"><span class="author">作者:张龙</span><a href="text_list.html" class="run" target="_blank">run</a><a href="text_list.html" class="view">view</a></div>
+                    </div>
+                </div>
+                <div class="code-warpper">
+                    <textarea name="" cols="" rows="" class="ui-textarea code-html">
+<ul class="text_list">
+    <li><span>2014-05-15</span><a href="#">此处是文字列表第一条信息</a></li>
+    <li><span>2014-05-15</span><a href="#">此处是文字列表第二条信息</a></li>
+    <li><span>2014-05-15</span><a href="#">此处是文字列表第三条信息</a></li>
+    <li><span>2014-05-15</span><a href="#">此处是文字列表第四条信息</a></li>
+    <li><span>2014-05-15</span><a href="#">此处是文字列表第五条信息</a></li>
+</ul>
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-css">
+.text_list li{height:26px;line-height:26px;}
+.text_list li span{float:right;color:#999;}
+                    </textarea>
+                </div>
+            </li>
+            <li class="ui_list_item">
+                <div class="clear">
+                    <a href="images/img_big/mod_text_list.gif" class="fl ui_list_imgbox" rel="prettyPhoto[gallery1]"><img src="images/img_small/mod_text_list.gif" alt="" /></a>
+                    <div class="fluid">
+                        <h3 class="ui_list_item_title">文字列表模块</h3>
+                        <div class="ui_list_item_desc">文字列表模块分为带边框和不带边框两种，同过一个类直接控制。</div>
+                        <div class="ui_list_item_info clear"><span class="author">作者:张龙</span><a href="mod_text_list.html" class="run" target="_blank">run</a><a href="mod_text_list.html" class="view">view</a></div>
+                    </div>
+                </div>
+                <div class="code-warpper">
+                    <textarea name="" cols="" rows="" class="ui-textarea code-html">
+<div class="mod_text_list mod_text_list_border">
+    <div class="mod_text_list_title clear"><a href="#">更多</a><h2>文字列表模块名称</h2></div>
+    <ul class="text_list m_lr_10 m_tb_5">
+        <li><span>2014-05-15</span><a href="#">此处是文字列表第一条信息</a></li>
+        <li><span>2014-05-15</span><a href="#">此处是文字列表第二条信息</a></li>
+        <li><span>2014-05-15</span><a href="#">此处是文字列表第三条信息</a></li>
+    </ul>
+</div>
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-css">
+/*文字列表模块*/
+.mod_text_list{}
+.mod_text_list_title{font-weight:700;padding:0 10px;height:30px;line-height:30px;border-bottom:1px solid #ccc;}
+.mod_text_list_title a{float:right;}
+.mod_text_list_border{border:1px solid #ccc;}
+.mod_text_list_border .mod_text_list_title{background:#f8f8f8;}
+/*文字列表样式*/
+.text_list li{height:26px;line-height:26px;}
+.text_list li span{float:right;color:#999;}
+                    </textarea>
+                </div>
+            </li>
+            <li class="ui_list_item">
+                <div class="clear">
+                    <a href="images/img_big/img_text_list.gif" class="fl ui_list_imgbox" rel="prettyPhoto[gallery1]"><img src="images/img_small/img_text_list.gif" alt="" /></a>
+                    <div class="fluid">
+                        <h3 class="ui_list_item_title">图片文字列表</h3>
+                        <div class="ui_list_item_desc">图片文字列表边框直接在“&ltli&gt”标签上用一个边框类控制。</div>
+                        <div class="ui_list_item_info clear"><span class="author">作者:张龙</span><a href="img_text_list.html" class="run" target="_blank">run</a><a href="img_text_list.html" class="view">view</a></div>
+                    </div>
+                </div>
+                <div class="code-warpper">
+                    <textarea name="" cols="" rows="" class="ui-textarea code-html">
+<ul class="img_text_list">
+    <li class="clear border_dot_b">
+        <a href="#" class="fl img_area m_r_10"><img src="images/img_1.gif" alt="" class="dvm" /><span class="vam"></span></a>
+        <div class="fluid text_area">
+            <a href="#" class="fb">图片说明标题</a>
+            <p class="m_t_5">图片说明摘要图片说明摘要图片说明摘要图片说明摘要图片说明摘要图片说明摘要图片说明摘要图片说明摘要图片说明摘要图片说明摘要图片说明摘要图片说明摘要图片说明</p>
+        </div>
+    </li>
+</ul>
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-css">
+/*图片文字列表*/
+.img_text_list li{padding:10px 0;}
+.img_area{display:block;text-align:center;}
+/*页面控制图片大小*/
+.img_area{width:125px;height:100px;}
+                    </textarea>
+                </div>
+            </li>
+            <li class="ui_list_item">
+                <div class="clear">
+                    <a href="images/img_big/img_list_1.gif" class="fl ui_list_imgbox" rel="prettyPhoto[gallery1]"><img src="images/img_small/img_list_1.gif" alt="" /></a>
+                    <div class="fluid">
+                        <h3 class="ui_list_item_title">图片列表</h3>
+                        <div class="ui_list_item_desc">此图片列表是浮动+间距，再在外层设置宽度并超出隐藏。</div>
+                        <div class="ui_list_item_info clear"><span class="author">作者:张龙</span><a href="img_list1.html" class="run" target="_blank">run</a><a href="img_list1.html" class="view">view</a></div>
+                    </div>
+                </div>
+                <div class="code-warpper">
+                    <textarea name="" cols="" rows="" class="ui-textarea code-html">
+<div class="img_list img_type_150_150">
+    <ul class="img_list_inner clear">
+        <li>
+            <a href="#" class="imgbox"><img src="images/img_2.gif" alt="图片标题1" class="dvm"/><span class="vam"></span></a>
+            <div class="img_list_text gray m_t_10">
+                 <h4 class="f_14_b m_b_5"><a href="#">图片标题1</a></h4>
+                 <p><em>图片：</em>01</p>
+                 <p><em>作者：</em><a href="#">张龙</a></p>
+                 <p>05月06日 15:14更新</p>
+            </div>
+        </li>
+    </ul>
+</div>
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-css">
+.img_list{overflow:hidden;}
+.img_list_inner{width:110%;}
+.img_list_inner li{display:inline;float:left;}
+.imgbox{display:block;text-align:center;overflow:hidden;}
+.img_type_150_150{width:508px;}
+.img_type_150_150 li{width:156px;margin:0 20px 20px 0;}
+.img_type_150_150 .imgbox{width:150px;height:150px;border:1px solid #ddd;padding:2px;}
+.img_type_150_150 .imgbox:hover{border:3px solid #bbb;padding:0;}
+                    </textarea>
+                </div>
+            </li>
+            <li class="ui_list_item">
+                <div class="clear">
+                    <a href="images/img_big/img_list_2.gif" class="fl ui_list_imgbox" rel="prettyPhoto[gallery1]"><img src="images/img_small/img_list_2.gif" alt="" /></a>
+                    <div class="fluid">
+                        <h3 class="ui_list_item_title">图片列表（带鼠标效果）</h3>
+                        <div class="ui_list_item_desc">针对IE6不支持非“a”标签的“:hover”属性添加JS控制。</div>
+                        <div class="ui_list_item_info clear"><span class="author">作者:张龙</span><a href="img_list2.html" class="run" target="_blank">run</a><a href="img_list2.html" class="view">view</a></div>
+                    </div>
+                </div>
+                <div class="code-warpper">
+                    <textarea name="" cols="" rows="" class="ui-textarea code-html">
+<div class="img_list img_type_150_190">
+    <ul class="img_list_inner clear">
+        <li>
+            <div class="imgbox_area">
+                <a href="#" class="imgbox"><img src="images/img_3.gif" alt="" class="dvm"><span class="vam"></span></a>
+                <div class="img_hover">
+                    <div class="img_hover_text">
+                        <p>大小：110.6k</p>
+                        <p>日期：2013/4/13</p>
+                        <p>来源：日志附件</p>
+                        <p>下载：10次</p>
+                    </div>
+                    <div class="img_hover_link"><a href="#">下载</a>|<a href="#">预览</a></div>
+                </div>
+            </div>
+            <h3 class="fn gray m_t_10"><a href="#">图片标题</a></h3>
+        </li>
+    </ul>
+</div>
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-css">
+.img_list{overflow:hidden;}
+.img_list_inner{width:110%;}
+.img_list_inner li{display:inline;float:left;}
+.imgbox_area{position:relative;}
+.imgbox{display:block;text-align:center;overflow:hidden;}
+.img_hover{position:absolute;left:1px;top:1px;display:none;}
+.img_hover .img_hover_text{background:#eee;border-bottom:1px solid #ccc;line-height:2;}
+.img_hover .img_hover_link{background:#fff;text-align:center;}
+.img_hover .img_hover_link a{margin:0 8px;}
+.img_list_inner li:hover .img_hover,.img_list_inner li.hover .img_hover{display:block;}
+
+.img_type_150_190{width:668px;}
+.img_type_150_190 li{width:152px;margin:0 20px 20px 0;}
+.img_type_150_190 .imgbox{width:150px;height:190px;border:1px solid #ccc;}
+.img_type_150_190 .img_hover_text{width:110px;height:120px;padding:20px;}
+.img_type_150_190 .img_hover_link{width:150px;height:29px;line-height:28px;}
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-javascript">
+(function($){
+    var isIE6 = !window.XMLHttpRequest;
+    $.fn.eHover = function(oClass){
+        if (isIE6) {
+            $(this).each(function(){
+                $(this).on('mouseenter',function(){
+                    $(this).addClass(oClass);
+                }).on('mouseleave',function(){
+                    $(this).removeClass(oClass);
+                });
+            });
+        }
+    };
+})(jQuery);
+
+$(document).ready(function(){
+    $('.img_list li').eHover('hover');
+});
+                    </textarea>
+                </div>
+            </li>
+            <li class="ui_list_item">
+                <div class="clear">
+                    <a href="images/img_big/img_list_1.gif" class="fl ui_list_imgbox" rel="prettyPhoto[gallery1]"><img src="images/img_small/img_list_1.gif" alt="" /></a>
+                    <div class="fluid">
+                        <h3 class="ui_list_item_title" title="图片列表（justify两端自动对齐）">图片列表（justify两端自动对齐）</h3>
+                        <div class="ui_list_item_desc">模拟文字两端对齐，注意每个元素中间必须空一行。</div>
+                        <div class="ui_list_item_info clear"><span class="author">作者:张龙</span><a href="img_list_justify.html" class="run" target="_blank">run</a><a href="img_list_justify.html" class="view">view</a></div>
+                    </div>
+                </div>
+                <div class="code-warpper">
+                    <textarea name="" cols="" rows="" class="ui-textarea code-html">
+<div class="img_list img_type_150_150">
+    <span class="img_list_justify">
+        <a href="#" class="imgbox"><img src="images/img_2.gif" alt="图片标题1" class="dvm"/><span class="vam"></span></a>
+        <span class="img_list_text gray m_t_10"><a href="#" class="f_14_b">图片标题1</a><br/>
+            <em>图片：</em>01<br/>
+            <em>作者：</em><a href="#">张龙</a><br/>05月06日 15:14更新</span></span>
+
+    <span class="img_list_justify justify_fix">&nbsp;</span>
+    <span class="img_list_justify justify_fix">&nbsp;</span>
+    <span class="img_list_justify justify_fix">&nbsp;</span>
+    <span class="img_list_justify justify_fix">&nbsp;</span>
+</div>
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-css">
+.img_list{text-align:justify;}
+.img_list_justify{display:inline-block;text-align:center;letter-spacing:normal;overflow:hidden;vertical-align:top;}
+.imgbox{display:block;text-align:center;overflow:hidden;}
+.img_list_text{display:block;text-align:left;}
+.justify_fix{height:0;*font-size:0;line-height:0;margin-bottom:0;}
+
+.img_type_150_150 .img_list_justify{margin-bottom:20px;width:156px;}
+.img_type_150_150 .imgbox{width:150px;height:150px;border:1px solid #ddd;padding:2px;}
+.img_type_150_150 .imgbox:hover{border:3px solid #bbb;padding:0;}
+.img_type_150_150 .justify_fix{width:156px;}
+                    </textarea>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <h2 class="ui_title">选项卡</h2>
+    <div class="ui_list_wrapper">
+        <ul class="ui_list">
+            <li class="ui_list_item">
+                <div class="clear">
+                    <a href="images/img_big/tab.gif" class="fl ui_list_imgbox" rel="prettyPhoto[gallery1]"><img src="images/img_small/tab.gif" alt="" /></a>
+                    <div class="fluid">
+                        <h3 class="ui_list_item_title">普通TAB选项卡</h3>
+                        <div class="ui_list_item_desc">普通TAB选项卡JS调用“$('#J_tab').tab();”</div>
+                        <div class="ui_list_item_info clear"><span class="author">作者:张龙</span><a href="tab.html" class="run" target="_blank">run</a><a href="tab.html" class="view">view</a></div>
+                    </div>
+                </div>
+                <div class="code-warpper">
+                    <textarea name="" cols="" rows="" class="ui-textarea code-html">
+<div class="tab" id="J_tab">
+    <div class="tab_trigger"> 
+        <ul> 
+            <li><a href="#">标题一</a></li>
+            <li><a href="#">标题二</a></li>
+        </ul>
+    </div>
+    <div class="tab_cont">
+        <div class="tab_cont_item">
+            <ul class="text_list m_10">
+                <li><a href="#">新闻第一条新闻第一条新闻第一条新闻第一条</a></li>
+                <li><a href="#">新闻第一条新闻第一条新闻第一条新闻第一条</a></li>
+                <li><a href="#">新闻第一条新闻第一条新闻第一条新闻第一条</a></li>
+            </ul>
+        </div>
+        <div class="tab_cont_item">
+            <ul class="text_list m_10">
+                <li><a href="#">新闻第二条新闻第二条新闻第二条新闻第二条</a></li>
+                <li><a href="#">新闻第二条新闻第二条新闻第二条新闻第二条</a></li>
+                <li><a href="#">新闻第二条新闻第二条新闻第二条新闻第二条</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-css">
+.tab_trigger{height:30px;line-height:30px;font-size:0;border-bottom:1px solid #ccc;position:relative;z-index:0;}
+.tab_trigger li,.tab_trigger a{display:inline-block;*display:inline;*zoom:1;vertical-align:top;}
+.tab_trigger li{margin-right:5px;position:relative;z-index:1;_top:1px;}
+.tab_trigger a{height:30px;line-height:30px;font-size:12px;padding:0 20px;border:1px solid #ccc;border-bottom:0;border-radius:3px 3px 0 0;background:#efefef;color:#444;}
+.tab_trigger a:hover,.tab_trigger a.current{text-decoration:none;background:#fff;color:#444;}
+.tab_cont_item{display:none;}
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-javascript">
+seajs.config({
+    "base": "./",
+    'map': [[ /^(.*\.(?:css|js))(.*)$/i, '$1?t=13835292681991']]
+});
+seajs.use('js/dev/app/app_tab');
+/* app_tab.js */
+define(function(require,exports,module){
+    require('../module/tab');
+    $('#J_tab').tab({
+        tabClass:'.tab_trigger li a',
+        conClass:'.tab_cont_item',
+        activeClass:'current'
+    });
+});
+                    </textarea>
+                </div>
+            </li>
+            <li class="ui_list_item">
+                <div class="clear">
+                    <a href="images/img_big/tab.gif" class="fl ui_list_imgbox" rel="prettyPhoto[gallery1]"><img src="images/img_small/tab.gif" alt="" /></a>
+                    <div class="fluid">
+                        <h3 class="ui_list_item_title">TAB选项卡（ajax）</h3>
+                        <div class="ui_list_item_desc">TAB选项卡（ajax）默认加载第一个选项，同时可以运用缓存减少ajax请求。</div>
+                        <div class="ui_list_item_info clear"><span class="author">作者:张龙</span><a href="tabAjax.html" class="run" target="_blank">run</a><a href="tabAjax.html" class="view">view</a></div>
+                    </div>
+                </div>
+                <div class="code-warpper">
+                    <textarea name="" cols="" rows="" class="ui-textarea code-html">
+<div class="tab">
+    <div class="tab_trigger" id="J_tabAjax"> 
+        <ul> 
+            <li><a href="ajaxtab.html">标题一</a></li>
+            <li><a href="ajaxtab.html">标题二</a></li>
+            <li><a href="ajaxtab.html">标题三</a></li>
+        </ul>
+    </div>
+    <div class="tab_cont" id="J_tabAjax_cont">
+        <div class="tab_cont_item"></div>
+        <div class="isLoading">数据加载中...</div>
+    </div>
+</div>
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-css">
+.tab_trigger{height:30px;line-height:30px;font-size:0;border-bottom:1px solid #ccc;position:relative;z-index:0;}
+.tab_trigger li,.tab_trigger a{display:inline-block;*display:inline;*zoom:1;vertical-align:top;}
+.tab_trigger li{margin-right:5px;position:relative;z-index:1;_top:1px;}
+.tab_trigger a{height:30px;line-height:30px;font-size:12px;padding:0 20px;border:1px solid #ccc;border-bottom:0;border-radius:3px 3px 0 0;background:#efefef;color:#444;}
+.tab_trigger a:hover,.tab_trigger a.current{text-decoration:none;background:#fff;color:#444;}
+.tab_cont_item{display:none;}
+.tab_cont .isLoading{background:#fff url(../images/s_loading.gif) no-repeat 0 center;padding-left:25px;width:80px;height:20px;line-height:20px;margin:10px auto;}
+.tab_cont .error{color:#f00;text-align:center;line-height:2em;padding:10px 0;}
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-javascript">
+seajs.config({
+    "base": "./",
+    'map': [[ /^(.*\.(?:css|js))(.*)$/i, '$1?t=13835292681991']]
+});
+seajs.use('js/dev/app/app_tab');
+/* app_tab.js */
+define(function(require,exports,module){
+    var tabAjax = require('../module/tabAjax');
+    tabAjax({
+        target:'#J_tabAjax',
+        tab:'li a',
+        con:'#J_tabAjax_cont .tab_cont_item',
+        activeClass:'current'        
+    });
+});
+                    </textarea>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <h2 class="ui_title">可控方向滚动</h2>
+    <div class="ui_list_wrapper">
+        <ul class="ui_list">
+            <li class="ui_list_item">
+                <div class="clear">
+                    <a href="images/img_big/banner.gif" class="fl ui_list_imgbox" rel="prettyPhoto[gallery1]"><img src="images/img_small/banner.gif" alt="" /></a>
+                    <div class="fluid">
+                        <h3 class="ui_list_item_title">Banner焦点图</h3>
+                        <div class="ui_list_item_desc">Banner焦点图分为虚列数和缩略图两种方式，通过“dotType”的类型来控制。</div>
+                        <div class="ui_list_item_info clear"><span class="author">作者:张龙</span><a href="banner.html" class="run" target="_blank">run</a><a href="banner.html" class="view">view</a></div>
+                    </div>
+                </div>
+                <div class="code-warpper">
+                    <textarea name="" cols="" rows="" class="ui-textarea code-html">
+<div class="banner banner_980_300" id="J_banner1">
+   <ul>
+　 　 <li><a href="#"><img src="images/banner_1.gif" title="图片标题1" class="dvm" /><span class="vam"></span></a></li>
+　 　 <li><a href="#"><img src="images/banner_2.gif" title="图片标题2" class="dvm" /><span class="vam"></span></a></li>
+　 　 <li><a href="#"><img src="images/banner_3.gif" title="图片标题3" class="dvm" /><span class="vam"></span></a></li>
+　 </ul>
+</div>
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-css">
+.banner,.banner ul{position:relative;overflow:hidden;}
+.banner ul li,.banner ul li a{display:block;overflow:hidden;text-align:center;}
+.banner ul li,.banner_prev,.banner_next,.banner_control{position:absolute;}
+.banner ul li{top:0;left:0;}
+.banner_prev,.banner_next{opacity:.3;filter:alpha(Opacity=30);top:50%;margin-top:-23px;background:#ddd url(../images/arrow1.gif);width:50px;height:45px;}
+.banner_prev{left:0;background-position:0 0;border-radius:0 5px 5px 0;}
+.banner_next {right:0;background-position:-50px 0;border-radius:5px 0 0 5px;}
+.banner_prev:hover,.banner_next:hover{opacity:1;filter:alpha(opacity=100);}
+/*序列数*/
+.banner_control{left:0;bottom:5px;width:100%;text-align:center;height:22px;}
+.banner_control li{display:inline-block;*display:inline;*zoom:1;width:22px;height:22px;line-height:22px;text-align:center;color:#fff;margin:0 3px;cursor:pointer;border-radius:22px;background:#ddd;}
+.banner_control li.active{background:#888;}
+/*缩略图*/
+.banner_control_img{height:27px;font-size:0;}
+.banner_control_img li{width:40px;height:25px;line-height:25px;margin:0 3px;cursor:pointer;border:1px solid #ddd;border-radius:0;}
+.banner_control_img li:hover{border-color:#fff;}
+.banner_control_img li.active{border-color:#f00;}
+.banner_control_img li img{width:40px;height:25px;}
+/*banner大小*/
+.banner_980_300,.banner_980_300 ul,.banner_980_300 ul li,.banner_980_300 ul li a{width:980px;height:300px;}
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-javascript">
+seajs.config({
+    "base": "./",
+    'map': [[ /^(.*\.(?:css|js))(.*)$/i, '$1?t=13835292681991']]
+});
+seajs.use('js/dev/app/app_slider');
+/*app_slider.js*/
+define(function(require,exports,module){
+    require('../module/imgFocus');
+    //序列数
+    $('#J_banner1').imgFocus({dotType:'number'});
+    //缩略图
+    $('#J_banner2').imgFocus({dotType:'img'});
+});
+                    </textarea>
+                </div>
+            </li>
+            <li class="ui_list_item">
+                <div class="clear">
+                    <a href="images/img_big/slider.gif" class="fl ui_list_imgbox" rel="prettyPhoto[gallery1]"><img src="images/img_small/slider.gif" alt="" /></a>
+                    <div class="fluid">
+                        <h3 class="ui_list_item_title">元素的可控方向滚动</h3>
+                        <div class="ui_list_item_desc">“range”控制滚动的范围（“range”为空时滚动范围为子元素的宽高）、“effect”控制滚动方向。</div>
+                        <div class="ui_list_item_info clear"><span class="author">作者:张龙</span><a href="slider.html" class="run" target="_blank">run</a><a href="slider.html" class="view">view</a></div>
+                    </div>
+                </div>
+                <div class="code-warpper">
+                    <textarea name="" cols="" rows="" class="ui-textarea code-html">
+<div class="slider" id="J_slider">
+    <a href="javascript:;" class="slider_prev"></a><a href="javascript:;" class="slider_next"></a>
+    <div class="slider_cont">
+        <ul id="slider_box">
+            <li>
+                <table width="100%" border="0" cellspacing="0" cellpadding="0" class="slider_table">
+                    <thead>
+                        <tr>
+                            <td colspan="3">2013年11月20日</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td width="25">1</td>
+                            <td width="105">语文</td>
+                            <td>李老师</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>语文</td>
+                            <td>李老师</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>语文</td>
+                            <td>李老师</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>语文</td>
+                            <td>李老师</td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" class="siesta">午休</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>语文</td>
+                            <td>李老师</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>语文</td>
+                            <td>李老师</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>语文</td>
+                            <td>李老师</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </li>
+        </ul>
+    </div>
+</div>
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-css">
+.slider,.slider_cont,.slider_cont ul{position:relative;}
+.slider,.slider_cont,.slider_cont ul li{width:220px;}
+.slider_prev,.slider_next{display:block;width:8px;height:16px;background:url(images/arrow2.gif) no-repeat;position:absolute;z-index:1;top:7px;}
+.slider_prev{background-position:0 0;left:10px;}
+.slider_next{background-position:-8px 0;right:10px;}
+.slider_prev_disable,.slider_nextt_disable{opacity:.2;filter:alpha(opacity=20);cursor:default;}
+.slider_cont{overflow:hidden;}
+.slider_cont ul{width:auto;font-size:0;white-space:nowrap;word-wrap:normal;word-break:keep-all;}
+.slider_cont ul li{display:inline-block;*display:inline;*zoom:1;font-size:12px;}
+
+.slider_table{width:220px;}
+.slider_table td{height:28px;text-align:center;}
+.slider_table thead td{background:#3e94dd;border:1px solid #3e94dd;color:#fff;}
+.slider_table tbody td{background:#f4f8fc;border:1px solid #c8def1;color:#555;}
+.slider_table tbody td.siesta{color:#999;}
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-javascript">
+seajs.config({
+    "base": "./",
+    'map': [[ /^(.*\.(?:css|js))(.*)$/i, '$1?t=13835292681991']]
+});
+seajs.use('js/dev/app/app_slider');
+/*app_slider.js*/
+define(function(require,exports,module){
+    require('../module/slider');
+
+    //slider
+    $('#J_slider').slider();
+});
+                    </textarea>
+                </div>
+            </li>
+            <li class="ui_list_item">
+                <div class="clear">
+                    <a href="images/img_big/slider2.gif" class="fl ui_list_imgbox" rel="prettyPhoto[gallery1]"><img src="images/img_small/slider2.gif" alt="" /></a>
+                    <div class="fluid">
+                        <h3 class="ui_list_item_title">无缝滚动（DOM操作）</h3>
+                        <div class="ui_list_item_desc">JS动态删除和添加DOM已达到无缝的效果。</div>
+                        <div class="ui_list_item_info clear"><span class="author">作者:张龙</span><a href="slider2.html" class="run" target="_blank">run</a><a href="slider2.html" class="view">view</a></div>
+                    </div>
+                </div>
+                <div class="code-warpper">
+                    <textarea name="" cols="" rows="" class="ui-textarea code-html">
+<div id="J_slider" class="slider">
+    <a href="javascript:;" class="prev" id="J_prev">prev</a>
+    <a href="javascript:;" class="next" id="J_next">next</a>
+    <div class="slider_cont">
+        <ul id="J_slider_cont">
+            <li><a href="javascript:;"><em><img src="images/img/1.jpg" alt="图片1标题" class="dvm" /><span class="vam"></span></em><strong>图片1标题</strong></a></li>
+            <li><a href="javascript:;"><em><img src="images/img/2.jpg" alt="图片2标题" class="dvm" /><span class="vam"></span></em><strong>图片2标题</strong></a></li>
+            <li><a href="javascript:;"><em><img src="images/img/3.jpg" alt="图片3标题" class="dvm" /><span class="vam"></span></em><strong>图片3标题</strong></a></li>
+        </ul>
+    </div>
+</div>
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-css">
+.slider{position:relative;width:858px;height:210px;border:1px solid #ddd;margin:50px auto;background:#f3f3f3;}
+.slider .prev,.slider .next{position:absolute;top:50%;width:39px;height:80px;cursor:pointer;overflow:hidden;margin-top:-40px;text-indent:-9999px;background:url(images/btn.png) no-repeat;}
+.slider .prev{left:10px;background-position:0 0;}
+.slider .next{right:10px;background-position:-39px 0;}
+
+.slider_cont,.slider_cont ul{position:absolute;height:160px;}
+.slider_cont{top:50%;left:50%;width:730px;overflow:hidden;margin:-80px 0 0 -365px;}
+.slider_cont ul{font-size:0;white-space:nowrap;word-wrap:normal;word-break:keep-all;}
+.slider_cont li{width:160px;height:160px;text-align:center;display:inline-block;*display:inline;*zoom:1;vertical-align:top;font-size:12px;margin-right:30px;}
+.slider_cont li a{color:#444;}
+.slider_cont li em{display:block;width:156px;height:121px;overflow:hidden;margin-bottom:5px;border:2px solid #ddd;}
+.slider_cont li strong{display:block;height:30px;line-height:30px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;word-wrap:normal;word-break:keep-all;}
+.slider_cont img{width:156px;height:121px;}
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-javascript">
+seajs.config({
+    "base": "./",
+    'map': [[ /^(.*\.(?:css|js))(.*)$/i, '$1?t=13835292681991']]
+});
+seajs.use('js/dev/app/app_slider');
+/*app_slider.js*/
+define(function(require,exports,module){
+    var slider2 = require('../module/slider2');
+    //无缝滚动
+    slider2();
+});
+                    </textarea>
+                </div>
+            </li>
+            <li class="ui_list_item">
+                <div class="clear">
+                    <a href="images/img_big/slider3.gif" class="fl ui_list_imgbox" rel="prettyPhoto[gallery1]"><img src="images/img_small/slider3.gif" alt="" /></a>
+                    <div class="fluid">
+                        <h3 class="ui_list_item_title">无缝滚动</h3>
+                        <div class="ui_list_item_desc">无控制按钮，4个方向不同的滚动，可指定循环次数和滚动步长。</div>
+                        <div class="ui_list_item_info clear"><span class="author">作者:张龙</span><a href="slider3.html" class="run" target="_blank">run</a><a href="slider3.html" class="view">view</a></div>
+                    </div>
+                </div>
+                <div class="code-warpper">
+                    <textarea name="" cols="" rows="" class="ui-textarea code-html">
+<div id="J_marquee" class="marquee">
+    <ul class="clear">
+        <li><a href="#"><img src="images/img/1.jpg" alt="" /></a></li>
+        <li><a href="#"><img src="images/img/2.jpg" alt="" /></a></li>
+        <li><a href="#"><img src="images/img/3.jpg" alt="" /></a></li>
+    </ul>
+</div>
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-css">
+.marquee{width:700px;height:150px;overflow:hidden;background:#333;border:2px solid #333;margin:50px auto;}
+.marquee ul li{display:inline;float:left;padding:0 1px;}
+.marquee ul li img{display:block;width:200px;height:150px;}
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-javascript">
+seajs.config({
+    "base": "./",
+    'map': [[ /^(.*\.(?:css|js))(.*)$/i, '$1?t=13835292681991']]
+});
+seajs.use('js/dev/app/app_slider');
+/*app_slider.js*/
+define(function(require,exports,module){
+    require('../module/slider3');
+    //无缝滚动
+    $('#J_marquee').marquee({direction:'left'});
+});
+                    </textarea>
+                </div>
+            </li>
+            <li class="ui_list_item">
+                <div class="clear">
+                    <a href="images/img_big/roundabout.gif" class="fl ui_list_imgbox" rel="prettyPhoto[gallery1]"><img src="images/img_small/roundabout.gif" alt="" /></a>
+                    <div class="fluid">
+                        <h3 class="ui_list_item_title">图片3D旋转切换</h3>
+                        <div class="ui_list_item_desc">此插件基于jQuery1.7.2编写，请引用jQuery1.7.2，否则不能正常播放动画！</div>
+                        <div class="ui_list_item_info clear"><span class="author">作者:张龙</span><a href="roundabout.html" class="run" target="_blank">run</a><a href="roundabout.html" class="view">view</a></div>
+                    </div>
+                </div>
+                <div class="code-warpper">
+                    <textarea name="" cols="" rows="" class="ui-textarea code-html">
+<ul id="J_roundabout">
+    <li><img src="images/img/1.jpg" alt="" /></li>
+    <li><img src="images/img/2.jpg" alt="" /></li>
+    <li><img src="images/img/3.jpg" alt="" /></li>
+    <li><img src="images/img/4.jpg" alt="" /></li>
+    <li><img src="images/img/5.jpg" alt="" /></li>
+</ul>
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-css">
+ul{width:620px;height:340px;margin:0 auto;}
+li{width:440px;height:280px;text-align:center;cursor:pointer;overflow:hidden;}
+li img{width:100%;height:100%;}
+li.roundabout-in-focus{cursor:default;}
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-javascript">
+<script type="text/javascript" src="js/dev/lib/jquery1.7.js"></script>
+<script type="text/javascript" src="js/dev/lib/sea.js"></script>
+<script type="text/javascript">
+    seajs.config({
+        "base": "./",
+        'map': [[ /^(.*\.(?:css|js))(.*)$/i, '$1?t=13835292681991']]
+    });
+    seajs.use('js/dev/module/roundabout', function(){
+        $('#J_roundabout').roundabout();
+    });
+</script>
+                    </textarea>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <h2 class="ui_title">图片查看</h2>
+    <div class="ui_list_wrapper">
+        <ul class="ui_list">
+            <li class="ui_list_item">
+                <div class="clear">
+                    <a href="images/img_big/album1.gif" class="fl ui_list_imgbox" rel="prettyPhoto[gallery1]"><img src="images/img_small/album1.gif" alt="" /></a>
+                    <div class="fluid">
+                        <h3 class="ui_list_item_title">图片查看器（缩略图）</h3>
+                        <div class="ui_list_item_desc">注意：缩略图看见元素的范围要根据当前的css来调整。</div>
+                        <div class="ui_list_item_info clear"><span class="author">作者:张龙</span><a href="album.html" class="run" target="_blank">run</a><a href="album.html" class="view">view</a></div>
+                    </div>
+                </div>
+                <div class="code-warpper">
+                    <textarea name="" cols="" rows="" class="ui-textarea code-html">
+<div class="album" id="J_album">
+    <div class="album_sidebar">
+        <a href="javascript:;" class="album_sidebar_btn next" id="J_sbarnext"></a>
+        <a href="javascript:;" class="album_sidebar_btn prve" id="J_sbarprev"></a>
+        <div class="album_sidebar_list" id="J_sbar">
+            <ul>
+                <li><a href="images/img_big/tab.gif"><img src="images/img_small/tab.gif" alt="" title="" /></a></li>
+                <li><a href="images/img_big/slider.gif"><img src="images/img_small/slider.gif" alt="" title="" /></a></li>
+                <li><a href="images/img_big/banner.gif"><img src="images/img_small/banner.gif" alt="" title="" /></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="album_area">
+        <div class="album_area_top clear">
+            <div class="fr"><a href="#" id="J_cover">设为封面</a>|<a href="Cs_album_ckzprole.html" id="J_edit">编辑</a>|<a href="Ps_album_ckwdzp.html" id="J_delphoto">删除</a><span>查看(12)</span><span>评论(8)</span></div>
+            <div class="fluid"><a href="#">xxx</a>发表于2013年11月11日 07:49 </div>
+        </div>
+        <div class="album_area_img" id="J_img"><img src="images/img_big/banner.gif" alt="" title="" /></div>
+        <div class="album_area_info">
+            <p class="album_area_name">图片名称</p>
+            <p class="album_area_disc">图片描述。。。。</p>
+        </div>
+    </div>  
+</div>
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-css">
+.album{width:880px;overflow:hidden;margin:10px auto;}
+.album_sidebar{position:relative;margin-bottom:5px;}
+.album_sidebar .album_sidebar_btn{display:block;width:30px;height:84px;background:#ccc url(images/arrow1.gif) no-repeat;position:absolute;top:0;}
+.album_sidebar .prve{background-position:-8px center;left:0;}
+.album_sidebar .next{background-position:-62px center;right:0;}
+.album_sidebar .album_sidebar_btn:hover,.album_sidebar .prev_disable,.album_sidebar .next_disable{opacity:.6;filter:alpha(opacity=60);}
+.album_sidebar .prev_disable,.album_sidebar .next_disable{cursor:default;}
+
+.album_sidebar_list{width:809px;height:84px;margin-left:35px;overflow:hidden;position:relative;}
+.album_sidebar_list ul{line-height:0;font-size:0;width:auto;white-space:nowrap;word-wrap:normal;word-break:keep-all;overflow:hidden;position:absolute;top:0;left:0;}
+.album_sidebar_list ul li{display:inline-block;*display:inline;*zoom:1;vertical-align:top;margin:0 3px;text-align:center;}
+.album_sidebar_list ul li a{display:block;width:78px;height:78px;overflow:hidden;border:1px solid #ccc;margin:1px;padding:1px;}
+.album_sidebar_list ul li a:hover{border:3px solid #f60;margin:0;padding:0;}
+.album_sidebar_list ul li.curr a{border:3px solid #2b84d0;margin:0;padding:0;}
+.album_sidebar_list ul li a img{width:78px;height:78px;}
+
+.album_area{border-top:1px solid #ddd;}
+.album_area_top{padding:15px 0;color:#888;}
+.album_area_top a,.album_area_top span{margin:0 10px;}
+.album_area_img{margin-top:5px;width:880px;background:url(images/loading.gif) no-repeat center center;min-height:40px;_height:40px;text-align:center;}
+
+.album_area_info{margin-top:15px;}
+.album_area_info p{margin-bottom:5px;}
+.album_area_name{color:#444;height:20px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;word-wrap:normal;word-break:keep-all;}
+.album_area_disc{color:#888;}
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-javascript">
+seajs.config({
+    "base": "./",
+    'map': [[ /^(.*\.(?:css|js))(.*)$/i, '$1?t=13835292681991']]
+});
+seajs.use('js/dev/app/app_album');
+/*app_album.js*/
+define(function(require,exports,module){
+    require('../module/album');
+    
+    $('#J_album_view').album({
+        index:0,
+        visibleLen:9,
+        cursorPath:'images'
+    });
+});
+                    </textarea>
+                </div>
+            </li>
+            <li class="ui_list_item">
+                <div class="clear">
+                    <a href="images/img_big/album2.gif" class="fl ui_list_imgbox" rel="prettyPhoto[gallery1]"><img src="images/img_small/album2.gif" alt="" /></a>
+                    <div class="fluid">
+                        <h3 class="ui_list_item_title">带Loading效果的图片切换</h3>
+                        <div class="ui_list_item_desc">带Loading效果的图片切换是一个简单的容易定制的图片查看插件，图片数据由后台输出json数据控制。</div>
+                        <div class="ui_list_item_info clear"><span class="author">作者:张龙</span><a href="album2.html" class="run" target="_blank">run</a><a href="album2.html" class="view">view</a></div>
+                    </div>
+                </div>
+                <div class="code-warpper">
+                    <textarea name="" cols="" rows="" class="ui-textarea code-html">
+<div id="J_imgview" class="imgview">
+    <a href="javascript:;" class="btn_l" id="J_prev">左</a>
+    <a href="javascript:;" class="btn_r" id="J_next">右</a>
+    <div id="J_title" class="img_title"><span></span></div>
+    <div id="J_imgwrap" class="img_wrap"></div>
+</div>
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-css">
+html{background:#000;}
+.imgview{position:relative;text-align:center;font-family:"\5FAE\8F6F\96C5\9ED1";width:800px;margin:20px auto;}
+.img_title{position:absolute;top:0;left:0;width:100%;background:#000;color:#fff;opacity:0.7;filter:alpha(opacity=70);font-size:20px;height:50px;}
+.img_title span{padding:0 5px;line-height:50px;display:block;}
+.img_wrap{width:100%;height:auto!important;height:400px;min-height:400px;}
+.img_wrap.loading{background:url(images/loading_1.gif) 50% 50% no-repeat;}
+.btn_l,.btn_r{position:absolute;top:50%;margin-top:-40px;width:39px;height:80px;overflow:hidden;text-indent:-9999px;background:url(images/btn.png) no-repeat;opacity:0;filter:alpha(opacity=0);}
+.btn_l{left:10px;background-position:0 0;}
+.btn_r{right:10px;background-position:-39px 0;}
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-javascript">
+seajs.config({
+    "base": "./",
+    'map': [[ /^(.*\.(?:css|js))(.*)$/i, '$1?t=13835292681991']]
+});
+seajs.use('js/dev/app/app_album');
+/*app_album.js*/
+define(function(require,exports,module){
+    var imgview = require('../module/imgview');
+    require('../module/dialog');
+    
+    $.ajax({
+        url: 'imgdata.php',
+        type: 'GET',
+        dataType: 'json',
+        success: function(data){
+            imgview({
+                data:data
+            })
+        }
+    });
+});
+                    </textarea>
+                </div>
+            </li>
+            <li class="ui_list_item">
+                <div class="clear">
+                    <a href="images/img_big/album3.gif" class="fl ui_list_imgbox" rel="prettyPhoto[gallery1]"><img src="images/img_small/album3.gif" alt="" /></a>
+                    <div class="fluid">
+                        <h3 class="ui_list_item_title">弹窗图片查看</h3>
+                        <div class="ui_list_item_desc">在图片列表的大图链接加上“rel="prettyPhoto[gallery1]"”属性调用。</div>
+                        <div class="ui_list_item_info clear"><span class="author">作者:张龙</span><a href="album3.html" class="run" target="_blank">run</a><a href="album3.html" class="view">view</a></div>
+                    </div>
+                </div>
+                <div class="code-warpper">
+                    <textarea name="" cols="" rows="" class="ui-textarea code-html">
+<div class="img_list img_type_150_150" id="J_img_list">
+    <ul class="img_list_inner clear">
+        <li>
+            <a href="images/img/1.jpg" class="imgbox" rel="prettyPhoto[gallery1]"><img src="images/img_2.gif" alt="图片标题1" class="dvm"/><span class="vam"></span></a>
+            <div class="img_list_text gray m_t_10">
+                 <h4 class="f_14_b m_b_5"><a href="#">图片标题1</a></h4>
+                 <p><em>图片：</em>01</p>
+                 <p><em>作者：</em><a href="#">张龙</a></p>
+                 <p>05月06日 15:14更新</p>
+            </div>
+        </li>
+        <li>
+            <a href="images/img/2.jpg" class="imgbox" rel="prettyPhoto[gallery1]"><img src="images/img_2.gif" alt="图片标题2" class="dvm"/><span class="vam"></span></a>
+            <div class="img_list_text gray m_t_10">
+                 <h4 class="f_14_b m_b_5"><a href="#">图片标题2</a></h4>
+                 <p><em>图片：</em>02</p>
+                 <p><em>作者：</em><a href="#">张龙</a></p>
+                 <p>05月06日 15:14更新</p>
+            </div>
+        </li>
+    </ul>
+</div>
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-css">
+<link rel="stylesheet" type="text/css" href="js/dev/plugs/prettyPhoto/css/prettyPhoto.css" />
+.img_list{overflow:hidden;}
+.img_list_inner{width:110%;}
+.img_list_inner li{display:inline;float:left;}
+.imgbox{display:block;text-align:center;overflow:hidden;}
+.img_type_150_150{width:860px;}
+.img_type_150_150 li{width:156px;margin:0 20px 20px 0;}
+.img_type_150_150 .imgbox{width:150px;height:150px;border:1px solid #ddd;padding:2px;}
+.img_type_150_150 .imgbox:hover{border:3px solid #bbb;padding:0;}
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-javascript">
+seajs.config({
+    "base": "./",
+    'map': [[ /^(.*\.(?:css|js))(.*)$/i, '$1?t=13835292681991']]
+});
+seajs.use('js/dev/app/app_album');
+/*app_album.js*/
+define(function(require,exports,module){
+    require('../plugs/prettyPhoto/js/jquery.prettyPhoto');
+    
+    $("#J_img_list a[rel^='prettyPhoto']").prettyPhoto({
+        animation_speed:'fast',
+        slideshow:3000,
+        autoplay_slideshow: false,
+        social_tools:false
+    });
+});
+                    </textarea>
+                </div>
+            </li>
+            <li class="ui_list_item">
+                <div class="clear">
+                    <a href="images/img_big/album4.gif" class="fl ui_list_imgbox" rel="prettyPhoto[gallery1]"><img src="images/img_small/album4.gif" alt="" /></a>
+                    <div class="fluid">
+                        <h3 class="ui_list_item_title">旋转图像幻灯片</h3>
+                        <div class="ui_list_item_desc">此插件基于jQuery1.9, 请使用支持CSS3的浏览器查看。</div>
+                        <div class="ui_list_item_info clear"><span class="author">作者:张龙</span><a href="album4.html" class="run" target="_blank">run</a><a href="album4.html" class="view">view</a></div>
+                    </div>
+                </div>
+                <div class="code-warpper">
+                    <textarea name="" cols="" rows="" class="ui-textarea code-html">
+<div id="J_slideShowContainer" class="sliderShow">
+    <div id="J_slideShow" class="sliderCont">
+        <ul>
+            <li><img src="images/photos/1.jpg" alt="" /></li>
+            <li><img src="images/photos/2.jpg" alt="" /></li>
+            <li><img src="images/photos/3.jpg" alt="" /></li>
+            <li><img src="images/photos/4.jpg" alt="" /></li>
+        </ul>
+    </div>
+    <a href="javascript:;" id="J_prevLink" class="prevLink">&arqup;</a>
+    <a href="javascript:;" id="J_nextLink" class="nextLink">&laquo;</a>
+</div>
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-css">
+html{background:url('images/page_bg_tile.jpg') #202027;}
+body{background-image:url('images/contour.png'),url('images/page_bg.jpg'); background-repeat:no-repeat,no-repeat; background-position: center 117px, center -200px; border:1px solid transparent;}
+.sliderShow{width:510px;height:510px;position:relative;margin:120px auto 50px;}
+.sliderCont{position:absolute;height:490px;width:490px;background:#fff;margin:10px 0 0 10px;z-index:100;-moz-box-shadow:0 0 10px #111;-webkit-box-shadow:0 0 10px #111;box-shadow:0 0 10px #111;}
+.sliderCont ul{position:absolute;top:15px;right:15px;bottom:15px;left:15px;overflow:hidden;}
+.sliderCont ul li{position:absolute;top:0;left:0;width:100%;height:100%;}
+.sliderCont ul li img{width:100%;height:100%;display:block;}
+.prevLink,.nextLink{border:none;text-decoration:none;text-indent:-99999px;overflow:hidden;width:36px;height:37px;background:url('images/arrows.png') no-repeat;position:absolute;top:50%;margin-top:-21px;}
+.prevLink{left:-38px;background-position:top left;}
+.prevLink:hover{background-position:bottom left;}
+.nextLink{right:-38px;background-position:top right;}
+.nextLink:hover{background-position:bottom right;}
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-javascript">
+seajs.config({
+    "base": "./",
+    'map': [[ /^(.*\.(?:css|js))(.*)$/i, '$1?t=13835292681991']]
+});
+seajs.use('js/dev/app/app_album');
+/*app_album.js*/
+define(function(require,exports,module){
+    require('../module/sliderShow');
+    
+    $('#J_slideShowContainer').sliderShow();
+});
+                    </textarea>
+                </div>
+            </li>
+            </li>
+            <li class="ui_list_item">
+                <div class="clear">
+                    <a href="images/img_big/imgzoom.gif" class="fl ui_list_imgbox" rel="prettyPhoto[gallery1]"><img src="images/img_small/imgzoom.gif" alt="" /></a>
+                    <div class="fluid">
+                        <h3 class="ui_list_item_title">图片放大镜</h3>
+                        <div class="ui_list_item_desc">此插件基于jQuery1.9, 支持同一页面多个放大功能。</div>
+                        <div class="ui_list_item_info clear"><span class="author">作者:张龙</span><a href="imgzoom.html" class="run" target="_blank">run</a><a href="imgzoom.html" class="view">view</a></div>
+                    </div>
+                </div>
+                <div class="code-warpper">
+                    <textarea name="" cols="" rows="" class="ui-textarea code-html">
+<div class="box J_zoom">
+    <div class="tb-booth tb-pic tb-s310">
+        <a href="images/photos/images/01.jpg"><img src="images/photos/images/01_mid.jpg" alt="美女1" rel="images/photos/images/01.jpg" class="J_img" /></a>
+    </div>
+    <ul class="tb-thumb">
+        <li>
+            <div class="tb-pic tb-s40">
+                <a href="javascript:;"><img src="images/photos/images/01_small.jpg" mid="images/photos/images/01_mid.jpg" big="images/photos/images/01.jpg" alt="美女1" class="J_cutover" /></a>
+            </div>
+        </li>
+        <li>
+            <div class="tb-pic tb-s40">
+                <a href="javascript:;"><img src="images/photos/images/02_small.jpg" mid="images/photos/images/02_mid.jpg" big="images/photos/images/02.jpg" alt="美女2" class="J_cutover" /></a>
+            </div>
+        </li>
+        <li>
+            <div class="tb-pic tb-s40">
+                <a href="javascript:;"><img src="images/photos/images/03_small.jpg" mid="images/photos/images/03_mid.jpg" big="images/photos/images/03.jpg" alt="美女3" class="J_cutover" /></a>
+            </div>
+        </li>
+        <li>
+            <div class="tb-pic tb-s40">
+                <a href="javascript:;"><img src="images/photos/images/04_small.jpg" mid="images/photos/images/04_mid.jpg" big="images/photos/images/04.jpg" alt="美女4" class="J_cutover" /></a>
+            </div>
+        </li>
+        <li>
+            <div class="tb-pic tb-s40">
+                <a href="javascript:;"><img src="images/photos/images/05_small.jpg" mid="images/photos/images/05_mid.jpg" big="images/photos/images/05.jpg" alt="美女5" class="J_cutover" /></a>
+            </div>
+        </li>
+    </ul>
+</div>
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-css">
+.box{width:310px;margin:100px auto;}
+.tb-pic a{display:table-cell;text-align:center;vertical-align:middle;}
+.tb-pic a img{vertical-align:middle;}
+.tb-pic a{*display:block;*font-family:Arial;*line-height:1;}
+.tb-thumb{margin:10px 0 0;overflow:hidden;}
+.tb-thumb li{background:none repeat scroll 0 0 transparent;float:left;height:42px;margin:0 6px 0 0;overflow:hidden;padding:1px;}
+.tb-s310, .tb-s310 a{height:310px;width:310px;}
+.tb-s310, .tb-s310 img{max-height:310px;max-width:310px;}
+.tb-s310 a{*font-size:271px;}
+.tb-s40 a{*font-size:35px;}
+.tb-s40, .tb-s40 a{height:40px;width:40px;}
+.tb-booth{border:1px solid #cdcdcd;position:relative;z-index:1;}
+.tb-thumb .selected{background:none repeat scroll 0 0 #c30008;height:40px;padding:2px;}
+.tb-thumb .selected div{background-color:#fff;border:medium none;}
+.tb-thumb li div{border:1px solid #cdcdcd;}
+div.zoomDiv{z-index:999;position:absolute;top:0;left:0;width:200px;height:200px;background:#fff;border:1px solid #ccc;display:none;text-align:center;overflow:hidden;}
+div.zoomMask{position:absolute;background:url("images/photos/images/mask.png") repeat scroll 0 0 transparent;cursor:move;z-index:1;}
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-javascript">
+seajs.config({
+    "base": "./",
+    'map': [[ /^(.*\.(?:css|js))(.*)$/i, '$1?t=13835292681991']]
+});
+seajs.use('js/dev/module/imgzoom', function () {
+    $('.J_zoom').imgzoom();
+});
+                    </textarea>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <h2 class="ui_title">评分</h2>
+    <div class="ui_list_wrapper">
+        <ul class="ui_list">
+            <li class="ui_list_item">
+                <div class="clear">
+                    <a href="images/img_big/grade1.gif" class="fl ui_list_imgbox" rel="prettyPhoto[gallery1]"><img src="images/img_small/grade1.gif" alt="" /></a>
+                    <div class="fluid">
+                        <h3 class="ui_list_item_title">评分系统</h3>
+                        <div class="ui_list_item_desc">此评分系统模拟淘宝评分系统，评分之后可以通过“callback”回调函数执行相关下一步操作。</div>
+                        <div class="ui_list_item_info clear"><span class="author">作者:张龙</span><a href="grade.html" class="run" target="_blank">run</a><a href="grade.html" class="view">view</a></div>
+                    </div>
+                </div>
+                <div class="code-warpper">
+                    <textarea name="" cols="" rows="" class="ui-textarea code-html">
+<div class="grade clear">
+    <span>点击星星就能打分</span>
+    <ul id="J_grade">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+</div>
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-css">
+.grade{position:relative;width:600px;margin:10px auto;}
+.grade ul,.grade span{float:left;display:inline;height:19px;line-height:19px;}
+.grade ul{margin:0 10px;}
+.grade li{float:left;width:24px;cursor:pointer;text-indent:-9999px;background:url(images/star.png) no-repeat;}
+.grade strong{color:#f60;padding-left:10px;}
+.grade li.on{background-position:0 -28px;}
+.grade p{position:absolute;top:20px;width:159px;height:60px;display:none;background:url(images/icon.gif) no-repeat;padding:7px 10px 0;}
+.grade p em{color:#f60;display:block;font-style:normal;}
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-javascript">
+seajs.config({
+    "base": "./",
+    'map': [[ /^(.*\.(?:css|js))(.*)$/i, '$1?t=13835292681991']]
+});
+seajs.use('js/dev/app/app_grade');
+/*app_grade.js*/
+define(function(require,exports,module){
+    var grade = require('../module/grade');
+    
+    grade({
+        msg:[
+            "很不满意|差得太离谱，与卖家描述的严重不符，非常不满",
+            "不满意|部分有破损，与卖家描述的不符，不满意",
+            "一般|质量一般，没有卖家描述的那么好",
+            "满意|质量不错，与卖家描述的基本一致，还是挺满意的",
+            "非常满意|质量非常好，与卖家描述的完全一致，非常满意"
+        ]
+    });
+});
+                    </textarea>
+                </div>
+            </li>
+            <li class="ui_list_item">
+                <div class="clear">
+                    <a href="images/img_big/grade2.gif" class="fl ui_list_imgbox" rel="prettyPhoto[gallery1]"><img src="images/img_small/grade2.gif" alt="" /></a>
+                    <div class="fluid">
+                        <h3 class="ui_list_item_title">评分插件</h3>
+                        <div class="ui_list_item_desc">给元素加一个“data-grade”属性，值为“5-4.5”,表示总值是“５”。</div>
+                        <div class="ui_list_item_info clear"><span class="author">作者:张龙</span><a href="grade2.html" class="run" target="_blank">run</a><a href="grade2.html" class="view">view</a></div>
+                    </div>
+                </div>
+                <div class="code-warpper">
+                    <textarea name="" cols="" rows="" class="ui-textarea code-html">
+<div class="grade">
+    <strong>评分：</strong><span class="star_grade" data-grade="5-3" id="J_to_grade"><em></em></span><b id="J_grade_number"><em>4</em>分</b><input type="hidden" name="" id="J_grade" />
+</div>
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-css">
+.grade{height:30px;width:220px;margin:50px auto;}
+.grade strong,.grade b{font:normal 16px/30px 'Microsoft YaHei',Arial, Helvetica, sans-serif;display:inline-block;*display:inline;*zoom:1;vertical-align:middle;}
+.grade b{color:#f60;}
+.star_grade,.star_grade em{display:inline-block;height:20px;overflow:hidden;vertical-align:top;font-size:0;line-height:0;background:url(images/star.gif) repeat-x;cursor:pointer;}
+.star_grade{width:120px;text-align:left;background-position:0 0;margin-top:5px;}
+.star_grade em{width:60%;background-position:0 -20px;}
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-javascript">
+seajs.config({
+    "base": "./",
+    'map': [[ /^(.*\.(?:css|js))(.*)$/i, '$1?t=13835292681991']]
+});
+seajs.use('js/dev/app/app_grade');
+/*app_grade.js*/
+define(function(require,exports,module){
+    require('../module/grade2');
+    
+    //评分
+    var $J_grade_number = $('#J_grade_number em');
+    var hanndler = function(v){
+        $J_grade_number.text(v);
+    };
+    $('#J_to_grade').grade({
+        save:'#J_grade',
+        half: true,
+        callback:hanndler,
+        moveHandler:hanndler,
+        outHandler:hanndler
+    });
+});
+                    </textarea>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <h2 class="ui_title">分页</h2>
+    <div class="ui_list_wrapper">
+        <ul class="ui_list">
+            <li class="ui_list_item">
+                <div class="clear">
+                    <a href="images/img_big/pager_html.gif" class="fl ui_list_imgbox" rel="prettyPhoto[gallery1]"><img src="images/img_small/pager_html.gif" alt="" /></a>
+                    <div class="fluid">
+                        <h3 class="ui_list_item_title">html分页</h3>
+                        <div class="ui_list_item_desc">常用分页样式及结构。</div>
+                        <div class="ui_list_item_info clear"><span class="author">作者:张龙</span><a href="pager_html.html" class="run" target="_blank">run</a><a href="pager_html.html" class="view">view</a></div>
+                    </div>
+                </div>
+                <div class="code-warpper">
+                    <textarea name="" cols="" rows="" class="ui-textarea code-html">
+<div class="pager">
+    <a href="#" class="pager_prev pager_disable pager_disable_prev">上一页</a>
+    <a href="#" class="pager_item active">1</a>
+    <a href="#" class="pager_item">2</a>
+    <a href="#" class="pager_item">3</a>
+    <a href="#" class="pager_item">4</a>
+    <a href="#" class="pager_item">5</a>
+    <a href="#" class="pager_item">6</a>
+    <a href="#" class="pager_item">7</a>
+    <a href="#" class="pager_item">8</a>
+    <span class="pager_dot">...</span>
+    <a href="#" class="pager_item">20</a>
+    <a href="#" class="pager_next">下一页</a>
+    <span class="page_total">共<em>20</em>页</span>
+    <form method="get" name="pageJump" action="#" class="form_pageJump">
+        <label>到<input type="text" name="page" class="input_item input_item_shortest">页</label>
+        <button type="submit" class="btn_submit">确定</button>
+    </form>
+</div>
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-css">
+.pager{text-align:center;font-family:Arial, Helvetica, sans-serif;padding:10px 0;font-size:0;}
+.pager_prev,.pager_next{background:#e9f3fb;padding:5px 10px;border:1px solid #b3cfe7;color:#2b84d0;border-radius:2px;font-size: 12px;margin-right:5px;display:inline-block;*display:inline;*zoom:1;vertical-align:top;}
+.pager_item,.btn_submit{border:1px solid #b3cfe7;color:#2b84d0;background:#e9f3fb;border-radius:2px;font-size:12px;margin-right:5px;padding:5px 10px;text-align:center;display:inline-block;*display:inline;*zoom:1;vertical-align:top;}
+.pager a:hover,.pager a.active,.btn_submit{text-decoration:none;background:#3e94dd;border-color:#3e94dd;color:#fff;}
+.pager a.active{cursor:default;}
+.pager .pager_disable,.pager .pager_disable:hover{background:#efefef;border:1px solid #ccc;color:#ccc;cursor:default;}
+.pager_dot{padding:5px 5px 0 0;font-size:12px;}
+.pager .form_pageJump .input_item_shortest{padding:3px 4px;width:20px;margin:0 5px;vertical-align:middle;}
+.form_pageJump{padding:0 5px;display:inline-block;*display:inline;*zoom:1;font-size:12px;}
+.form_pageJump label{display:inline-block;*display:inline;*zoom:1;padding-right:5px;padding-top:3px;}
+.page_total{font-size:12px;line-height:30px;}
+.form_pageJump label input{line-height:1.3;}
+.pager .btn_submit{padding:4px 8px;margin-top:3px;line-height:1;}
+
+.pager_only_prev_next a{margin:0 15px;padding:0;border:0;width:56px;height:30px;display:inline-block;*display:inline;*zoom:1;vertical-align:top;font-size:0;line-height:0;overflow:hidden;}
+.pager_only_prev_next a.pager_prev,.pager_only_prev_next a.pager_prev:hover{background:url(../images/pager_bg.gif) no-repeat 0 -30px;}
+.pager_only_prev_next a.pager_next,.pager_only_prev_next a.pager_next:hover{background:url(../images/pager_bg.gif) no-repeat -56px 0;}
+.pager_only_prev_next .pager_disable,.pager_only_prev_next .pager_disable:hover{border:0;cursor:default;}
+.pager_only_prev_next a.pager_disable_prev,.pager_only_prev_next a.pager_disable_prev:hover{background:url(../images/pager_bg.gif) no-repeat 0 0;}
+.pager_only_prev_next a.pager_disable_next,.pager_only_prev_next a.pager_disable_next:hover{background:url(../images/pager_bg.gif) no-repeat -56px -30px;}
+                    </textarea>
+                </div>
+            </li>
+            <li class="ui_list_item">
+                <div class="clear">
+                    <a href="images/img_big/pager_js.gif" class="fl ui_list_imgbox" rel="prettyPhoto[gallery1]"><img src="images/img_small/pager_js.gif" alt="" /></a>
+                    <div class="fluid">
+                        <h3 class="ui_list_item_title">js分页</h3>
+                        <div class="ui_list_item_desc">常用分页样式及结构。</div>
+                        <div class="ui_list_item_info clear"><span class="author">作者:张龙</span><a href="pager_js.html" class="run" target="_blank">run</a><a href="pager_js.html" class="view">view</a></div>
+                    </div>
+                </div>
+                <div class="code-warpper">
+                    <textarea name="" cols="" rows="" class="ui-textarea code-html">
+<div id="J_pager" class="pager" current="1" total="20" url="http://www.baidu.com"></div>
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-css">
+.pager{text-align:center;font-family:Arial, Helvetica, sans-serif;padding:10px 0;font-size:0;}
+.pager_prev,.pager_next{background:#e9f3fb;padding:5px 10px;border:1px solid #b3cfe7;color:#2b84d0;border-radius:2px;font-size: 12px;margin-right:5px;display:inline-block;*display:inline;*zoom:1;vertical-align:top;}
+.pager_item,.btn_submit{border:1px solid #b3cfe7;color:#2b84d0;background:#e9f3fb;border-radius:2px;font-size:12px;margin-right:5px;padding:5px 10px;text-align:center;display:inline-block;*display:inline;*zoom:1;vertical-align:top;}
+.pager a:hover,.pager a.active,.btn_submit{text-decoration:none;background:#3e94dd;border-color:#3e94dd;color:#fff;}
+.pager a.active{cursor:default;}
+.pager .pager_disable,.pager .pager_disable:hover{background:#efefef;border:1px solid #ccc;color:#ccc;cursor:default;}
+.pager_dot{padding:5px 5px 0 0;font-size:12px;}
+.pager .form_pageJump .input_item_shortest{padding:3px 4px;width:20px;margin:0 5px;vertical-align:middle;}
+.form_pageJump{padding:0 5px;display:inline-block;*display:inline;*zoom:1;font-size:12px;}
+.form_pageJump label{display:inline-block;*display:inline;*zoom:1;padding-right:5px;padding-top:3px;}
+.page_total{font-size:12px;line-height:30px;}
+.form_pageJump label input{line-height:1.3;}
+.pager .btn_submit{padding:4px 8px;margin-top:3px;line-height:1;}
+
+.pager_only_prev_next a{margin:0 15px;padding:0;border:0;width:56px;height:30px;display:inline-block;*display:inline;*zoom:1;vertical-align:top;font-size:0;line-height:0;overflow:hidden;}
+.pager_only_prev_next a.pager_prev,.pager_only_prev_next a.pager_prev:hover{background:url(../images/pager_bg.gif) no-repeat 0 -30px;}
+.pager_only_prev_next a.pager_next,.pager_only_prev_next a.pager_next:hover{background:url(../images/pager_bg.gif) no-repeat -56px 0;}
+.pager_only_prev_next .pager_disable,.pager_only_prev_next .pager_disable:hover{border:0;cursor:default;}
+.pager_only_prev_next a.pager_disable_prev,.pager_only_prev_next a.pager_disable_prev:hover{background:url(../images/pager_bg.gif) no-repeat 0 0;}
+.pager_only_prev_next a.pager_disable_next,.pager_only_prev_next a.pager_disable_next:hover{background:url(../images/pager_bg.gif) no-repeat -56px -30px;}
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-javascript">
+seajs.config({
+    "base": "./",
+    'map': [[ /^(.*\.(?:css|js))(.*)$/i, '$1?t=13835292681991']]
+});
+seajs.use('js/dev/app/app_pager');
+/*app_pager.js*/
+define(function(require,exports,module){
+    require('../module/pager');
+    require('../module/dialog');
+    
+    $('#J_pager').pager();
+});
+                    </textarea>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <h2 class="ui_title">弹窗</h2>
+    <div class="ui_list_wrapper">
+        <ul class="ui_list">
+            <li class="ui_list_item">
+                <div class="clear">
+                    <a href="images/img_big/dialog.gif" class="fl ui_list_imgbox" rel="prettyPhoto[gallery1]"><img src="images/img_small/dialog.gif" alt="" /></a>
+                    <div class="fluid">
+                        <h3 class="ui_list_item_title">弹窗</h3>
+                        <div class="ui_list_item_desc">点击按钮可以通过“callback”函数回调，点击右上角的“x”通过“closeCall”函数回调。</div>
+                        <div class="ui_list_item_info clear"><span class="author">作者:张龙</span><a href="dialog.html" class="run" target="_blank">run</a><a href="dialog.html" class="view">view</a></div>
+                    </div>
+                </div>
+                <div class="code-warpper">
+                    <textarea name="" cols="" rows="" class="ui-textarea code-html">
+<input type="button" name="" value="alert" id="J_alert" />
+<input type="button" name="" value="confirm" id="J_confirm" />
+<input type="button" name="" value="prompt" id="J_prompt" />
+<input type="button" name="" value="load" id="J_load" />
+<input type="button" name="" value="loadIframe" id="J_loadIframe" />
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-css">
+#dialog_window{background:#fff;width:400px;box-shadow:1px 3px 5px #666;font-family:'Microsoft YaHei',Arial, Helvetica, sans-serif;}
+#dialog_title{background:#3e94dd;padding-left:10px;height:36px;line-height:36px;text-align:right;cursor:move;color:#fff;}
+#dialog_title h3{font-size:14px;float:left;}
+#dialog_btn_close{background:url(../images/close.gif) no-repeat center center;width:36px;height:36px;display:inline-block;*display: inline;*zoom:1;}
+#dialog_Content{padding:10px;clear:both;}
+#dialog_Content.dialog_icon_alert{background:url(../images/dialog_0.gif) no-repeat 20px 50%;padding-left:60px;line-height:80px;font-size:14px;}
+#dialog_btnBox{padding:5px 0;background:#f8f8f8;text-align:right;border-radius:0 0 5px 5px;border-top:1px solid #ccc;}
+#dialog_btnBox a{margin-right:10px;}
+#dialog_Content.isLoading{background:#fff url(../images/loading.gif) no-repeat 50% 50%;}
+#diaglo_prompt_input{display:block;border:1px solid #ddd;padding:5px;width:90%;margin:8px 0;}
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-javascript">
+seajs.config({
+    "base": "./",
+    'map': [[ /^(.*\.(?:css|js))(.*)$/i, '$1?t=13835292681991']]
+});
+seajs.use('js/dev/app/app_dialog');
+/*app_dialog.js*/
+define(function(require,exports,module){
+    require('../module/dialog');
+    
+    $('#J_alert').on('click', function(e) {
+        e.preventDefault();
+        dialog.alert({
+            content:'你现在测试的是alert！',
+            closeCall:function(){window.location.reload();}
+        });
+    });
+
+    $('#J_confirm').on('click', function(e) {
+        e.preventDefault();
+        dialog.confirm({
+            content:'你现在测试的是confirm！',
+            callback:function(v){dialog.alert({content:v?'你选择了确定！':'你选择了取消！'});}
+        });
+    });
+
+    $('#J_prompt').on('click', function(e) {
+        e.preventDefault();
+        dialog.prompt({
+            content:'你现在测试的是prompt！',
+            defaultValue:'说点什么吧，亲！',
+            callback:function(v){dialog.alert({content:v});}
+        });
+    });
+
+    $('#J_load').on('click', function(e) {
+        e.preventDefault();
+        dialog.load({
+            width:'700',
+            height:'400',
+            title:'辅导培训用户协议',
+            content:'userAgree.html'
+        });
+    });
+
+    $('#J_loadIframe').on('click', function(e) {
+        e.preventDefault();
+        dialog.loadIframe({
+            width:'700',
+            height:'400',
+            content:'http://www.baidu.com'
+        });
+    });
+});
+                    </textarea>
+                </div>
+            </li>
+            <li class="ui_list_item">
+                <div class="clear">
+                    <a href="images/img_big/bindDialog.gif" class="fl ui_list_imgbox" rel="prettyPhoto[gallery1]"><img src="images/img_small/bindDialog.gif" alt="" /></a>
+                    <div class="fluid">
+                        <h3 class="ui_list_item_title">bindDialog弹窗</h3>
+                        <div class="ui_list_item_desc">bindDialog弹窗通过“data-dialog="{title:'登录',width:'445',height:'280'}"”自定义属性调用。</div>
+                        <div class="ui_list_item_info clear"><span class="author">作者:张龙</span><a href="bindDialog.html" class="run" target="_blank">run</a><a href="bindDialog.html" class="view">view</a></div>
+                    </div>
+                </div>
+                <div class="code-warpper">
+                    <textarea name="" cols="" rows="" class="ui-textarea code-html">
+<a href="login.html" class="btn btn_blue" data-dialog="{title:'登录',width:'445',height:'280'}">登录</a>
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-css">
+#dialog_window{background:#fff;width:400px;box-shadow:1px 3px 5px #666;font-family:'Microsoft YaHei',Arial, Helvetica, sans-serif;}
+#dialog_title{background:#3e94dd;padding-left:10px;height:36px;line-height:36px;text-align:right;cursor:move;color:#fff;}
+#dialog_title h3{font-size:14px;float:left;}
+#dialog_btn_close{background:url(../images/close.gif) no-repeat center center;width:36px;height:36px;display:inline-block;*display: inline;*zoom:1;}
+#dialog_Content{padding:10px;clear:both;}
+#dialog_Content.dialog_icon_alert{background:url(../images/dialog_0.gif) no-repeat 20px 50%;padding-left:60px;line-height:80px;font-size:14px;}
+#dialog_btnBox{padding:5px 0;background:#f8f8f8;text-align:right;border-radius:0 0 5px 5px;border-top:1px solid #ccc;}
+#dialog_btnBox a{margin-right:10px;}
+#dialog_Content.isLoading{background:#fff url(../images/loading.gif) no-repeat 50% 50%;}
+#diaglo_prompt_input{display:block;border:1px solid #ddd;padding:5px;width:90%;margin:8px 0;}
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-javascript">
+seajs.config({
+    "base": "./",
+    'map': [[ /^(.*\.(?:css|js))(.*)$/i, '$1?t=13835292681991']]
+});
+seajs.use('js/dev/app/app_dialog');
+/*app_dialog.js*/
+define(function(require,exports,module){
+    //加载bindDialog模块
+    require('../module/bindDialog');
+});
+                    </textarea>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <h2 class="ui_title">表格</h2>
+    <div class="ui_list_wrapper">
+        <ul class="ui_list">
+            <li class="ui_list_item">
+                <div class="clear">
+                    <a href="images/img_big/table1.gif" class="fl ui_list_imgbox" rel="prettyPhoto[gallery1]"><img src="images/img_small/table1.gif" alt="" /></a>
+                    <div class="fluid">
+                        <h3 class="ui_list_item_title">通用表格</h3>
+                        <div class="ui_list_item_desc">各行换色、批量操作、ajax单条数据删除、全选与全部选、数据分页等。</div>
+                        <div class="ui_list_item_info clear"><span class="author">作者:张龙</span><a href="table.html" class="run" target="_blank">run</a><a href="table.html" class="view">view</a></div>
+                    </div>
+                </div>
+                <div class="code-warpper">
+                    <textarea name="" cols="" rows="" class="ui-textarea code-html">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table" id="J_table">
+    <thead>
+        <tr>
+            <th scope="col" width="38"><input type="checkbox" id="" value="" name="s" class="checkbox_item J_checkall"></th>
+            <th scope="col" width="145">帐号</th>
+            <th scope="col" width="85">姓名</th>
+            <th scope="col" width="145">用户名</th>
+            <th scope="col" width="160">身份证号</th>
+            <th scope="col" width="110">手机号</th>
+            <th scope="col" width="65">性别</th>
+            <th scope="col" width="95">职务</th>
+            <th scope="col">任教科目</th>
+            <th scope="col" width="95">操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><input type="checkbox" id="" value="1" name="s" class="checkbox_item"></td>
+            <td>T0000001000020834</td>
+            <td>谭玉玲</td>
+            <td>唯有对你思念</td>
+            <td>342324198903018421</td>
+            <td>13987563432</td>
+            <td>女</td>
+            <td>--</td>
+            <td>语文，数学，英语</td>
+            <td><a href="#">编辑</a><span>|</span><a href="delete.php" class="J_del">删除</a></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" id="" value="2" name="s" class="checkbox_item"></td>
+            <td>T0000001000020834</td>
+            <td>谭玉玲</td>
+            <td>唯有对你思念</td>
+            <td>342324198903018421</td>
+            <td>13987563432</td>
+            <td>女</td>
+            <td>副校长</td>
+            <td>语文，数学，英语</td>
+            <td><a href="#">编辑</a><span>|</span><a href="delete.php" class="J_del">删除</a></td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="10" class="clear">
+                <div class="fl left_btn">
+                    <label class="w_auto"><input type="checkbox" id="" value="" name="s" class="checkbox_item J_checkall"><span>全选/取消</span></label>
+                    <span><a href="delete.php" class="btn_blue J_export">导出账号</a><a href="delete.php" class="btn_blue J_delall">批量删除</a></span>
+                </div>
+                <div class="fr right_pager">
+                    <form method="get" action="">
+                        <span>共58条记录，每页</span>
+                        <select name="datalength" id="J_select" class="select_item">
+                            <option vlaue="10">10</option>
+                            <option vlaue="20">20</option>
+                            <option vlaue="50">50</option>
+                            <option vlaue="100">100</option>
+                        </select>
+                        <span>条</span><a href="#" class="prev_page">上页</a><span>1/3</span><a href="#" class="next_page">下页</a><span>转到</span>
+                        <input name="page" type="text" class="input_item J_gotopage" value="" />
+                        <span>页</span>
+                        <a href="javascript:;" class="btn_item btn_blue J_gopagebtn">确定</a>
+                    </form>
+                </div>
+            </td>
+        </tr>
+    </tfoot>
+</table>
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-css">
+.table{color:#555;font-family:'Microsoft YaHei';}
+.table tfoot td{padding:6px 10px;border:1px solid #ddd;border-top:0;}
+.table thead,.table tfoot td{background:#ddd;height:28px;}
+.table th,.table td{border:1px solid #ddd;text-align:center;height:30px;line-height:30px;}
+.table td.nickname{text-align:left;text-indent:20px;}
+.table th{color:#444;}
+.table tfoot td *{vertical-align:top;line-height:28px;display:inline-block;*display:inline;*zoom:1;}
+.table tbody td span{margin:0 5px;}
+.table .checkbox_item{vertical-align:top;*margin-left:-3px;margin-top:0;cursor:default;}
+.table .odd{background:#f9f9f9;}
+.table .even{background:#fff;}
+.table .hover{background:#f3f3f3;}
+.table .left_btn .checkbox_item,.table tfoot td .checkbox_item{margin:8px 5px 0 0;*margin:2px 3px 0 -3px;}
+.table .left_btn label{margin-right:10px;}
+.table .total,.table .total a{font-weight:bold; color:#e00;}
+.left_btn a{padding:0 10px;margin-right:10px;}
+.right_pager{text-align:right;}
+.right_pager *{display:inline-block; *display:inline; *zoom:1; vertical-align:middle;}
+.right_pager .prev_page{margin:0 8px 0 20px;}
+.right_pager .next_page{margin:0 20px 0 8px;}
+.right_pager input,.right_pager .btn_item{height:20px;line-height:20px;margin:3px 0 0 0;}
+.right_pager .select_item{height:22px;width:auto;padding:0;margin:3px 0 0 0;}
+.right_pager .select_item option{display:block;}
+.right_pager .input_item{height:18px;width:32px;line-height:18px;padding:0 3px;}
+.right_pager .btn_item{width:40px;padding:0;border:0;text-align:center;}
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-javascript">
+seajs.config({
+    "base": "./",
+    'map': [[ /^(.*\.(?:css|js))(.*)$/i, '$1?t=13835292681991']]
+});
+//加载dialogue模块
+seajs.use('js/dev/module/dialog');
+//表格隔行换色
+seajs.use('js/dev/module/zebraLists',function(){
+    $('#J_table').zebraLists({children:'tbody tr'});
+});
+//全选与全不选
+seajs.use('js/dev/module/allChoose',function(){
+    $('.J_checkall').allChoose({target:$('#J_table tbody').find('input[type="checkbox"]')});
+});
+//删除数据
+seajs.use('js/dev/module/ajaxDelete',function(){
+    $('.J_del').ajaxDelete({target:'tr'});
+});
+//批量操作
+$('#J_table').on('click',function(e){
+    var t = e.target, _this = $(this), $input = _this.find('tbody input[type="checkbox"]:checked');
+    if(t.tagName.toLowerCase() == 'a' && $(t).hasClass('J_delall'||'J_export')){
+        e.preventDefault();
+        var text = $(t).hasClass('J_delall') ? '删除' : '导出';
+        if ($input.length == 0) {
+            dialog.alert({content:'请先选择要操作的数据！'});
+        } else {
+            dialog.confirm({
+                title:text+'提示',
+                content:'您确定要'+text+'这些数据吗？',
+                callback:function(v){
+                    v && $.ajax({
+                        url:t.href,
+                        type:'POST',
+                        dataType:'json',
+                        data:$input.serializeArray(),
+                        error:function(){
+                            dialog.alert({title:text+'提示',content:text+'数据失败！'});
+                        },
+                        success:function(data){
+                            if(!data.error){
+                                if($(t).hasClass("J_delall")){
+                                    $input.closest('tr').fadeOut('fast',function(){
+                                        $(this).remove();
+                                        $('.J_checkall').attr('checked', false);
+                                    });
+                                }
+                            }else{
+                                dialog.alert({title:text+'提示',content:data.error});
+                            }
+                        }
+                    });
+                }
+            });
+        };
+    }
+});
+//每页显示数据条数
+$('#J_select').change(function() {
+    $(this).closest('form').submit();
+});
+//分页处理
+var J_gotopage = $(".J_gotopage"), J_gopagebtn = $(".J_gopagebtn");
+J_gotopage.each(function() {
+    this.onkeyup = this.onkeyup = function(){ J_gotopage.val(this.value.replace(/\D/,'')); }
+    this.oncontextmenu = function(){ return false; }
+});
+J_gopagebtn.on("click",function(e){
+    e.preventDefault();
+    $this = $(this);
+    if(isNaN(parseInt($this.prev().prev().val()))){
+        dialog.alert({content:"请输入正确的页数！"});
+        J_gotopage.val('');
+        return false;
+    }else{
+        $this.closest("form").submit();
+    }
+});
+                    </textarea>
+                </div>
+            </li>
+            <li class="ui_list_item">
+                <div class="clear">
+                    <a href="images/img_big/table2.gif" class="fl ui_list_imgbox" rel="prettyPhoto[gallery1]"><img src="images/img_small/table2.gif" alt="" /></a>
+                    <div class="fluid">
+                        <h3 class="ui_list_item_title">可编辑的表格</h3>
+                        <div class="ui_list_item_desc">可以编辑的单元格在第一行设置“grid”自定义属性即可，通过修改全局设置，可以简化使用。</div>
+                        <div class="ui_list_item_info clear"><span class="author">作者:张龙</span><a href="table2.html" class="run" target="_blank">run</a><a href="table2.html" class="view">view</a></div>
+                    </div>
+                </div>
+                <div class="code-warpper">
+                    <textarea name="" cols="" rows="" class="ui-textarea code-html">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table" id="J_table">
+    <thead>
+        <tr>
+            <th scope="col" width="45" grid="uid">ID</th>
+            <th scope="col" width="85" grid="name">姓名</th>
+            <th scope="col" width="145" grid="uname">用户名</th>
+            <th scope="col" width="160" grid="idnumber">身份证号</th>
+            <th scope="col" width="110" grid="tel">手机号</th>
+            <th scope="col" width="65" grid="sex">性别</th>
+            <th scope="col" width="95" grid="post">职务</th>
+            <th scope="col" grid="taught">任教科目</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>谭玉玲</td>
+            <td>唯有对你思念</td>
+            <td>342324198903018421</td>
+            <td>13987563432</td>
+            <td>女</td>
+            <td>--</td>
+            <td>语文，数学，英语</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>虚竹</td>
+            <td>哎哟喂</td>
+            <td>44252419640212562x</td>
+            <td>15082744441</td>
+            <td>男</td>
+            <td>校长</td>
+            <td>语文</td>
+        </tr>
+    </tbody>
+</table>
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-css">
+.table{color:#555;font-family:'Microsoft YaHei';}
+.table thead{background:#ddd;height:28px;}
+.table th,.table td{border:1px solid #ddd;text-align:center;height:30px;line-height:30px;}
+.table td.nickname{text-align:left;text-indent:20px;}
+.table th{color:#444;}
+.table .odd{background:#f9f9f9;}
+.table .even{background:#fff;}
+.table .hover{background:#f3f3f3;}
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-javascript">
+seajs.config({
+    "base": "./",
+    'map': [[ /^(.*\.(?:css|js))(.*)$/i, '$1?t=13835292681991']]
+});
+//加载dialogue模块
+seajs.use('js/dev/module/dialog');
+//表格隔行换色
+seajs.use('js/dev/module/zebraLists',function(){
+    $('#J_table').zebraLists({children:'tbody tr'});
+});
+//表格编辑
+seajs.use('js/dev/module/edittable', function(edittable){
+    $("#J_table").editTable({
+        name:{url:'save.php', type:'text'},
+        uname:{url:'save.php', type:'text'},
+        idnumber:{url:'save.php', type:'int'},
+        tel:{url:'save.php', type:'moble'},
+        sex:{url:'save.php', type:'select', values:{'1':'男', '2':'女'}},
+        post:{url:'save.php', type:'select', values:{'0':'--', '1':'校长', '2':'副校长', '3':'年级组长', '4':'教导主任'}},
+        taught:{url:'save.php', type:'textarea'}
+    }, 'uid');
+});
+                    </textarea>
+                </div>
+            </li>
+            <li class="ui_list_item">
+                <div class="clear">
+                    <a href="images/img_big/table3.gif" class="fl ui_list_imgbox" rel="prettyPhoto[gallery1]"><img src="images/img_small/table3.gif" alt="" /></a>
+                    <div class="fluid">
+                        <h3 class="ui_list_item_title">可固定的表格</h3>
+                        <div class="ui_list_item_desc">“target”：需要固定的表格类名、“fixedRows”：固定行的参数、“fixedCols”：固定列的参数。</div>
+                        <div class="ui_list_item_info clear"><span class="author">作者:张龙</span><a href="table3.html" class="run" target="_blank">run</a><a href="table3.html" class="view">view</a></div>
+                    </div>
+                </div>
+                <div class="code-warpper">
+                    <textarea name="" cols="" rows="" class="ui-textarea code-html">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table">
+    <thead>
+        <tr>
+            <th scope="col" width="38"><input type="checkbox" value="" name="userid" class="checkbox_item J_checkall"></th>
+            <th scope="col" width="145">帐号</th>
+            <th scope="col" width="85">姓名</th>
+            <th scope="col" width="145">用户名</th>
+            <th scope="col" width="160">身份证号</th>
+            <th scope="col" width="110">手机号</th>
+            <th scope="col" width="65">性别</th>
+            <th scope="col" width="95">职务</th>
+            <th scope="col">任教科目</th>
+            <th scope="col" width="95">操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><input type="checkbox" id="" value="1" name="userid" class="checkbox_item"></td>
+            <td>T0000001000020834</td>
+            <td>谭玉玲</td>
+            <td>唯有对你思念</td>
+            <td>342324198903018421</td>
+            <td>13987563432</td>
+            <td>女</td>
+            <td>--</td>
+            <td>语文，数学，英语</td>
+            <td><a href="#">编辑</a><span>|</span><a href="#">删除</a></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" id="" value="2" name="userid" class="checkbox_item"></td>
+            <td>T0000001000020834</td>
+            <td>谭玉玲</td>
+            <td>唯有对你思念</td>
+            <td>342324198903018421</td>
+            <td>13987563432</td>
+            <td>女</td>
+            <td>副校长</td>
+            <td>语文，数学，英语</td>
+            <td><a href="#">编辑</a><span>|</span><a href="#">删除</a></td>
+        </tr>
+    </tbody>
+</table>
+<div class="p_t_20">
+    <input type="button" class="p_tb_5 p_lr_10" value="设置头部三行固定" id="J_btn1"/>
+    <input type="button" class="p_tb_5 p_lr_10" value="设置左侧两列固定" id="J_btn2"/>
+    <input type="button" class="p_tb_5 p_lr_10" value="还原" id="J_btn3"/>
+</div>
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-css">
+.table{color:#555;font-family:'Microsoft YaHei';border-top:1px solid #ddd;border-left:1px solid #ddd;}
+.table thead{background:#ddd;}
+.table th,.table td{border-bottom:1px solid #ddd;border-right:1px solid #ddd;text-align:center;height:30px;line-height:30px;}
+.table td.nickname{text-align:left;text-indent:20px;}
+.table th{color:#444;}
+.table tbody td span{margin:0 5px;}
+.table .checkbox_item{vertical-align:top;*margin-left:-3px;margin-top:0;cursor:default;}
+.table .odd{background:#f9f9f9;}
+.table .even{background:#fff;}
+.table .hover{background:#f3f3f3;}
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-javascript">
+seajs.config({
+    "base": "./",
+    'map': [[ /^(.*\.(?:css|js))(.*)$/i, '$1?t=13835292681991']]
+});
+//表格隔行换色
+seajs.use('js/dev/module/zebraLists',function(){
+    $('#content').zebraLists({children:'tbody tr'});
+});
+//全选与全不选
+//此处有bug：点击全选按钮才能执行正常全选功能
+seajs.use('js/dev/module/allChoose',function(){
+    $(document).on('click', '.J_checkall', function() {
+        $(this).allChoose({target:$('#J_tableWapper').find('input[type="checkbox"]')});
+    });
+});
+//表格固定
+seajs.use('js/dev/module/fixedtable',function(fixedtable){
+    var fixedtable = tableGrid({target:'.table'});
+    $('#J_btn1').on('click', function() {
+        fixedtable.fixedRows(3);
+    });
+    $('#J_btn2').on('click', function() {
+        fixedtable.fixedCols(2);
+    });
+    $('#J_btn3').on('click',function(){
+       fixedtable.init();
+    });
+});
+                    </textarea>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <h2 class="ui_title">表单</h2>
+    <div class="ui_list_wrapper">
+        <ul class="ui_list">
+            <li class="ui_list_item">
+                <div class="clear">
+                    <a href="images/img_big/validatorx.gif" class="fl ui_list_imgbox" rel="prettyPhoto[gallery1]"><img src="images/img_small/validatorx.gif" alt="" /></a>
+                    <div class="fluid">
+                        <h3 class="ui_list_item_title">表单验证</h3>
+                        <div class="ui_list_item_desc">通过id获取form，add添加验证项，remove删除验证项，extendRule扩展新的验证规则。</div>
+                        <div class="ui_list_item_info clear"><span class="author">作者:张龙</span><a href="validatorx.html" class="run" target="_blank">run</a><a href="validatorx.html" class="view">view</a></div>
+                    </div>
+                </div>
+                <div class="code-warpper">
+                    <textarea name="" cols="" rows="" class="ui-textarea code-html">
+<form id="J_validator" class="form" method="get" action="">
+    <div class="field_item">
+        <label for="username"><em>*</em>用户名：</label>
+        <input id="username" name="username" class="input_item" type="text" value="" maxlength="20" placeholder="user name" autocomplete="off" />
+    </div>
+    <div class="field_item">
+        <label for="password"><em>*</em>登录密码：</label>
+        <input id="password" name="password" class="input_item" type="password" maxlength="16" value="" autocomplete="off" />
+    </div>
+    <div class="field_item">
+        <label for="confirm_password"><em>*</em>确认密码：</label>
+        <input id="confirm_password" class="input_item" name="confirm_password" maxlength="16" type="password" value="" />
+    </div>
+    <div class="field_item">
+        <label for="sex">性别：</label>
+        <label class="w_auto"><input type="radio" id="sex" value="1" name="xb_one" class="radio_item">男</label>
+        <label class="w_auto"><input type="radio" id="sex1" value="2" name="xb_one" class="radio_item">女</label>
+    </div>
+    <div class="field_item">
+        <label for="sex">兴趣爱好：</label>
+        <label class="w_auto"><input type="checkbox" id="pingbanqiu" value="1" name="xqah_one" class="checkbox_item">乒乓球</label>
+        <label class="w_auto"><input type="checkbox" id="yumaoqiu" value="2" name="xqah_one"  class="checkbox_item">羽毛球</label>
+        <label class="w_auto"><input type="checkbox" id="yumaoqiu" value="2" name="xqah_one"  class="checkbox_item">篮球</label>
+    </div>
+    <div class="field_item">
+        <label for="age">年龄：</label>
+        <input id="age" name="age" class="input_item" type="text" value="" maxlength="3" />
+    </div>
+    <div class="field_item">
+        <label for="birthday">生日：</label>
+        <input id="birthday" name="birthday" class="input_item" type="text" value="" maxlength="10" />
+    </div>
+    <div class="field_item select_field">
+        <label for="card_type">证件类型：</label>
+        <select name="card_type" id="card_type" class="select_item">
+            <option value="1">身份证</option>
+            <option value="2">军人证</option>
+        </select>
+    </div>
+    <div class="field_item">
+        <label for="id_card">证件号码：</label>
+        <input id="id_card" type="text" name="id_card" class="input_item" value="" />
+    </div>
+    <div class="field_item">
+        <label for="email"><em>*</em>电子邮箱：</label>
+        <input id="email" name="email" type="text" class="input_item" value="" />
+    </div>
+    <div class="field_item">
+        <label for="qq">QQ：</label>
+        <input id="qq" name="qq" class="input_item" type="text" value="" />
+    </div>
+    <div class="field_item">
+        <label for="telephone">固定电话：</label>
+        <input id="telephone" name="telephone" class="input_item" type="text" value="" maxlength="8" />
+    </div>
+    <div class="field_item">
+        <label for="mobile">手机：</label>
+        <input id="mobile" name="mobile" type="text" class="input_item" value="" maxlength="11" />
+    </div>
+    <div class="field_item">
+        <label for="phone"><em>*</em>联系电话：</label>
+        <input id="phone" name="phone" type="text" class="input_item" value="" maxlength="11" />
+    </div>
+    <div class="field_item">
+        <label for="zip_code">邮政编码：</label>
+        <input id="zip_code" name="zip_code" class="input_item" value="" maxlength="6" />
+    </div>
+    <div class="field_item">
+        <label for="ip_address">登录IP地址：</label>
+        <input id="ip_address" name="ip_address" class="input_item" type="text" value="" maxlength="15" />
+    </div>
+    <div class="field_item">
+        <label for="url">个人主页：</label>
+        <input id="url" name="url" class="input_item" type="text" value="" maxlength="100" />
+    </div>
+    <div class="field_item">
+        <label for="message"><em>*</em>留言：</label>
+        <\textarea id="message" class="textarea_item" name="message" rows="5" cols="100" max='300'><\/textarea>
+    </div>
+    <div class="field_item field_item_space">
+        <span>您还可以输入<em id="text_counter">300</em>个字</span>
+    </div>
+    <div class="field_item field_item_space">
+        <input id="btnsubmit" type="submit" value=" 确定提交 " class="btn_item" />
+        <input id="reset" type="button" value=" 重设 " class="btn_item" />
+    </div>
+    <div class="field_item field_item_space">
+        <input id="del" type="button" value="删除第一项(让第一项不需要验证)" class="btn_item" />
+    </div>
+</form>
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-css">
+/*表单元素*/
+.field_item{clear:both;margin-bottom:10px;font-size:0;}
+.field_item:after{visibility:hidden;display:block;font-size:0;content:" ";clear:both;height:0;}
+.field_item *{font-size:12px;}
+.field_item label,.field_item span,.field_item b,.input_item,.select_item,.textarea_item,.checkbox_item,.radio_item,.btn_item{display:inline-block;*display:inline;*zoom:1;margin-right:10px;vertical-align:top;}
+.field_item label,.field_item span,.field_item b{line-height:30px;height:30px;overflow:hidden;font-size:14px;}
+.select_field label,.select_field span,.select_field b{*line-height:22px;*height:22px;}
+.field_item label{width:100px;text-align:right;}
+.field_item span{color:#bbb;}
+.field_item b{font-weight:normal;}
+.field_item .mr_0{margin-right:0;}
+.field_item em{color:#f00;padding-right:5px;}
+.input_item,.select_item,.textarea_item{width:250px;padding:5px;border:1px solid #ccc;line-height:18px;}
+.select_item{width:262px;}
+.input_item:focus,.select_item:focus,.textarea_item:focus,.input_item:hover,.select_item:hover,.textarea_item:hover{border-color:#9fb7df;}
+.checkbox_item,.radio_item{margin:9px 5px 0 0;}
+.checkbox_item{*margin:5px 0 0 -3px;}
+.radio_item{*margin:0 0 0 -3px;}
+.fieldset_item{}
+.legend_item{font-weight:700;padding:5px 0;border-bottom:1px solid #ccc;margin-bottom:10px;display:block;width:100%;}
+.field_item_space{padding-left:110px;}
+.field_item .w_auto{width:auto;}
+.field_item input.btn_item{width:auto;height:auto;padding:5px 15px;font-size:16px;overflow:visible;}
+.field_item a.btn_item{width:113px;height:38px;line-height:38px;padding:0;font-size:16px;text-align:center;}
+/*表单验证提示信息*/
+#valiTip{border:1px solid #d53f3f;padding:5px;border-radius:3px;background:#ffcaca;position:absolute;left:-9999px;top:-9999px;z-index:99;}
+#valiTip em,#valiTip b{display:inline-block;*display:inline;*zoom:1;width:0;height:0;overflow:hidden;border-top:5px solid #d53f3f;border-bottom:0;border-left:5px dashed transparent;border-right:5px dashed transparent;position:absolute;bottom:-5px;left:10px;}
+#valiTip b{bottom:-4px;border-top:5px solid #ffcaca;}
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-javascript">
+seajs.config({
+    "base": "./",
+    'map': [[ /^(.*\.(?:css|js))(.*)$/i, '$1?t=13835292681991']]
+});
+seajs.use('js/dev/module/validator',function(validator){
+    var validator = validator({
+        form: "J_validator"
+    }).add({
+        target: "username",
+        rule_type: "username"
+    }).add({
+        target: "password",
+        rule_type: "password"
+    }).add({
+        target: "confirm_password",
+        rule_type: "password",
+        sameTo: "password",
+        error:"你填写的密码不正确或者和原密码不同！"
+    }).add({
+        target: "age",
+        rule_type: "number",
+        error:"您填写的格式不正确！"
+    }).add({
+        target: "birthday",
+        rule_type: "date||empty"
+    }).add({
+        target: "id_card",
+        rule_type: "idcard||empty"
+    }).add({
+        target: "email",
+        rule_type: "email"
+    }).add({
+        target: "qq",
+        rule_type: "qq||empty"
+    }).add({
+        target: "telephone",
+        rule_type: "phone||empty"
+    }).add({
+        target: "mobile",
+        rule_type: "mobile||empty"
+    }).add({
+        target: "phone",
+        rule_type: "phone||mobile",
+        tips: "请输入您的手机或座机电话号码！"
+    }).add({
+        target: "zip_code",
+        rule_type: "zip||empty"
+    }).add({
+        target: "ip_address",
+        rule_type: "ip||empty"
+    }).add({
+        target: "url",
+        rule_type: "url||empty"
+    }).add({
+        target: "message",
+        rule_type: "require",
+        onkeypress:function(opts){
+            var v = this.value, len = v.length, max = this.getAttribute('max')-0;
+            var textCounter = document.getElementById('text_counter');
+            if(len >= max){
+                this.value = v.substr(0,max);
+                len = this.value.length;
+            }
+            textCounter.innerHTML = max-len;
+        }
+    });
+
+    $('#reset').click(function() {
+        validator.reset();
+    });
+    $('#del').click(function() {
+        validator.remove('username');
+    });
+    
+    validator.extendRule({
+        newRules: {
+            rules: /\w+?/,
+            tips: "请填写日期！格式如：“2011-09-03”",
+            error: "您填写的日期格式不正确，正确的格式如：“2011-09-03”！"
+        }
+    })
+});
+                    </textarea>
+                </div>
+            </li>
+            <li class="ui_list_item">
+                <div class="clear">
+                    <a href="images/img_big/suggest.gif" class="fl ui_list_imgbox" rel="prettyPhoto[gallery1]"><img src="images/img_small/suggest.gif" alt="" /></a>
+                    <div class="fluid">
+                        <h3 class="ui_list_item_title">suggest搜索</h3>
+                        <div class="ui_list_item_desc">键盘keyup事件时ajax提交当前input的value值并返回相关的数据。</div>
+                        <div class="ui_list_item_info clear"><span class="author">作者:张龙</span><a href="suggest.html" class="run" target="_blank">run</a><a href="suggest.html" class="view">view</a></div>
+                    </div>
+                </div>
+                <div class="code-warpper">
+                    <textarea name="" cols="" rows="" class="ui-textarea code-html">
+<form action="" name="search" class="form" id="site_search" method="get">
+    <div class="field_item">
+        <input type="text" name="search_keyword"  placeholder="请输入搜索关键字" id="search_keyword" class="input_item input_item_search" maxlength="25" data-url="search.php" />
+        <input type="submit" name="btn_search" value="" id="btn_search" class="btn_item btn_img_search"/>
+    </div>
+    <div class="field_item">
+        <input type="text" name="search_keyword" value="" placeholder="请输入搜索关键字" id="search_keyword2" class="input_item input_item_search"  x-webkit-speech x-webkit-grammar=”builtin:translate  />
+        <input type="submit" name="btn_search" value="搜索" id="btn_search" class="btn_item btn_blue"/>
+    </div>
+</form>
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-css">
+html{overflow-y:scroll;}
+#site_search .input_item_search{width:385px;margin-right:0;height:20px;}
+#site_search .btn_item{font-size:14px;font-family:'microsoft yahei';color:#fff;width:78px;height:32px;border:none;}
+#site_search .btn_img_search{width:22px;height:22px;margin-left:-30px;margin-top:5px;background:url(images/btn_search.gif) no-repeat center center;}
+input::-ms-clear{display:none}
+/*suggest*/
+.suggest_result ul{border:1px solid #ccc;background:#fff;border-top:0;}
+.suggest_result ul li a{display:block;height:30px;line-height:30px;padding:0 10px;color:#444;}
+.suggest_result ul li a:hover{background:#f2f2f2;color:#444;text-decoration:none;}
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-javascript">
+seajs.config({
+    "base": "./",
+    'map': [[ /^(.*\.(?:css|js))(.*)$/i, '$1?t=13835292681991']]
+});
+seajs.use('js/dev/module/suggest', function(){
+    $('#search_keyword').suggest();
+    $('#search_keyword2').suggest({url:'search.php'});
+});
+                    </textarea>
+                </div>
+            </li>
+            <li class="ui_list_item">
+                <div class="clear">
+                    <a href="images/img_big/security.gif" class="fl ui_list_imgbox" rel="prettyPhoto[gallery1]"><img src="images/img_small/security.gif" alt="" /></a>
+                    <div class="fluid">
+                        <h3 class="ui_list_item_title">密码强度验证</h3>
+                        <div class="ui_list_item_desc">键盘keyup事件时执行并返回class。</div>
+                        <div class="ui_list_item_info clear"><span class="author">作者:张龙</span><a href="security.html" class="run" target="_blank">run</a><a href="security.html" class="view">view</a></div>
+                    </div>
+                </div>
+                <div class="code-warpper">
+                    <textarea name="" cols="" rows="" class="ui-textarea code-html">
+<form action="" name="" id="J_form" method="get">
+    <div class="field_item">
+        <label><em>*</em>密码：</label>
+        <input type="password" name="password" value="" class="input_item" id="password" /><span id="J_pstr"></span>
+    </div>
+    <div class="field_item">
+        <label><em>*</em>确认密码：</label>
+        <input type="password" name="confirm_password" value="" class="input_item" id="confirm_password" />
+    </div>
+    <div class="field_item field_item_space">
+        <input type="submit"  value=" 登录 " class="btn_item btn_blue"/>
+    </div>
+</form>
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-css">
+.field_item span{background:url(images/security.png) no-repeat 0 0;width:105px;height:24px;margin-top:3px;}
+.field_item .w1{background-position:0 -24px;}
+.field_item .w2{background-position:0 -48px;}
+.field_item .w3{background-position:0 -73px;} 
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-javascript">
+seajs.config({
+    "base": "./",
+    'map': [[ /^(.*\.(?:css|js))(.*)$/i, '$1?t=13835292681991']]
+});
+seajs.use('js/dev/module/security', function(){
+    $('#password').security({
+        target:'#J_pstr',
+        maxlength:20,
+        minlength:6,
+        S:'w3',  //强
+        M:'w2',  //中
+        W:'w1'  //弱
+    })
+});
+seajs.use('js/dev/module/validator',function(validator){
+    var validator = validator({
+        form: "J_form"
+    }).add({
+        target: "password",
+        rule_type: "password"
+    }).add({
+        target: "confirm_password",
+        rule_type: "password",
+        sameTo: "password",
+        error:"你填写的密码不正确或者和原密码不同！"
+    });
+});
+                    </textarea>
+                </div>
+            </li>
+            <li class="ui_list_item">
+                <div class="clear">
+                    <a href="images/img_big/passwordStrength.gif" class="fl ui_list_imgbox" rel="prettyPhoto[gallery1]"><img src="images/img_small/passwordStrength.gif" alt="" /></a>
+                    <div class="fluid">
+                        <h3 class="ui_list_item_title">密码强度验证（进度条）</h3>
+                        <div class="ui_list_item_desc">keyup与focus事件时执行并callback回调函数。添加了禁止密码！</div>
+                        <div class="ui_list_item_info clear"><span class="author">作者:张龙</span><a href="passwordStrength.html" class="run" target="_blank">run</a><a href="passwordStrength.html" class="view">view</a></div>
+                    </div>
+                </div>
+                <div class="code-warpper">
+                    <textarea name="" cols="" rows="" class="ui-textarea code-html">
+<form action="" name="" id="J_form" method="get">
+    <div class="field_item">
+        <label><em>*</em>密码：</label>
+        <input type="password" name="password" value="" class="input_item" id="J_password" />
+        <span id="complexitywrap"><em id="complexity">0%</em></span>
+    </div>
+    <div class="field_item">
+        <label><em>*</em>确认密码：</label>
+        <input type="password" name="passwords" value="" class="input_item" id="J_confirm_password" />
+    </div>
+    <div class="field_item field_item_space">
+        <input type="submit"  value=" 登录 " class="btn_item btn_blue"/>
+    </div>
+</form>
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-css">
+.field_item span,.field_item span em{height:18px;}
+.field_item span{width:110px;border:1px solid #ddd;margin:5px 0;white-space:nowrap;word-wrap:normal;word-break:keep-all;}
+.field_item span em{font-weight:bold;color:#ccc;line-height:18px;text-align:center;display:block;}
+.valid{background:green;}
+.invalid{background:red;}
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-javascript">
+seajs.config({
+    "base": "./",
+    'map': [[ /^(.*\.(?:css|js))(.*)$/i, '$1?t=13835292681991']]
+});
+seajs.use('js/dev/module/passwordStrength', function(){
+    $.ajax({
+        url: 'passwordStrength.php',
+        type: 'GET',
+        dataType: 'json',
+        success:function(data){
+            $("#J_password").passwordStrength({
+                bannedPasswords: data,
+                callback:function(v, c){
+                    if (!v) {
+                        $('#complexity').animate({'width':c + '%'}).removeClass('valid').addClass('invalid');
+                    } else {
+                        $('#complexity').animate({'width':c + '%'}).removeClass('invalid').addClass('valid');
+                    }
+                    $('#complexity').html(Math.round(c) + '%');
+                }
+            });
+        }
+    });
+});
+seajs.use('js/dev/module/validator',function(validator){
+    var validator = validator({
+        form: "J_form"
+    }).add({
+        target: "J_password",
+        rule_type: "password"
+    }).add({
+        target: "J_confirm_password",
+        rule_type: "password",
+        sameTo: "J_password",
+        error:"你填写的密码不正确或者和原密码不同！"
+    });
+});
+                    </textarea>
+                </div>
+            </li>
+            <li class="ui_list_item">
+                <div class="clear">
+                    <a href="images/img_big/linkage.gif" class="fl ui_list_imgbox" rel="prettyPhoto[gallery1]"><img src="images/img_small/linkage.gif" alt="" /></a>
+                    <div class="fluid">
+                        <h3 class="ui_list_item_title">三级联动</h3>
+                        <div class="ui_list_item_desc">联动菜单，一般用在省，市，区三级联动上，注意这个函数是不限制级别的。</div>
+                        <div class="ui_list_item_info clear"><span class="author">作者:张龙</span><a href="linkage.html" class="run" target="_blank">run</a><a href="linkage.html" class="view">view</a></div>
+                    </div>
+                </div>
+                <div class="code-warpper">
+                    <textarea name="" cols="" rows="" class="ui-textarea code-html">
+<form action="" name="linkage" id="J_linkage" method="get">
+    <div class="field_item">
+        <select name="province" id="province" class="select_item w_auto" data-init="['420000','420100','420111']">
+            <option value="0">请选择</option>
+        </select>
+        <select name="city" id="city" class="select_item w_auto">
+            <option value="0">请选择</option>
+        </select>
+        <select name="area" id="area" class="select_item w_auto">
+            <option value="0">请选择</option>
+        </select>
+    </div>
+</form>
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-css">
+form{margin:100px auto;width:520px;text-align:center;}
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-javascript">
+seajs.config({
+    "base": "./",
+    'map': [[ /^(.*\.(?:css|js))(.*)$/i, '$1?t=13835292681991']]
+});
+seajs.use('js/dev/module/linkageMenu', function(){
+    var url1 = 'linkage/getProvince.php',
+        url2 = 'linkage/getCity.php?',
+        url3 = 'linkage/getArea.php?';
+    $.linkageMenu({
+        target:['province','city','area'],
+        url:[url1, url2, url3]
+    });
+});
+                    </textarea>
+                </div>
+            </li>
+            <li class="ui_list_item">
+                <div class="clear">
+                    <a href="images/img_big/imgUpload.gif" class="fl ui_list_imgbox" rel="prettyPhoto[gallery1]"><img src="images/img_small/imgUpload.gif" alt="" /></a>
+                    <div class="fluid">
+                        <h3 class="ui_list_item_title">图片上传前预览</h3>
+                        <div class="ui_list_item_desc">IE7-9滤镜不好控制宽高，采用最大宽高并滤镜裁剪。</div>
+                        <div class="ui_list_item_info clear"><span class="author">作者:张龙</span><a href="imgUpload.html" class="run" target="_blank">run</a><a href="imgUpload.html" class="view">view</a></div>
+                    </div>
+                </div>
+                <div class="code-warpper">
+                    <textarea name="" cols="" rows="" class="ui-textarea code-html">
+<form id="J_validator" class="form" method="get" action="" enctype="multipart/form-data">
+    <div class="upFile"><input type="file" name="file_input" id="J_upFile" class="file_input" /><span class="input_item" id="J_path"></span><a href="javascript:;" class="btn btn_blue">浏览...</a></div>
+    <div class="fileView" id="J_view"></div>
+    <div><input type="submit" value="提交" class="btn btn_blue" /></div>
+</form>
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-css">
+.upFile{width:525px;height:30px;overflow:hidden;display:inline-block;*display:inline;*zoom:1;vertical-align:top;position:relative;margin:10px 0;}
+.upFile .input_item{width:430px;font-size:14px;height:18px;line-height:18px;padding:5px;}
+.upFile a{height:28px;line-height:28px;font-size:14px;padding:0 15px;}
+.upFile .file_input{width:150%;height:150%;font-size:999px;position:absolute;right:-5px;bottom:-5px;cursor:pointer;opacity:0;filter:alpha(opacity=0);}
+.fileView img{border:1px solid #ccc;margin-bottom:10px;}
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-javascript">
+seajs.config({
+    "base": "./",
+    'map': [[ /^(.*\.(?:css|js))(.*)$/i, '$1?t=13835292681991']]
+});
+seajs.use(['js/dev/module/dialog','js/dev/module/imgUpload'],function(){
+    $('#J_upFile').imgUpload({
+        ruleType: ['gif','jpg','jpeg','png'],
+        filePath: '#J_path',
+        preview: '#J_view',
+        maxWidth: 200,
+        maxHeight: 200
+    });
+});
+                    </textarea>
+                </div>
+            </li>
+            <li class="ui_list_item">
+                <div class="clear">
+                    <a href="images/img_big/select.gif" class="fl ui_list_imgbox" rel="prettyPhoto[gallery1]"><img src="images/img_small/select.gif" alt="" /></a>
+                    <div class="fluid">
+                        <h3 class="ui_list_item_title">select模拟</h3>
+                        <div class="ui_list_item_desc">针对select不能设置样式而用js模拟select效果，并可以设置样式。</div>
+                        <div class="ui_list_item_info clear"><span class="author">作者:张龙</span><a href="select.html" class="run" target="_blank">run</a><a href="select.html" class="view">view</a></div>
+                    </div>
+                </div>
+                <div class="code-warpper">
+                    <textarea name="" cols="" rows="" class="ui-textarea code-html">
+<form action="" name="" method="get">
+    <div class="field_item">
+        <select name="select" id="J_select" class="select_item w_auto">
+            <option value="0">请选择</option>
+            <option value="1">北京市</option>
+            <option value="2">天津市</option>
+        </select>
+    </div>
+</form>
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-css">
+.select_outer{width:100%;text-align:center;}
+.select_save{height:24px;line-height:24px;color:#444;cursor:pointer;border:1px solid #dadada;}
+.select_arrow,.select_arrow_down{width:9px;height:6px;overflow:hidden;padding:0;font-size:0;line-height:0;float:right;margin:10px 5px 0 0; background:url(../images/icon_select_arrow.gif) no-repeat 0 -47px;}
+.select_arrow_down{background:url(../images/icon_select_arrow.gif) no-repeat 0 0;}
+.select_data{overflow-y:auto;background:#fff;position:absolute;left:0;top:-1px;display:none;border:1px solid #dadada;border-top:0;}
+.select_data a{display:block;color:#444;background:#eee;}
+.select_data a:hover{background:#ddd;text-decoration:none;}
+.select_data a.active{background:#aaa;}
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-javascript">
+seajs.config({
+    "base": "./",
+    'map': [[ /^(.*\.(?:css|js))(.*)$/i, '$1?t=13835292681991']]
+});
+seajs.use('js/dev/module/select', function (Select) {
+    Select({target:'#J_select'});
+});
+                    </textarea>
+                </div>
+            </li>
+            <li class="ui_list_item">
+                <div class="clear">
+                    <a href="images/img_big/placeholder.gif" class="fl ui_list_imgbox" rel="prettyPhoto[gallery1]"><img src="images/img_small/placeholder.gif" alt="" /></a>
+                    <div class="fluid">
+                        <h3 class="ui_list_item_title">placeholder</h3>
+                        <div class="ui_list_item_desc">如果浏览器支持placeholder，直接返回，不执行该插件，否则执行！</div>
+                        <div class="ui_list_item_info clear"><span class="author">作者:张龙</span><a href="placeholder.html" class="run" target="_blank">run</a><a href="placeholder.html" class="view">view</a></div>
+                    </div>
+                </div>
+                <div class="code-warpper">
+                    <textarea name="" cols="" rows="" class="ui-textarea code-html">
+<form action="" method="get">
+    <div class="field_item">
+        <label>User Name:</label>
+        <input type="text" name="name" class="input_item" maxlength="20" placeholder="e.g. John Doe" />
+    </div>
+    <div class="field_item">
+        <label>E-mail:</label>
+        <input type="email" name="email" class="input_item" placeholder="e.g. address@example.ext" />
+    </div>
+    <div class="field_item">
+        <label>Web Site:</label>
+        <input type="url" name="url" class="input_item" placeholder="e.g. http://mathiasbynens.be/" />
+    </div>
+    <div class="field_item">
+        <label>Tel:</label>
+        <input type="tel" name="tel" class="input_item" placeholder="e.g. +32 472 77 69 88" />
+    </div>
+    <div class="field_item">
+        <label>PassWord:</label>
+        <input type="password" name="password" class="input_item" placeholder="e.g. h4x0rpr00fz" />
+    </div>
+    <div class="field_item">
+        <label>Message:</label>
+        <\textarea name="message" class="textarea_item" placeholder="Your message goes here"><\/textarea>
+    </div>
+    <div class="field_item field_item_space">
+        <input id="btnsubmit" type="submit" value=" 确定提交 " class="btn_item btn_blue" />
+    </div>
+</form>
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-css">
+.placeholder{color:#aaa;}
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-javascript">
+seajs.config({
+    "base": "./",
+    'map': [[ /^(.*\.(?:css|js))(.*)$/i, '$1?t=13835292681991']]
+});
+seajs.use('js/dev/module/placeholder');
+                    </textarea>
+                </div>
+            </li>
+            <li class="ui_list_item">
+                <div class="clear">
+                    <a href="images/img_big/ajaxUploadFile.gif" class="fl ui_list_imgbox" rel="prettyPhoto[gallery1]"><img src="images/img_small/ajaxUploadFile.gif" alt="" /></a>
+                    <div class="fluid">
+                        <h3 class="ui_list_item_title">ajaxUploadFile文件上传</h3>
+                        <div class="ui_list_item_desc">ajax上传文件根据浏览器的安全性需动态创建一个iframe和form防止跳转页面并提交到后台！</div>
+                        <div class="ui_list_item_info clear"><span class="author">作者:张龙</span><a href="ajaxUploadFile.html" class="run" target="_blank">run</a><a href="ajaxUploadFile.html" class="view">view</a></div>
+                    </div>
+                </div>
+                <div class="code-warpper">
+                    <textarea name="" cols="" rows="" class="ui-textarea code-html">
+<form method="get" id="J_form" name="" action="">
+    <div class="field_item clear">
+        <label class="fl">头像：</label>
+        <div class="fluid">
+            <div class="img_box"><img src="images/avatar.jpg" id="J_avatar" class="dvm" /><i class="vam"></i></div>
+            <div class="uploadbtn">
+                <i class="btn_blue">浏览</i><input type="file" name="upfile" id="J_file"/><a href="uploadFile.php" id="J_upload" class="btn_blue">上传</a>
+            </div>
+        </div>
+    </div>
+    <div class="field_item"><label>邮箱：</label><input type="text" name="email" class="input_item" /></div>
+    <div class="field_item"><label>电话：</label><input type="text" name="phone" class="input_item" /></div>
+    <div class="field_item"><label>地址：</label><input type="text" name="address" class="input_item" /></div>
+    <div class="field_item field_item_space"><input type="button" class="btn btn_lightblue" value="取消" id="J_cancel"/><input type="submit" value="确定" class="btn btn_blue" id="J_enter"/></div>
+</form>
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-css">
+.img_box{width:200px;height:200px;border:1px solid #ddd;background:#f9f9f9;text-align:center;}
+.img_box img{max-width:200px;max-height:200px;}
+.uploadbtn{padding-top:15px;position:relative;}
+.uploadbtn i,.uploadbtn a{display:inline-block;*display:inline;*zoom:1;vertical-align:top;font-style:normal;width:65px;height:25px;line-height:25px;text-align:center;margin-right:10px;}
+.uploadbtn input{position:absolute;left:0;top:15px;width:67px;height:27px;opacity:0;filter:alpha(opacity=0);background:#6dabde;color:#fff;border:0;z-index:999;cursor:pointer;}
+.field_item_space input{margin-right:15px;}
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-javascript">
+seajs.config({
+    "base": "./",
+    'map': [[ /^(.*\.(?:css|js))(.*)$/i, '$1?t=13835292681991']]
+});
+seajs.use('js/dev/module/ajaxFileUpload',function(ajaxFileUpload) {
+    $('#J_upload').on('click',function(event){
+        event.preventDefault();
+        ajaxFileUpload({
+            id:'J_file',
+            url:this.href,
+            callback:function(){
+                $('#J_avatar').attr('src',this.responseText);
+            }
+        });
+    });
+});
+                    </textarea>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <h2 class="ui_title">滚动条</h2>
+    <div class="ui_list_wrapper">
+        <ul class="ui_list">
+            <li class="ui_list_item">
+                <div class="clear">
+                    <a href="images/img_big/scroll.gif" class="fl ui_list_imgbox" rel="prettyPhoto[gallery1]"><img src="images/img_small/scroll.gif" alt="" /></a>
+                    <div class="fluid">
+                        <h3 class="ui_list_item_title">scroll滚动条模拟</h3>
+                        <div class="ui_list_item_desc">如果内容的宽度、高度小于scroll设定的宽高就不显示。</div>
+                        <div class="ui_list_item_info clear"><span class="author">作者:张龙</span><a href="scroll.html" class="run" target="_blank">run</a><a href="scroll.html" class="view">view</a></div>
+                    </div>
+                </div>
+                <div class="code-warpper">
+                    <textarea name="" cols="" rows="" class="ui-textarea code-html">
+<div id="J_scrollTop">
+    <ul class="text_list">
+        <li><span>2014-05-15</span><a href="#">此处是文字列表第一条信息</a></li>
+        <li><span>2014-05-15</span><a href="#">此处是文字列表第二条信息</a></li>
+        <li><span>2014-05-15</span><a href="#">此处是文字列表第三条信息</a></li>
+    </ul>
+</div>
+<div id="J_scrollLeft">
+    <ul class="text_list">
+        <li><span>2014-05-15</span><a href="#">此处是文字列表第一条信息此处是文字列表第一条信息此处是文字列表第一条信息</a></li>
+        <li><span>2014-05-15</span><a href="#">此处是文字列表第二条信息此处是文字列表第二条信息此处是文字列表第二条信息</a></li>
+        <li><span>2014-05-15</span><a href="#">此处是文字列表第三条信息此处是文字列表第三条信息此处是文字列表第三条信息</a></li>
+    </ul>
+</div>
+<div id="J_scrollAll">
+    <ul class="text_list">
+        <li><span>2014-05-15</span><a href="#">此处是文字列表第一条信息此处是文字列表第一条信息此处是文字列表第一条信息</a></li>
+        <li><span>2014-05-15</span><a href="#">此处是文字列表第二条信息此处是文字列表第二条信息此处是文字列表第二条信息</a></li>
+        <li><span>2014-05-15</span><a href="#">此处是文字列表第三条信息此处是文字列表第三条信息此处是文字列表第三条信息</a></li>
+    </ul>
+</div>
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-css">
+.scroll_warpper{}
+.scroll_topOuter{width:5px;background:#ddd;opacity:0.3;}
+.scroll_tTopOuter:hover{opacity:0.8;width:5px;-webkit-transition:opacity,width 0.3s ease-out;}
+.scroll_top{background:#333;opacity:0.3;width:5px;-webkit-border-radius:5px;-webkit-transition:opacity,width 0.3s ease-out; cursor:default;}
+.scroll_warpper:hover .scroll_top{opacity:0.8;width:5px;-webkit-transition:opacity,width 0.3s ease-out;}
+
+.scroll_leftOuter{height:5px;background:#ddd;opacity:0.3;}
+.scroll_leftOuter:hover{opacity:0.8;height:5px;-webkit-transition:opacity,height 0.3s ease-out;}
+.scroll_left{background:#333;opacity:0.3;height:5px;-webkit-border-radius:5px;-webkit-transition:opacity,height 0.3s ease-out; cursor:default;}
+.scroll_warpper:hover .scroll_left{opacity:0.8;height:5px;-webkit-transition:opacity,height 0.3s ease-out;}                       
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-javascript">
+seajs.config({
+    "base": "./",
+    'map': [[ /^(.*\.(?:css|js))(.*)$/i, '$1?t=13835292681991']]
+});
+seajs.use('js/dev/module/scroll', function(scroll){
+    scroll({
+        target:'J_scrollTop',
+        dir:'top',
+        width:400,
+        height:130
+    });
+    scroll({
+        target:'J_scrollLeft',
+        dir:'left',
+        width:400,
+        height:130
+    });
+    scroll({
+        target:'J_scrollAll',
+        dir:'all',
+        width:400,
+        height:130
+    });
+});                       
+                    </textarea>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <h2 class="ui_title">数据加载</h2>
+    <div class="ui_list_wrapper">
+        <ul class="ui_list">
+            <li class="ui_list_item">
+                <div class="clear">
+                    <a href="images/img_big/loadData.gif" class="fl ui_list_imgbox" rel="prettyPhoto[gallery1]"><img src="images/img_small/loadData.gif" alt="" /></a>
+                    <div class="fluid">
+                        <h3 class="ui_list_item_title">loadData数据加载</h3>
+                        <div class="ui_list_item_desc">“combo”变量为“1”时加载的数据不替换原有数据，“combo”为“0”时替换原有数据。</div>
+                        <div class="ui_list_item_info clear"><span class="author">作者:张龙</span><a href="loadData.html" class="run" target="_blank">run</a><a href="loadData.html" class="view">view</a></div>
+                    </div>
+                </div>
+                <div class="code-warpper">
+                    <textarea name="" cols="" rows="" class="ui-textarea code-html">
+<ul class="img_text_list" id="J_cont">
+    <li class="clear border_dot_b">
+        <a href="#" class="fl img_area m_r_10"><img src="images/img_1.gif" alt="" class="dvm" /><span class="vam"></span></a>
+        <div class="fluid text_area">
+            <a href="#" class="fb">图片说明标题</a>
+            <p class="m_t_5">图片说明摘要图片说明摘要图片说明摘要图片说明摘要图片说明摘要图片说明摘要图片说明摘要图片说明摘要图片说明摘要图片说明摘要图片说明摘要图片说明摘要图片说明</p>
+        </div>
+    </li>
+</ul>
+<a href="data.php" class="load_more" id="J_load_more" data-maxpage="3"><span class="load_tip">载入更多</span></a>
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-css">
+.load_more{text-align:center;margin:10px auto;display:block;background:#fcfcfc;border:1px solid #f6f6f6;;}
+.load_more:hover{text-decoration:none;color:#2b84d0;}
+.load_more span.load_tip{line-height:26px;display:inline-block;*zoom:1;}
+.loading span.load_tip{padding-left:24px;background:url(images/s_loading.gif) no-repeat 0 center;}      
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-javascript">
+seajs.config({
+    "base": "./",
+    'map': [[ /^(.*\.(?:css|js))(.*)$/i, '$1?t=13835292681991']]
+});
+seajs.use('js/dev/module/loadData',function() {
+    $('#J_load_more').loadData({
+        contentBox:'#J_cont',
+        tip:'.load_tip',
+        combo:1,
+        loadClass:'loading'
+    });
+});
+                    </textarea>
+                </div>
+            </li>
+            <li class="ui_list_item">
+                <div class="clear">
+                    <a href="images/img_big/ajaxLoad.gif" class="fl ui_list_imgbox" rel="prettyPhoto[gallery1]"><img src="images/img_small/ajaxLoad.gif" alt="" /></a>
+                    <div class="fluid">
+                        <h3 class="ui_list_item_title">ajaxLoad数据加载</h3>
+                        <div class="ui_list_item_desc">此方法主要是列表重新按某种条件排序时使用！</div>
+                        <div class="ui_list_item_info clear"><span class="author">作者:张龙</span><a href="ajaxLoad.html" class="run" target="_blank">run</a><a href="ajaxLoad.html" class="view">view</a></div>
+                    </div>
+                </div>
+                <div class="code-warpper">
+                    <textarea name="" cols="" rows="" class="ui-textarea code-html">
+<div class="sequence" id="J_sequence">
+    <a href="data.php" class="active curr"><em>名称排序</em><i></i></a>
+    <a href="data.php"><em>时间排序</em><i></i></a>
+    <a href="data.php"><em>大小排序</em><i></i></a>
+    <a href="data.php"><em>类型排序</em><i></i></a>
+</div> 
+<ul class="img_text_list" id="J_cont">
+    <li class="clear border_dot_b">
+        <a href="#" class="fl img_area m_r_10"><img src="images/img_1.gif" alt="" class="dvm" /><span class="vam"></span></a>
+        <div class="fluid text_area">
+            <a href="#" class="fb">图片说明标题</a>
+            <p class="m_t_5">图片说明摘要图片说明摘要图片说明摘要图片说明摘要图片说明摘要图片说明摘要图片说明摘要图片说明摘要图片说明摘要图片说明摘要图片说明摘要图片说明摘要图片说明</p>
+        </div>
+    </li>
+</ul>
+<a href="data.php" class="load_more" id="J_load_more" data-maxpage="3"><span class="load_tip">载入更多</span></a>
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-css">
+.sequence{}
+.sequence *{display:inline-block;*display:inline;*zoom:1;vertical-align:middle;}
+.sequence a{height:30px;background:#fcfcfc;border:1px solid #f6f6f6;padding:0 15px;}
+.sequence a em{line-height:30px;margin-right:8px;}
+.sequence a i{width:7px;height:8px;background:url(images/icon_sort.gif) no-repeat 0 0;_margin-top:3px;}
+.sequence a.active{background:#2b84d0;color:#fff;}
+.sequence a.curr i{background-position:-7px 0;}
+
+.load_more{text-align:center;margin:10px auto;display:block;background:#fcfcfc;border:1px solid #f6f6f6;;}
+.load_more:hover{text-decoration:none;color:#2b84d0;}
+.load_more span.load_tip{line-height:26px;display:inline-block;*zoom:1;}
+.loading span.load_tip{padding-left:24px;background:url(images/s_loading.gif) no-repeat 0 center;}
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-javascript">
+seajs.config({
+    "base": "./",
+    'map': [[ /^(.*\.(?:css|js))(.*)$/i, '$1?t=13835292681991']]
+});
+seajs.use('js/dev/module/ajaxLoad',function(ajaxLoad) {
+    ajaxLoad({
+        target:'#J_sequence',
+        trigger:'>a',
+        content:'#J_cont',
+        click:function(o){
+            var url = o.attr('href');
+            url = url.replace(/([\?|\&]sort\=)(\d)/,function(a,b,c){
+                return b+(!(c-0)-0);
+            });
+            o.attr('href',url);
+            $('#J_load_more').attr('href',url);
+        }
+    });
+});
+                    </textarea>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <h2 class="ui_title">日历</h2>
+    <div class="ui_list_wrapper">
+        <ul class="ui_list">
+            <li class="ui_list_item">
+                <div class="clear">
+                    <a href="images/img_big/datePicker.gif" class="fl ui_list_imgbox" rel="prettyPhoto[gallery1]"><img src="images/img_small/datePicker.gif" alt="" /></a>
+                    <div class="fluid">
+                        <h3 class="ui_list_item_title">日历（单个时间选择）</h3>
+                        <div class="ui_list_item_desc">详细配置文档<a href="http://www.my97.net/dp/demo/index.htm">http://www.my97.net/dp/demo/index.htm</a></div>
+                        <div class="ui_list_item_info clear"><span class="author">作者:张龙</span><a href="datePicker.html" class="run" target="_blank">run</a><a href="datePicker.html" class="view">view</a></div>
+                    </div>
+                </div>
+                <div class="code-warpper">
+                    <textarea name="" cols="" rows="" class="ui-textarea code-html">
+<input id="J_datePicker" name="datePicker" class="input_item" type="text" value="" maxlength="20" placeholder="请选择时间" autocomplete="off" readonly="readonly" />
+<div id="J_div"></div>
+<input type="hidden" name="data" value="" id="J_hiddenData" />
+                    </textarea>
+                    <textarea name="" cols="" rows="" class="ui-textarea code-javascript">
+seajs.config({
+    "base": "./",
+    'map': [[ /^(.*\.(?:css|js))(.*)$/i, '$1?t=13835292681991']]
+});
+seajs.use('js/dev/plugs/DatePicker/WdatePicker', function(){
+    $('#J_datePicker').on('click', function(){
+        WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'});
+    });
+    WdatePicker({eCont:'J_div',onpicked:function(dp){$('#J_hiddenData').val(dp.cal.getDateStr());}})
+});
+                    </textarea>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+<script type="text/javascript" src="js/dev/lib/jquery.js"></script>
+<script type="text/javascript" src="js/dev/lib/sea.js"></script>
+<script type="text/javascript">
+    seajs.config({
+        "base": "./",
+        'map': [[ /^(.*\.(?:css|js))(.*)$/i, '$1?t=13835292681991']]
+    });
+    seajs.use('js/dev/app/app_index');
+</script>
+</body>
+</html>

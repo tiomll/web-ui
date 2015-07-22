@@ -1,0 +1,310 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>表格</title>
+<link type="text/css" rel="stylesheet" href="css/base.css"/>
+<style type="text/css">
+#content{margin:100px;height:2000px;}
+.table{color:#555;font-family:'Microsoft YaHei';}
+.table tfoot td{padding:6px 10px;border:1px solid #ddd;border-top:0;}
+.table thead,.table tfoot td{background:#ddd;height:28px;}
+.table th,.table td{border:1px solid #ddd;text-align:center;height:30px;line-height:30px;}
+.table td.nickname{text-align:left;text-indent:20px;}
+.table th{color:#444;}
+.table tfoot td *{vertical-align:top;line-height:28px;display:inline-block;*display:inline;*zoom:1;}
+.table tbody td span{margin:0 5px;}
+.table .checkbox_item{vertical-align:top;*margin-left:-3px;margin-top:0;cursor:default;}
+.table .odd{background:#f9f9f9;}
+.table .even{background:#fff;}
+.table .hover{background:#f3f3f3;}
+.table .left_btn .checkbox_item,.table tfoot td .checkbox_item{margin:8px 5px 0 0;*margin:2px 3px 0 -3px;}
+.table .left_btn label{margin-right:10px;}
+.table .total,.table .total a{font-weight:bold; color:#e00;}
+.left_btn a{padding:0 10px;margin-right:10px;}
+.right_pager{text-align:right;}
+.right_pager *{display:inline-block; *display:inline; *zoom:1; vertical-align:middle;}
+.right_pager .prev_page{margin:0 8px 0 20px;}
+.right_pager .next_page{margin:0 20px 0 8px;}
+.right_pager input,.right_pager .btn_item{height:20px;line-height:20px;margin:3px 0 0 0;}
+.right_pager .select_item{height:22px;width:auto;padding:0;margin:3px 0 0 0;}
+.right_pager .select_item option{display:block;}
+.right_pager .input_item{height:18px;width:32px;line-height:18px;padding:0 3px;}
+.right_pager .btn_item{width:40px;padding:0;border:0;text-align:center;}
+</style>
+</head>
+
+<body>
+<div id="content">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table" id="J_table">
+        <thead>
+            <tr>
+                <th scope="col" width="38"><input type="checkbox" id="" value="" name="s" class="checkbox_item J_checkall"></th>
+                <th scope="col" width="145">帐号</th>
+                <th scope="col" width="85">姓名</th>
+                <th scope="col" width="145">用户名</th>
+                <th scope="col" width="160">身份证号</th>
+                <th scope="col" width="110">手机号</th>
+                <th scope="col" width="65">性别</th>
+                <th scope="col" width="95">职务</th>
+                <th scope="col">任教科目</th>
+                <th scope="col" width="95">操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="checkbox" id="" value="1" name="s" class="checkbox_item"></td>
+                <td>T0000001000020834</td>
+                <td>谭玉玲</td>
+                <td>唯有对你思念</td>
+                <td>342324198903018421</td>
+                <td>13987563432</td>
+                <td>女</td>
+                <td>--</td>
+                <td>语文，数学，英语</td>
+                <td><a href="#">编辑</a><span>|</span><a href="delete.php" class="J_del">删除</a></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="" value="2" name="s" class="checkbox_item"></td>
+                <td>T0000001000020834</td>
+                <td>谭玉玲</td>
+                <td>唯有对你思念</td>
+                <td>342324198903018421</td>
+                <td>13987563432</td>
+                <td>女</td>
+                <td>副校长</td>
+                <td>语文，数学，英语</td>
+                <td><a href="#">编辑</a><span>|</span><a href="delete.php" class="J_del">删除</a></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="" value="3" name="s" class="checkbox_item"></td>
+                <td>T0000001000020834</td>
+                <td>谭玉玲</td>
+                <td>唯有对你思念</td>
+                <td>342324198903018421</td>
+                <td>13987563432</td>
+                <td>女</td>
+                <td>年级组长</td>
+                <td>语文，数学，英语</td>
+                <td><a href="#">编辑</a><span>|</span><a href="delete.php" class="J_del">删除</a></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="" value="4" name="s" class="checkbox_item"></td>
+                <td>T0000001000020834</td>
+                <td>谭玉玲</td>
+                <td>唯有对你思念</td>
+                <td>342324198903018421</td>
+                <td>13987563432</td>
+                <td>女</td>
+                <td>教导主任</td>
+                <td>语文，数学，英语</td>
+                <td><a href="#">编辑</a><span>|</span><a href="delete.php" class="J_del">删除</a></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="" value="5" name="s" class="checkbox_item"></td>
+                <td>T0000001000020834</td>
+                <td>谭玉玲</td>
+                <td>唯有对你思念</td>
+                <td>342324198903018421</td>
+                <td>13987563432</td>
+                <td>女</td>
+                <td>--</td>
+                <td>语文，数学，英语</td>
+                <td><a href="#">编辑</a><span>|</span><a href="delete.php" class="J_del">删除</a></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="" value="6" name="s" class="checkbox_item"></td>
+                <td>T0000001000020834</td>
+                <td>谭玉玲</td>
+                <td>唯有对你思念</td>
+                <td>342324198903018421</td>
+                <td>13987563432</td>
+                <td>女</td>
+                <td>副校长</td>
+                <td>语文，数学，英语</td>
+                <td><a href="#">编辑</a><span>|</span><a href="delete.php" class="J_del">删除</a></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="" value="7" name="s" class="checkbox_item"></td>
+                <td>T0000001000020834</td>
+                <td>谭玉玲</td>
+                <td>唯有对你思念</td>
+                <td>342324198903018421</td>
+                <td>13987563432</td>
+                <td>女</td>
+                <td>年级组长</td>
+                <td>语文，数学，英语</td>
+                <td><a href="#">编辑</a><span>|</span><a href="delete.php" class="J_del">删除</a></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="" value="8" name="s" class="checkbox_item"></td>
+                <td>T0000001000020834</td>
+                <td>谭玉玲</td>
+                <td>唯有对你思念</td>
+                <td>342324198903018421</td>
+                <td>13987563432</td>
+                <td>女</td>
+                <td>教导主任</td>
+                <td>语文，数学，英语</td>
+                <td><a href="#">编辑</a><span>|</span><a href="delete.php" class="J_del">删除</a></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="" value="9" name="s" class="checkbox_item"></td>
+                <td>T0000001000020834</td>
+                <td>谭玉玲</td>
+                <td>唯有对你思念</td>
+                <td>342324198903018421</td>
+                <td>13987563432</td>
+                <td>女</td>
+                <td>--</td>
+                <td>语文，数学，英语</td>
+                <td><a href="#">编辑</a><span>|</span><a href="delete.php" class="J_del">删除</a></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="" value="10" name="s" class="checkbox_item"></td>
+                <td>T0000001000020834</td>
+                <td>谭玉玲</td>
+                <td>唯有对你思念</td>
+                <td>342324198903018421</td>
+                <td>13987563432</td>
+                <td>女</td>
+                <td>副校长</td>
+                <td>语文，数学，英语</td>
+                <td><a href="#">编辑</a><span>|</span><a href="delete.php" class="J_del">删除</a></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="" value="11" name="s" class="checkbox_item"></td>
+                <td>T0000001000020834</td>
+                <td>谭玉玲</td>
+                <td>唯有对你思念</td>
+                <td>342324198903018421</td>
+                <td>13987563432</td>
+                <td>女</td>
+                <td>年级组长</td>
+                <td>语文，数学，英语</td>
+                <td><a href="#">编辑</a><span>|</span><a href="delete.php" class="J_del">删除</a></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="" value="12" name="s" class="checkbox_item"></td>
+                <td>T0000001000020834</td>
+                <td>谭玉玲</td>
+                <td>唯有对你思念</td>
+                <td>342324198903018421</td>
+                <td>13987563432</td>
+                <td>女</td>
+                <td>教导主任</td>
+                <td>语文，数学，英语</td>
+                <td><a href="#">编辑</a><span>|</span><a href="delete.php" class="J_del">删除</a></td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="10" class="clear">
+                    <div class="fl left_btn">
+                        <label class="w_auto"><input type="checkbox" id="" value="" name="s" class="checkbox_item J_checkall"><span>全选/取消</span></label>
+                        <span><a href="delete.php" class="btn_blue J_export">导出账号</a><a href="delete.php" class="btn_blue J_delall">批量删除</a></span>
+                    </div>
+                    <div class="fr right_pager">
+                        <form method="get" action="">
+                            <span>共58条记录，每页</span>
+                            <select name="datalength" id="J_select" class="select_item">
+                                <option vlaue="10">10</option>
+                                <option vlaue="20">20</option>
+                                <option vlaue="50">50</option>
+                                <option vlaue="100">100</option>
+                            </select>
+                            <span>条</span><a href="#" class="prev_page">上页</a><span>1/3</span><a href="#" class="next_page">下页</a><span>转到</span>
+                            <input name="page" type="text" class="input_item J_gotopage" value="" />
+                            <span>页</span>
+                            <a href="javascript:;" class="btn_item btn_blue J_gopagebtn">确定</a>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+<script type="text/javascript" src="js/dev/lib/jquery.js"></script>
+<script type="text/javascript" src="js/dev/lib/sea.js"></script>
+<script type="text/javascript">
+    seajs.config({
+        "base": "./",
+        'map': [[ /^(.*\.(?:css|js))(.*)$/i, '$1?t=13835292681991']]
+    });
+    //加载dialogue模块
+    seajs.use('js/dev/module/dialog');
+    //表格隔行换色
+    seajs.use('js/dev/module/zebraLists',function(){
+        $('#J_table').zebraLists({children:'tbody tr'});
+    });
+    //全选与全不选
+    seajs.use('js/dev/module/allChoose',function(){
+        $('.J_checkall').allChoose({target:$('#J_table tbody').find('input[type="checkbox"]')});
+    });
+    //删除数据
+    seajs.use('js/dev/module/ajaxDelete',function(){
+        $('.J_del').ajaxDelete({target:'tr'});
+    });
+    //批量操作
+    $('#J_table').on('click',function(e){
+        var t = e.target, _this = $(this), $input = _this.find('tbody input[type="checkbox"]:checked');
+        if(t.tagName.toLowerCase() == 'a' && $(t).hasClass('J_delall'||'J_export')){
+            e.preventDefault();
+            var text = $(t).hasClass('J_delall') ? '删除' : '导出';
+            if ($input.length == 0) {
+                dialog.alert({content:'请先选择要操作的数据！'});
+            } else {
+                dialog.confirm({
+                    title:text+'提示',
+                    content:'您确定要'+text+'这些数据吗？',
+                    callback:function(v){
+                        v && $.ajax({
+                            url:t.href,
+                            type:'POST',
+                            dataType:'json',
+                            data:$input.serializeArray(),
+                            error:function(){
+                                dialog.alert({title:text+'提示',content:text+'数据失败！'});
+                            },
+                            success:function(data){
+                                if(!data.error){
+                                    if($(t).hasClass("J_delall")){
+                                        $input.closest('tr').fadeOut('fast',function(){
+                                            $(this).remove();
+                                            $('.J_checkall').attr('checked', false);
+                                        });
+                                    }
+                                }else{
+                                    dialog.alert({title:text+'提示',content:data.error});
+                                }
+                            }
+                        });
+                    }
+                });
+            };
+        }
+    });
+    //每页显示数据条数
+    $('#J_select').change(function() {
+        $(this).closest('form').submit();
+    });
+    //分页处理
+    var J_gotopage = $(".J_gotopage"), J_gopagebtn = $(".J_gopagebtn");
+    J_gotopage.each(function() {
+        this.onkeyup = this.onkeyup = function(){ J_gotopage.val(this.value.replace(/\D/,'')); }
+        this.oncontextmenu = function(){ return false; }
+    });
+    J_gopagebtn.on("click",function(e){
+        e.preventDefault();
+        $this = $(this);
+        if(isNaN(parseInt($this.prev().prev().val()))){
+            dialog.alert({content:"请输入正确的页数！"});
+            J_gotopage.val('');
+            return false;
+        }else{
+            $this.closest("form").submit();
+        }
+    });
+</script>
+</body>
+</html>

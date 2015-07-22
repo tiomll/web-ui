@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>密码强度验证</title>
+<link rel="stylesheet" type="text/css" href="css/base.css">
+<style type="text/css">
+form{width:500px;margin:100px auto;}
+.field_item span{background:url(images/security.png) no-repeat 0 0;width:105px;height:24px;margin-top:3px;}
+.field_item .w1{background-position:0 -24px;}
+.field_item .w2{background-position:0 -48px;}
+.field_item .w3{background-position:0 -73px;} 
+</style>
+</head>
+
+<body>
+<form action="" name="" id="J_form" method="get">
+    <div class="field_item">
+        <label><em>*</em>密码：</label>
+        <input type="password" name="password" value="" class="input_item" id="password" /><span id="J_pstr"></span>
+    </div>
+    <div class="field_item">
+        <label><em>*</em>确认密码：</label>
+        <input type="password" name="confirm_password" value="" class="input_item" id="confirm_password" />
+    </div>
+    <div class="field_item field_item_space">
+        <input type="submit"  value=" 登录 " class="btn_item btn_blue"/>
+    </div>
+</form>
+<script type="text/javascript" src="js/dev/lib/jquery.js"></script>
+<script type="text/javascript" src="js/dev/lib/sea.js"></script>
+<script type="text/javascript">
+    seajs.config({
+        "base": "./",
+        'map': [[ /^(.*\.(?:css|js))(.*)$/i, '$1?t=13835292681991']]
+    });
+    seajs.use('js/dev/module/security', function(){
+        $('#password').security({
+            target:'#J_pstr',
+            maxlength:20,
+            minlength:6,
+            S:'w3',  //强
+            M:'w2',  //中
+            W:'w1'  //弱
+        })
+    });
+    seajs.use('js/dev/module/validator',function(validator){
+        var validator = validator({
+            form: "J_form"
+        }).add({
+            target: "password",
+            rule_type: "password"
+        }).add({
+            target: "confirm_password",
+            rule_type: "password",
+            sameTo: "password",
+            error:"你填写的密码不正确或者和原密码不同！"
+        });
+    });
+</script>
+</body>
+</html>

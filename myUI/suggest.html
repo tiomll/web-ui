@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>suggest搜索</title>
+<link rel="stylesheet" type="text/css" href="css/base.css">
+<style type="text/css">
+html{overflow-y:scroll;}
+form{margin:100px auto;width:520px;}
+#site_search .input_item_search{width:385px;margin-right:0;height:20px;}
+#site_search .btn_item{font-size:14px;font-family:'microsoft yahei';color:#fff;width:78px;height:32px;border:none;}
+#site_search .btn_img_search{width:22px;height:22px;margin-left:-30px;margin-top:5px;background:url(images/btn_search.gif) no-repeat center center;}
+input::-ms-clear{display:none}
+</style>
+</head>
+
+<body>
+<form action="" name="search" class="form" id="site_search" method="get">
+    <div class="field_item">
+        <input type="text" name="search_keyword"  placeholder="请输入搜索关键字" id="search_keyword" class="input_item input_item_search" maxlength="25" data-url="search.php" />
+        <input type="submit" name="btn_search" value="" id="btn_search" class="btn_item btn_img_search"/>
+    </div>
+    <div class="field_item">
+        <input type="text" name="search_keyword" value="" placeholder="请输入搜索关键字" id="search_keyword2" class="input_item input_item_search"  x-webkit-speech x-webkit-grammar=”builtin:translate  />
+        <input type="submit" name="btn_search" value="搜索" id="btn_search" class="btn_item btn_blue"/>
+    </div>
+</form>
+<script type="text/javascript" src="js/dev/lib/jquery.js"></script>
+<script type="text/javascript" src="js/dev/lib/sea.js"></script>
+<script type="text/javascript">
+    seajs.config({
+        "base": "./",
+        'map': [[ /^(.*\.(?:css|js))(.*)$/i, '$1?t=13835292681991']]
+    });
+    seajs.use('js/dev/module/suggest', function(){
+    	$('#search_keyword').suggest();
+    	$('#search_keyword2').suggest({url:'search.php'});
+    });
+</script>
+</body>
+</html>

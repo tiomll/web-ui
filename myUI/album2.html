@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>带Loading效果的图片切换</title>
+<link rel="stylesheet" type="text/css" href="css/base.css">
+<style type="text/css">
+html{background:#000;}
+.imgview{position:relative;text-align:center;font-family:"\5FAE\8F6F\96C5\9ED1";width:800px;margin:20px auto;}
+.img_title{position:absolute;top:0;left:0;width:100%;background:#000;color:#fff;opacity:0.7;filter:alpha(opacity=70);font-size:20px;height:50px;}
+.img_title span{padding:0 5px;line-height:50px;display:block;}
+.img_wrap{width:100%;height:auto!important;height:400px;min-height:400px;}
+.img_wrap.loading{background:url(images/loading_1.gif) 50% 50% no-repeat;}
+.btn_l,.btn_r{position:absolute;top:50%;margin-top:-40px;width:39px;height:80px;overflow:hidden;text-indent:-9999px;background:url(images/btn.png) no-repeat;opacity:0;filter:alpha(opacity=0);}
+.btn_l{left:10px;background-position:0 0;}
+.btn_r{right:10px;background-position:-39px 0;}
+</style>
+</head>
+<body>
+<div id="J_imgview" class="imgview">
+    <a href="javascript:;" class="btn_l" id="J_prev">左</a>
+    <a href="javascript:;" class="btn_r" id="J_next">右</a>
+    <div id="J_title" class="img_title"><span></span></div>
+    <div id="J_imgwrap" class="img_wrap"></div>
+</div>
+<script type="text/javascript" src="js/dev/lib/jquery.js"></script>
+<script type="text/javascript" src="js/dev/lib/sea.js"></script>
+<script type="text/javascript">
+    seajs.config({
+        "base": "./",
+        'map': [[ /^(.*\.(?:css|js))(.*)$/i, '$1?t=13835292681991']]
+    });
+    seajs.use('js/dev/app/app_album');
+</script>
+</body>
+</html>

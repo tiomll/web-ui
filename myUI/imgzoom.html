@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>图片放大镜代码</title>
+<link rel="stylesheet" type="text/css" href="css/base.css">
+<style type="text/css">
+.box{width:310px;margin:100px auto;}
+.tb-pic a{display:table-cell;text-align:center;vertical-align:middle;}
+.tb-pic a img{vertical-align:middle;}
+.tb-pic a{*display:block;*font-family:Arial;*line-height:1;}
+.tb-thumb{margin:10px 0 0;overflow:hidden;}
+.tb-thumb li{background:none repeat scroll 0 0 transparent;float:left;height:42px;margin:0 6px 0 0;overflow:hidden;padding:1px;}
+.tb-s310, .tb-s310 a{height:310px;width:310px;}
+.tb-s310, .tb-s310 img{max-height:310px;max-width:310px;}
+.tb-s310 a{*font-size:271px;}
+.tb-s40 a{*font-size:35px;}
+.tb-s40, .tb-s40 a{height:40px;width:40px;}
+.tb-booth{border:1px solid #cdcdcd;position:relative;z-index:1;}
+.tb-thumb .selected{background:none repeat scroll 0 0 #c30008;height:40px;padding:2px;}
+.tb-thumb .selected div{background-color:#fff;border:medium none;}
+.tb-thumb li div{border:1px solid #cdcdcd;}
+div.zoomDiv{z-index:999;position:absolute;top:0;left:0;width:200px;height:200px;background:#fff;border:1px solid #ccc;display:none;text-align:center;overflow:hidden;}
+div.zoomMask{position:absolute;background:url("images/photos/images/mask.png") repeat scroll 0 0 transparent;cursor:move;z-index:1;}
+</style>
+</head>
+<body>
+<div class="box J_zoom">
+    <div class="tb-booth tb-pic tb-s310">
+        <a href="images/photos/images/01.jpg"><img src="images/photos/images/01_mid.jpg" alt="美女1" rel="images/photos/images/01.jpg" class="J_img" /></a>
+    </div>
+    <ul class="tb-thumb">
+        <li>
+            <div class="tb-pic tb-s40">
+                <a href="javascript:;"><img src="images/photos/images/01_small.jpg" mid="images/photos/images/01_mid.jpg" big="images/photos/images/01.jpg" alt="美女1" class="J_cutover" /></a>
+            </div>
+        </li>
+        <li>
+            <div class="tb-pic tb-s40">
+                <a href="javascript:;"><img src="images/photos/images/02_small.jpg" mid="images/photos/images/02_mid.jpg" big="images/photos/images/02.jpg" alt="美女2" class="J_cutover" /></a>
+            </div>
+        </li>
+        <li>
+            <div class="tb-pic tb-s40">
+                <a href="javascript:;"><img src="images/photos/images/03_small.jpg" mid="images/photos/images/03_mid.jpg" big="images/photos/images/03.jpg" alt="美女3" class="J_cutover" /></a>
+            </div>
+        </li>
+        <li>
+            <div class="tb-pic tb-s40">
+                <a href="javascript:;"><img src="images/photos/images/04_small.jpg" mid="images/photos/images/04_mid.jpg" big="images/photos/images/04.jpg" alt="美女4" class="J_cutover" /></a>
+            </div>
+        </li>
+        <li>
+            <div class="tb-pic tb-s40">
+                <a href="javascript:;"><img src="images/photos/images/05_small.jpg" mid="images/photos/images/05_mid.jpg" big="images/photos/images/05.jpg" alt="美女5" class="J_cutover" /></a>
+            </div>
+        </li>
+    </ul>
+</div>
+<script type="text/javascript" src="js/dev/lib/jquery.js"></script>
+<script type="text/javascript" src="js/dev/lib/sea.js"></script>
+<script type="text/javascript">
+    seajs.config({
+        "base": "./",
+        'map': [[ /^(.*\.(?:css|js))(.*)$/i, '$1?t=13835292681991']]
+    });
+    seajs.use('js/dev/module/imgzoom', function () {
+        $('.J_zoom').imgzoom();
+    });
+</script>
+</body>
+</html>

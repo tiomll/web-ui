@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link type="text/css" rel="stylesheet" href="js/jquery.plupload.queue/css/jquery.plupload.queue.css" />
+    <title>上传资源</title>
+    <style type="text/css">
+        *{padding: 0; margin:0;}
+    </style>
+</head>
+<body>
+<!--提交的action里的php文件可直接使用-->
+<form id="file_form" method="post" action="" name="">
+    <div id="uploader">
+        <p>插件加载中...</p>
+        <p>若长时间出现“加载中...”请检查您的flash插件是否安装或<a target="_blank" href="http://get.adobe.com/cn/flashplayer/">下载flash</a>进行安装。安装结束后请记得<a href="javascript:location.reload();">刷新</a>页面哦！！！</p>
+    </div>
+</form>
+<script type="text/javascript" src="../../lib/jquery.js"></script>
+<script type="text/javascript" src="js/plupload.full.min.js"></script>
+<script type="text/javascript" src="js/jquery.plupload.queue/jquery.plupload.queue.min.js"></script>
+<script type="text/javascript" src="js/i18n/zh_CN.js"></script>
+<script type="text/javascript">
+    var $uploader = $("#uploader");
+    var U = hash2Object(document.location.href), url = decodeURIComponent(U.uploadUrl);
+    U = hash2Object(url);
+    $uploader.pluploadQueue({
+        runtimes: 'html5,flash,silverlight',
+        multi_selection: !U.single,
+        multipart: true,
+        chunk_size: '3mb',
+        unique_names: true,
+        url: url,
+        max_file_size: U.maxFileSize ? (U.maxFileSize + 'MB') : '50MB',
+        urlstream_upload: true,
+        flash_swf_url: 'js/Moxie.swf',
+        silverlight_xap_url: 'js/Moxie.xap',
+        filters:U.isimage ? [{title: "图像文件", extensions: "jpg,gif,png"}] : [],
+        init:{
+            FileUploaded:function(up, file, info){
+                var result = eval("(" + info.response + ")");
+                if (!result.status) {
+                    alert('文件："' + file.name + '" 因 "' + result.info + '"，未上传成功！');
+                } else {
+                    top[U.callback] && top[U.callback](file, result);
+                }
+            },
+            FilesAdded:function(up){
+                U.single && up.splice(0,up.total.queued-1);
+            },
+            Error:function(up){up.refresh();}
+        }
+    });
+
+    function hash2Object(url) {
+        var h = url.split('?')[1].split('&'), i = 0, len = h.length, item, r = {};
+        for (; i < len; i++) {
+            item = h[i].split('=');
+            r[item[0]] = item[1];
+        }
+        return r;
+    }
+</script>
+</body>
+</html>

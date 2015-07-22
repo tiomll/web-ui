@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>照片查看器</title>
+<link rel="stylesheet" type="text/css" href="css/base.css">
+<style>
+.album{width:880px;overflow:hidden;margin:10px auto;}
+.album_sidebar{position:relative;margin-bottom:5px;}
+.album_sidebar .album_sidebar_btn{display:block;width:30px;height:84px;background:#ccc url(images/arrow1.gif) no-repeat;position:absolute;top:0;}
+.album_sidebar .prve{background-position:-8px center;left:0;}
+.album_sidebar .next{background-position:-62px center;right:0;}
+.album_sidebar .album_sidebar_btn:hover,.album_sidebar .prev_disable,.album_sidebar .next_disable{opacity:.6;filter:alpha(opacity=60);}
+.album_sidebar .prev_disable,.album_sidebar .next_disable{cursor:default;}
+
+.album_sidebar_list{width:809px;height:84px;margin-left:35px;overflow:hidden;position:relative;}
+.album_sidebar_list ul{line-height:0;font-size:0;width:auto;white-space:nowrap;word-wrap:normal;word-break:keep-all;overflow:hidden;position:absolute;top:0;left:0;}
+.album_sidebar_list ul li{display:inline-block;*display:inline;*zoom:1;vertical-align:top;margin:0 3px;text-align:center;}
+.album_sidebar_list ul li a{display:block;width:78px;height:78px;overflow:hidden;border:1px solid #ccc;margin:1px;padding:1px;}
+.album_sidebar_list ul li a:hover{border:3px solid #f60;margin:0;padding:0;}
+.album_sidebar_list ul li.curr a{border:3px solid #2b84d0;margin:0;padding:0;}
+.album_sidebar_list ul li a img{width:78px;height:78px;}
+
+.album_area{border-top:1px solid #ddd;}
+.album_area_top{padding:15px 0;color:#888;}
+.album_area_top a,.album_area_top span{margin:0 10px;}
+.album_area_img{margin-top:5px;width:880px;background:url(images/loading.gif) no-repeat center center;min-height:40px;_height:40px;text-align:center;}
+
+.album_area_info{margin-top:15px;}
+.album_area_info p{margin-bottom:5px;}
+.album_area_name{color:#444;height:20px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;word-wrap:normal;word-break:keep-all;}
+.album_area_disc{color:#888;}
+</style>
+</head>
+<body>
+<div class="album" id="J_album">
+    <div class="album_sidebar">
+        <a href="javascript:;" class="album_sidebar_btn next" id="J_sbarnext"></a>
+        <a href="javascript:;" class="album_sidebar_btn prve" id="J_sbarprev"></a>
+        <div class="album_sidebar_list" id="J_sbar">
+            <ul>
+                <li><a href="images/img/1.jpg"><img src="images/img/1.jpg" alt="图片1" title="图片1" /></a></li>
+                <li><a href="images/img/2.jpg"><img src="images/img/2.jpg" alt="图片2" title="图片2" /></a></li>
+                <li><a href="images/img/3.jpg"><img src="images/img/3.jpg" alt="图片3" title="图片3" /></a></li>
+                <li><a href="images/img/4.jpg"><img src="images/img/4.jpg" alt="图片4" title="图片4" /></a></li>
+                <li><a href="images/img/5.jpg"><img src="images/img/5.jpg" alt="图片5" title="图片5" /></a></li>
+                <li><a href="images/img/6.jpg"><img src="images/img/6.jpg" alt="图片6" title="图片6" /></a></li>
+                <li><a href="images/img/7.jpg"><img src="images/img/7.jpg" alt="图片7" title="图片7" /></a></li>
+                <li><a href="images/img/8.jpg"><img src="images/img/8.jpg" alt="图片8" title="图片8" /></a></li>
+                <li><a href="images/img/9.jpg"><img src="images/img/9.jpg" alt="图片9" title="图片9" /></a></li>
+                <li><a href="images/img/1.jpg"><img src="images/img/1.jpg" alt="图片1" title="图片1" /></a></li>
+                <li><a href="images/img/2.jpg"><img src="images/img/2.jpg" alt="图片2" title="图片2" /></a></li>
+                <li><a href="images/img/3.jpg"><img src="images/img/3.jpg" alt="图片3" title="图片3" /></a></li>
+                <li><a href="images/img/4.jpg"><img src="images/img/4.jpg" alt="图片4" title="图片4" /></a></li>
+                <li><a href="images/img/5.jpg"><img src="images/img/5.jpg" alt="图片5" title="图片5" /></a></li>
+                <li><a href="images/img/6.jpg"><img src="images/img/6.jpg" alt="图片6" title="图片6" /></a></li>
+                <li><a href="images/img/7.jpg"><img src="images/img/7.jpg" alt="图片7" title="图片7" /></a></li>
+                <li><a href="images/img/8.jpg"><img src="images/img/8.jpg" alt="图片8" title="图片8" /></a></li>
+                <li><a href="images/img/9.jpg"><img src="images/img/9.jpg" alt="图片9" title="图片9" /></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="album_area">
+        <div class="album_area_top clear">
+            <div class="fr"><a href="#" id="J_cover">设为封面</a>|<a href="Cs_album_ckzprole.html" id="J_edit">编辑</a>|<a href="Ps_album_ckwdzp.html" id="J_delphoto">删除</a><span>查看(12)</span><span>评论(8)</span></div>
+            <div class="fluid"><a href="#">谢文芳</a>发表于2013年11月11日 07:49 </div>
+        </div>
+        <div class="album_area_img" id="J_img"><img src="images/img_big/banner.gif" alt="" title="" /></div>
+        <div class="album_area_info">
+            <p class="album_area_name">户外踏青</p>
+            <p class="album_area_disc">今天又是去参加上次去过的那个幼儿园，爱儿星举行的活动是外教体验课再加上户外踏青现在虽然风还有点大，不过太阳很好，所以真的很适合在户外活动的呢~~不过，今天在草地上玩的时候主要是我陪着恩宝恩宝爹在旁边看得很乐乐得照片都忘了拍。。。。</p>
+        </div>
+    </div>  
+</div>
+<script type="text/javascript" src="js/dev/lib/jquery.js"></script>
+<script type="text/javascript" src="js/dev/lib/sea.js"></script>
+<script type="text/javascript">
+    seajs.config({
+        "base": "./",
+        'map': [[ /^(.*\.(?:css|js))(.*)$/i, '$1?t=13835292681991']]
+    });
+    seajs.use('js/dev/app/app_album');
+</script>
+</body>
+</html>

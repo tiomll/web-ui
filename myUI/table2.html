@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>表格</title>
+<link type="text/css" rel="stylesheet" href="css/base.css"/>
+<style type="text/css">
+#content{margin:100px;height:2000px;}
+.table{color:#555;font-family:'Microsoft YaHei';}
+.table thead{background:#ddd;height:28px;}
+.table th,.table td{border:1px solid #ddd;text-align:center;height:30px;line-height:30px;}
+.table td.nickname{text-align:left;text-indent:20px;}
+.table th{color:#444;}
+.table .odd{background:#f9f9f9;}
+.table .even{background:#fff;}
+.table .hover{background:#f3f3f3;}
+</style>
+</head>
+
+<body>
+<div id="content">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="table" id="J_table">
+        <thead>
+            <tr>
+                <th scope="col" width="45" grid="uid">ID</th>
+                <th scope="col" width="85" grid="name">姓名</th>
+                <th scope="col" width="145" grid="uname">用户名</th>
+                <th scope="col" width="160" grid="idnumber">身份证号</th>
+                <th scope="col" width="110" grid="tel">手机号</th>
+                <th scope="col" width="65" grid="sex">性别</th>
+                <th scope="col" width="95" grid="post">职务</th>
+                <th scope="col" grid="taught">任教科目</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>谭玉玲</td>
+                <td>唯有对你思念</td>
+                <td>342324198903018421</td>
+                <td>13987563432</td>
+                <td>女</td>
+                <td>--</td>
+                <td>语文，数学，英语</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>虚竹</td>
+                <td>哎哟喂</td>
+                <td>44252419640212562x</td>
+                <td>15082744441</td>
+                <td>男</td>
+                <td>校长</td>
+                <td>语文</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>乔峰</td>
+                <td>--</td>
+                <td>268100239000123123</td>
+                <td>15916782319</td>
+                <td>男</td>
+                <td>副校长</td>
+                <td>政治</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>段誉</td>
+                <td>段先森</td>
+                <td>623902190412042389</td>
+                <td>15082788888</td>
+                <td>男</td>
+                <td>年级主任</td>
+                <td>语文、政治、思想品德</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>阿四</td>
+                <td>四哥</td>
+                <td>242342189107271592</td>
+                <td>18941231987</td>
+                <td>男</td>
+                <td>教导主任</td>
+                <td>语文、数学、英语、体育、物理、化学、音乐</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<script type="text/javascript" src="js/dev/lib/jquery.js"></script>
+<script type="text/javascript" src="js/dev/lib/sea.js"></script>
+<script type="text/javascript">
+    seajs.config({
+        "base": "./",
+        'map': [[ /^(.*\.(?:css|js))(.*)$/i, '$1?t=13835292681991']]
+    });
+    //加载dialogue模块
+    seajs.use('js/dev/module/dialog');
+    //表格隔行换色
+    seajs.use('js/dev/module/zebraLists',function(){
+        $('#J_table').zebraLists({children:'tbody tr'});
+    });
+    //表格编辑
+    seajs.use('js/dev/module/edittable', function(edittable){
+        $("#J_table").editTable({
+            name:{url:'save.php', type:'text'},
+            uname:{url:'save.php', type:'text'},
+            idnumber:{url:'save.php', type:'int'},
+            tel:{url:'save.php', type:'moble'},
+            sex:{url:'save.php', type:'select', values:{'1':'男', '2':'女'}},
+            post:{url:'save.php', type:'select', values:{'0':'--', '1':'校长', '2':'副校长', '3':'年级组长', '4':'教导主任'}},
+            taught:{url:'save.php', type:'textarea'}
+        }, 'uid');
+    });
+</script>
+</body>
+</html>

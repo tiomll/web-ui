@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>用户登录</title>
+<link type="text/css" rel="stylesheet" href="css/base.css"/>
+<style>
+.form{margin:35px auto;font-family:'Microsoft YaHei';}
+</style>
+</head>
+
+<body>
+<form id="J_form" class="form" method="get" action="">
+	<div class="field_item">
+		<label for="username"><em>*</em>用户名：</label>
+		<input id="username" name="username" class="input_item" type="text" value="" />
+	</div>
+	<div class="field_item">
+		<label for="password"><em>*</em>密码：</label>
+		<input id="password" name="password" class="input_item" type="password" value="" />
+	</div>
+	<div class="field_item">
+		<label for="verification"><em>*</em>验证码：</label>
+		<input id="verification" name="verification" class="input_item" type="text" value="" style="width:85px;" />
+		<span><img src="images/captcha.png" id="verifyimg" class="dvm m_r_10"/><b class="dvm">看不清，</b><a href="#" class="dvm" id="changeVerifyimg">换一张</a></span>
+	</div>
+	<div class="field_item field_item_space">
+		<input name="btnsubmit" id="btnsubmit" type="submit" value="登录" class="btn_item btn_blue"/>
+		<a href="#" class="btn_item">注册</a>
+	</div>
+</form>
+<script type="text/javascript" src="js/dev/lib/jquery.js"></script>
+<script type="text/javascript" src="js/dev/lib/sea.js"></script>
+<script type="text/javascript">
+    seajs.config({
+        "base": "./",
+        'map': [[ /^(.*\.(?:css|js))(.*)$/i, '$1?t=13835292681991']]
+    });
+    seajs.use('js/dev/module/validator',function(validator){
+        validator({
+            form:'J_form'
+        }).add({
+            target:'username',
+            rule_type:'username',
+			tips:'请输入用户名',
+			error:'用户名不存在！'
+        }).add({
+            target:'password',
+            rule_type:'password',
+            tips:'请输入登录密码'
+        }).add({
+        	target:'verification',
+        	rule_type:'require',
+        	action:'1.php',
+        	tips:'请输入验证码',
+        	error:'验证码输入错误'
+		});
+		//验证码刷新
+		$('#verifyimg').click(function(){
+			this.src = "http://192.168.1.201/portal/public/captcha.php?"+(+new Date());							  
+		});
+		$('#changeVerifyimg').click(function(event){
+			event.preventDefault();
+			$('#verifyimg').trigger('click');									  
+		});
+    });
+</script>
+</body>
+</html>
